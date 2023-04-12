@@ -1,4 +1,6 @@
 {% load static %}
+{% load cloudinary %}
+
 
 <html lang="en">
 
@@ -7,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'base.css' %}">
 
 
     <!-- bootstrap cdn -->
@@ -29,6 +31,7 @@
 
 <body class="d-flex flex-column min-vh-100" style="background-color: rgba(21, 20, 20, 0.997) !important;">
     <header>
+        <!-- NAVBAR elements -->
         <div class="w-100 container-fluid d-flex "
             style="margin: 0px; padding: 0px; background-color: black; padding:0px; margin:0px;">
             <div class="col-2" style="z-index: 1000 !important;">
@@ -55,6 +58,10 @@
     {% block content %}
     {% endblock %}
 
+    <footer class="mt-auto" id="footer-css">
+        {% include 'includes/footer.html' %}
+
+    </footer>
 </body>
 
 </html>
