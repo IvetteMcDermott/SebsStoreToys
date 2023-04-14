@@ -1,5 +1,196 @@
+/* BASE html */
+
 #footer-css {
     background-color: black;
-    height: 4.5em;
     font-size: small;
 }
+
+/* INDEX html */
+
+/* ANIMATED slogan taken from tutorial in Youtube*/
+/* smashtheshell -> https://www.youtube.com/watch?v=2NxUssDAxoY*/
+.text {
+    text-transform: uppercase;
+    text-align: center;
+    background-image: linear-gradient(to right, rgb(89, 0, 255), red, rgb(0, 72, 255), rgb(255, 119, 0), rgb(78, 250, 224));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 2em;
+    font-weight: 700;
+    background-size: 300%;
+    background-position: -100%;
+    animation: animated-text 4s infinite alternate-reverse;
+}
+
+@keyframes animated-text {
+    from {
+        background-position: 0%;
+    }
+    to {
+        background-position: 100%;
+    }
+}
+
+/* -- ACCORDION taken from tutorial in Youtube */
+/* wpshopmart -> https://www.youtube.com/watch?v=9tPFFZ9D4MY */
+.container {
+    width: 100%;
+    height: 70%;
+    overflow: hidden;
+}
+
+.container header {
+    margin: 10px;
+    padding: 10px 10px 10px 10px;
+    position: relative;
+    display: block;
+    text-align: center;
+}
+
+.container header h2 {
+    font-size: 25px;
+    line-height: 36px;
+    margin: 0;
+    position: relative;
+    font-weight: 700;
+    color: red;
+}
+
+.ia-container {
+    width: 985px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.ia-container figure {
+    position: absolute;
+    top: 0px;
+    left: 50px;
+    width: 435px;
+    margin: 0;
+    box-shadow: 0 0 0 3px rgba(47, 255, 234, 0.476);
+    transition: all 0.3s ease-in-out; 
+    z-index: 1000;
+}
+
+.ia-container > figure {
+    position: relative;
+    left: 0 !important;
+}
+
+.ia-container img {
+    display: block;
+    width: 100%;
+}
+
+.ia-container input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 100%;
+    cursor: grab;
+    border: 0;
+    padding: 0;
+    opacity: 0;
+    z-index: 100;
+    appearance: none;
+}
+
+.ia-container input:checked {
+    width: 5px;
+    left: auto;
+    right: 0px;    
+}
+
+.ia-container input:checked ~ figure {
+    transition: all 0.7s ease-in-out;
+    left: 405px;
+}
+
+.ia-container figcaption {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 255, 0.01);
+    position: absolute;
+    top: 0;
+    transition: all 0.2s linear;
+}
+
+.ia-container figcaption span {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    left: 20px;
+    text-align: center;
+    background: rgba(59, 196, 91, 0.474);
+    font-size: 18px;
+    opacity: 0.5;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 700;
+    padding: 15px;
+    color: rgb(87, 5, 5);
+}
+
+.ia-container input:checked + figcaption span {
+    transition: all 0.4s ease-in-out 0.5s;
+    opacity: 1;
+    top: 6em;
+} 
+
+@media (max-width: 700px) {
+    .ia-container {
+        width: 330px;
+    }
+    .ia-container figure {
+        left: 30px;
+        width: 235px;
+    }
+    .ia-container input:checked ~ figure {
+        transition: all 0.7s ease-in-out;
+        left: 200px;
+    }
+    .ia-container input:checked + figcaption span {
+        top: 30em;
+    }
+}
+
+@media (min-width: 1900px) {
+    body {
+        width: 80%;
+        margin-left: 0;
+        margin: auto;
+    }
+}
+
+/* BORDER gradient animated - start */
+/* .container::before {
+    content: '';
+    position: absolute;
+    width: 1400px;
+    height: 120%;
+    background: linear-gradient(#1e00ff, #00f7ff, #46d333);
+    animation: animate 4s linear infinite
+}
+
+@keyframes animate {
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(360deg);
+    }
+}
+
+.container::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background: black;
+}
+
+/* - end  */
