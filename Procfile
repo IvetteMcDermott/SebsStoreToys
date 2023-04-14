@@ -1,1 +1,1 @@
-web: gunicorn sebs_toy_store.wsgi.wsgi
+web: gunicorn sebs_toy_store.wsgi
