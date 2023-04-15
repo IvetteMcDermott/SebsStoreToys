@@ -34,3 +34,4 @@ class WareDetail(CreateView):
                "ware": ware,
             },
         )
+
