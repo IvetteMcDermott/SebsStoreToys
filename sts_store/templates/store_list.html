@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+
+{% endblock %}
+
+{% block content %}
+
+<h3>Ware Detail</h3>
+
+{% for ware in object_list %}
+
+ {{ ware.name }}
+
+{% endfor %}
+
+{% endblock %}
