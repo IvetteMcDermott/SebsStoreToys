@@ -22,10 +22,10 @@ class WareDetail(CreateView):
     """
     model = Ware
 
-    def get(self, request, id, *args, **kwargs):
+    def get(self, request, ware_id, *args, **kwargs):
         model = Ware
         queryset = model.objects.all()
-        ware = get_object_or_404(queryset, id=id)
+        ware = get_object_or_404(queryset, pk=ware_id)
 
         return render(
             request,

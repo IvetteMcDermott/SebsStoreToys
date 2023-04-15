@@ -11,7 +11,7 @@
 
 {% for ware in object_list %}
 
- {{ ware.name }}
+ <a href="{% url 'ware_detail' ware.id %}">{{ ware.name }}</a>
 
 {% endfor %}
 

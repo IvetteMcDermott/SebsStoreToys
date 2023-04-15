@@ -9,4 +9,13 @@
 
 <h3>Ware detail</h3>
 
+<p>name: {{ ware.name }}</p>
+<p>subcat: {{ ware.subcategory }}</p>
+<p>cat: {{ ware.subcategory.category }}</p>
+
+{% for photo in ware.ware_image.all %}
+<img src="{{ photo.image.url }}" alt="{{ photo.caption }}" style="width: 400px;">
+<p>{{ photo.caption }}</p>
+{% endfor %}
+
 {% endblock %}

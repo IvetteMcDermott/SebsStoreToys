@@ -48,8 +48,7 @@ class Ware(models.Model):
 
 class WareImage(models.Model):
     ware = models.ForeignKey(Ware, on_delete=models.CASCADE,
-                             default='ware_image')
+                             related_name='ware_image')
     image = CloudinaryField(default='placeholder', max_length=255,
                             verbose_name='image')
     caption = models.CharField(max_length=254, null=False, blank=False)
-
