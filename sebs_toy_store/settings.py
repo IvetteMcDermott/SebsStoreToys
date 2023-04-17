@@ -32,7 +32,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['sebs-toy-store.herokuapp.com','8000-ivettemcdermott-sebsstor-soo8sumjem.us2.codeanyapp.com']
 
@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'home',
     'sts_store',
+    'profiles',
 ]
 
 MIDDLEWARE = [
