@@ -6,6 +6,6 @@ from .models import UserProfile
 
 @admin.register(UserProfile)
 class UserProfile(admin.ModelAdmin):
-    list_display = ['filter_name', 'filter_name',]
-    list_filter = ('user_name',)
-    search_fields = ['user_name', ]
+    prepopulated_fields = {'slug': ('user',)}
+    list_display = ['user', 'first_name', 'last_name',]
+    search_fields = ['user', ]
