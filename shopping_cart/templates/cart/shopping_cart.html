@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load cart_tools %}
+
+{% block head %}
+
+
+{% endblock %}
+
+{% block content %}
+
+<p>shopping cart</p>
+{{ cart_wares }}
+
+
+<table>
+    <tr>
+    <th>ware</th>
+    <th>quantity</th>
+    <th>price</th>
+    </tr>
+    {% for ware in cart_wares %}
+
+    <tr>
+        <td>{{ ware.ware}}</td>
+        <td>{{ ware.quantity}}</td>
+        <td>{{ ware.ware.price }}</td>
+        <td>{{ ware.id }}</td>
+    
+        <td><form ><a href="{% url 'shopping_cart:remove_from_cart' ware.ware_id %}">remove</a></form> </td>
+        </td>
+      </tr>
+
+
+{% endfor %}
+</table>
+
+
+<script type="text/javascript">
+    // Update quantity on click
+  
+
+    // Remove item and reload on click
+    $('.remove-item').click(function(e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var size = $(this).data('product_size');
+        var url = `/bag/remove/${itemId}/`;
+        var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
+
+        $.post(url, data)
+         .done(function() {
+             location.reload();
+         });
+    })
+</script>
+
+{% endblock %}
