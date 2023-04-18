@@ -8,11 +8,18 @@
 {% block content %}
 
 <h3>Store page</h3>
+<table>
+    <tr>
 
-{% for ware in object_list %}
+    {% for ware in object_list %}
+    <td>
+        <a href="{% url 'ware_detail' ware.id %}">{{ ware.name }}</a></td>
+        <td>
+        {% include 'cart/quantity_form.html' %}</td>
+    {% endfor %}
 
- <a href="{% url 'ware_detail' ware.id %}">{{ ware.name }}</a>
-
-{% endfor %}
+    
+</tr>
+</table>
 
 {% endblock %}
