@@ -54,7 +54,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'home',
     'sts_store',
-    'profiles',
+    'profiles',   
+    'shopping_cart',   
 ]
 
 MIDDLEWARE = [
@@ -82,6 +83,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'shopping_cart.contexts.cart_content',
             ],
         },
     },
