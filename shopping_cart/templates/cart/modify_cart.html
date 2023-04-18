@@ -1,0 +1,29 @@
+<form class="form update-form" method="POST" action="{% url 'shopping_cart:modify_cart' ware.ware_id %}" >
+    {% csrf_token %}
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <button class="decrement-qty btn btn-sm btn-black rounded-0" 
+                    data-item_id="{{ ware.ware_id}}" id="decrement-qty_{{ ware.ware_id}}">
+                    <span>
+                        <i class="fas fa-minus fa-sm"></i>
+                    </span>
+                </button>
+            </div>
+            <input class="form-control form-control-sm qty_input" type="number"
+                name="quantity" value="{{ ware.quantity }}" min="1" max="99"
+                data-item_id="{{ ware.ware_id }}"
+                id="id_qty_{{ ware.ware_id}}">
+            <div class="input-group-append">
+                <button class="increment-qty btn btn-sm btn-black rounded-0"
+                    data-item_id="{{ ware.ware_id}}" id="increment-qty_{{ ware.ware_id}}">
+                    <span>
+                        <i class="fas fa-plus fa-sm"></i>
+                    </span>
+                </button>
+            </div>
+        
+        </div>
+    </div>
+</form>
+<a class="update-link text-info"><small>Update</small></a>

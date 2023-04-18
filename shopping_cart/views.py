@@ -32,6 +32,29 @@ def add_to_cart(request, ware_id):
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 
+def modify_cart(request, ware_id):
+    """Adjust the quantity of the specified product to the specified amount"""
+
+    cart = request.session.get('cart', {})
+
+    ware = get_object_or_404(Ware, pk=ware_id)
+    quantity = int(request.POST.get('quantity'))
+
+    if quantity > 0:
+        cart[ware_id] = quantity
+            # messages.success(request,
+            #                  (f'Updated {product.name} '
+            #                   f'quantity to {bag[item_id]}'))
+    else:
+        cart.pop(ware_id)
+            # messages.success(request,
+            #                  (f'Removed {product.name} '
+            #                   f'from your bag'))
+
+    request.session['cart'] = cart
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])
+
+
 def remove_from_cart(request, ware_id):
     """Remove the item from the shopping bag"""
 
