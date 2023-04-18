@@ -30,10 +30,8 @@
         <td>{% include 'cart/modify_cart.html' %}</td>
     </tr>
     {% endfor %}
-    <tr>
-        <td>{{ delivery }}</td>
-    </tr>
 </table>
+{% include 'cart/total_section_cart.html' %}
 
 <script type="text/javascript">
     // Update quantity on click

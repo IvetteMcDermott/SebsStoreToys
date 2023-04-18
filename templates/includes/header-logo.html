@@ -1,13 +1,24 @@
 <div class="row w-100 d-flex justify-content-end align-items-center" style="background-color: black; padding:0px; margin:0px;">
         <div class="col-2 d-flex justify-content-end">
             <span><i class="fa-solid fa-user-large-slash" style="color: #33bacd;"></i></span>
-            {% if user.authenticated %}
+            {% if request.user.is_authenticated %}
             <p style="margin-left: 5px;">{{ request.user }}</p>
             {% else %}
             <p style="margin-left: 5px;">Guest</p>
             {% endif %}
         </div>
         <div class="col-2 d-flex justify-content-end">
-            <span><i class="fa-solid fa-basket-shopping" style="color: #33bacd;"></i></span>
+            <span>  <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'shopping_cart:view_cart' %}">
+                <div class="text-center">
+                    <i class="fas fa-shopping-cart" style="color: #33bacd;"></i>
+                    <p class="my-0">
+                        {% if grand_total %}
+                            ${{ grand_total|floatformat:2 }}
+                        {% else %}
+                            $0.00
+                        {% endif %}
+                    </p>
+                </div>
+            </a></span>
         </div>
 </div>
