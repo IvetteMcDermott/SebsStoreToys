@@ -32,9 +32,9 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['sebs-toy-store.herokuapp.com','8000-ivettemcdermott-sebsstor-soo8sumjem.us2.codeanyapp.com']
+ALLOWED_HOSTS = ['sebs-toy-store.herokuapp.com', '8000-ivettemcdermott-sebsstor-soo8sumjem.us2.codeanyapp.com']
 
 
 # Application definition
@@ -57,7 +57,6 @@ INSTALLED_APPS = [
     'profiles',
     'shopping_cart',
     'checkout',
-
     'crispy_forms',
 ]
 
@@ -80,7 +79,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [TEMPLATES_DIR,
                  os.path.join(BASE_DIR, 'templates', 'allauth'),
-        ],
+                 ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -88,9 +87,10 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
                 'shopping_cart.contexts.cart_content',
             ],
-             'builtins': [
+            'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
                 'crispy_forms.templatetags.crispy_forms_field',
             ]
@@ -172,7 +172,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 
-
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
@@ -186,7 +185,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-if 'DEVELOPMENT' in os.environ:
+if (DEBUG == True):
+
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = 'sebstoystore@example.com'
 else:
