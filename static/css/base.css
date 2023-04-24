@@ -9,7 +9,7 @@
 
 /* ANIMATED slogan taken from tutorial in Youtube*/
 /* smashtheshell -> https://www.youtube.com/watch?v=2NxUssDAxoY*/
-.text {
+.slogan {
     text-transform: uppercase;
     text-align: center;
     background-image: linear-gradient(to right, rgb(89, 0, 255), red, rgb(0, 72, 255), rgb(255, 119, 0), rgb(78, 250, 224));
@@ -166,13 +166,52 @@
 }
 
 /* BORDER gradient animated - start */
-/* .container::before {
+
+/* .ware-card {
+    position: relative;
+    aspect-ratio: 1/1.5;
+    background:rgba(0, 0, 255, 0.01);
+} */
+/*
+.ware-card::before,
+.ware-card::after {
     content: '';
     position: absolute;
-    width: 1400px;
-    height: 120%;
+    inset: -1rem;
+    background:rgba(59, 196, 91, 0.474);
+    border-radius: inherit;
+    background: conic-gradient(--gradient-angle, #1e00ff, #00f7ff, #46d333);
+    filter: blur(0.5em);
+    animation: rotation 20s linear infinite;
+    z-index:-1;
+}
+
+@property --gradient-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes animate {
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(360deg);
+    }
+} */
+
+
+.ware-card::before {
+    content: '';
+    position: absolute;
+    width: 800px;
+    height: 150%;
     background: linear-gradient(#1e00ff, #00f7ff, #46d333);
-    animation: animate 4s linear infinite
+    animation: animate 4s linear infinite;
+    z-index: -1;
 }
 
 @keyframes animate {
@@ -186,12 +225,12 @@
     }
 }
 
-.container::after {
+.ware-card::after {
     content: '';
     position: absolute;
-    inset: 4px;
-    background: black;
-}
+    inset: 6px;
+    background: white;
+} 
 
 /* - end  */
 
@@ -199,3 +238,150 @@
 body {
     color: white !important;
 }
+
+/* Region page */
+
+.display-card, 
+.ware-card {
+            padding: 20px;
+            border: #dbd8d4 outset 2px;
+            background-color: #dbd8d370;
+            border-radius: 5px;
+            width: 20em;
+            height: 26em;
+            display: flex;
+            margin: 0;
+            margin: auto;
+            margin-bottom: 20px;
+            text-decoration: none;
+            transition: transform 250ms ease-in-out;
+            overflow: hidden;
+
+}
+
+.display-card:hover{
+    transform: scale(1.02);
+}
+.display-card>a{
+    text-decoration: none;
+    color:rgb(78, 163, 203);
+
+}
+.display-card>h4{
+    font-weight: 600;
+}
+
+.display-card>*{
+    font-family: 'Raleway', sans-serif;
+    color:#b36e08;
+}
+
+/* Icon in input */
+
+.inline{
+    max-width:400px;
+    margin:auto;
+}
+.input-icons i {
+    position: absolute;
+}
+  
+.input-icons {
+    width: 100%;
+    margin-bottom: 10px;
+}
+  
+.icon {
+    padding: 10px;
+    min-width: 40px;
+}
+  
+.input-field {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 3px;
+}
+
+
+/* Region page */
+
+/* .display-card {
+    padding: 20px;
+    border: #dbd8d4 outset 2px;
+    background-color: #dbd8d370;
+    border-radius: 5px;
+    width: 20em;
+    height: 26em;
+    display: flex;
+    margin: 0;
+    margin: auto;
+    margin-bottom: 20px;
+    text-decoration: none;
+    transition: transform 250ms ease-in-out;
+}
+
+.display-card:hover{
+    transform: scale(1.02);
+}
+.display-card>a{
+    text-decoration: none;
+    color:#b36e08;
+
+}
+.display-card>h4{
+    font-weight: 600;
+}
+
+.display-card>*{
+    font-family: 'Raleway', sans-serif;
+    color:#b36e08;
+}
+
+#img-cont {
+    height: 70%;
+}*/
+
+.display-card>img {
+    object-fit: cover;
+}
+/*
+.post-link:hover {
+    color:#b36e08;
+    text-decoration: none;
+}
+
+.pin-css {
+    margin-bottom: 10px;
+}
+.card-body {
+    min-height: 1px;
+    line-height: 2em;
+    padding: 1.25rem;
+    position: absolute !important;
+    bottom: 2em !important;
+}
+.comment-icon {
+    right: 10px !important;
+    position: absolute !important;
+    bottom: 10px !important;
+}
+.display-region{
+    clear: both;
+    line-height: 0;
+    column-count: 3;
+    column-gap: 10px;                
+}
+
+.info-div{
+    height: fit-content;
+}
+
+.card-text{
+    height: 36px;
+    line-height: 16px;
+} */
+
+
+/* MARGIN CLASSES */
+
