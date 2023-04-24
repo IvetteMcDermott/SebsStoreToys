@@ -6,6 +6,9 @@ from django.conf import settings
 
 from sts_store.models import Ware
 from profiles.models import UserProfile
+
+from django_countries.fields import CountryField
+
 # Create your models here.
 
 
