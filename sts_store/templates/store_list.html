@@ -5,21 +5,57 @@
 
 {% endblock %}
 
+
 {% block content %}
 
 <h3>Store page</h3>
-<table>
-    <tr>
+
+
+<section class="d-flex flex-col">
 
     {% for ware in object_list %}
-    <td>
-        <a href="{% url 'ware_detail' ware.id %}">{{ ware.name }}</a></td>
-        <td>
-        {% include 'cart/quantity_form.html' %}</td>
+    <div class="card display-card ware-card ">
+        <div class="d-flex justify-content-end pin-css" style="z-index: 2;">
+            <!-- THIS IS FOR THE WISHLIST -->
+            <!-- {% if user.is_authenticated %}
+
+            {% if request.user in place.interests.all %}
+            <i class="bi bi-pin-angle-fill"></i>
+            {% else %}
+            <i class="bi bi-pin-angle"></i>
+            {% endif %}
+            {% endif %} -->
+        </div>
+        <a href="{% url 'sts_store:ware_detail' ware.id %}" class="post-link" style="z-index: 2;">
+           
+            <div class="image-container" style=" min-width: 13em; max-height: 50%;" style="z-index: 2;">
+                {% for photo in ware.ware_image.all %}
+                {% if forloop.counter == 1 %}
+                <img src="{{ photo.image.url }}" class="card-img-top" style="object-fit: scale-down;" alt="image">
+                {% endif %}
+                {% endfor %}
+            </div>
+        </a>
+        <div class="card-body" style="z-index: 2;">
+            <h4 class="card-title text-center mb-">{{ ware.name }}</h4>
+
+            <hr>
+            <h6 class="card-title text-start mb-1">{{ ware.subcategory.category }}</h6>
+            <h6 class="card-title text-start">{{ ware.subcategory }}</h6>
+
+        </div>
+        <!-- <div>
+            div for rating -->
+
+        <div style="z-index: 2;">
+            {% include 'cart/quantity_form_qb.html' %}
+        </div>
+
+    </div>
+
     {% endfor %}
 
-    
-</tr>
-</table>
+</section>
+
 
 {% endblock %}
