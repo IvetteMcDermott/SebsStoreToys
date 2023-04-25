@@ -20,8 +20,8 @@ def my_profile(request):
 
         if form.is_valid():
             form.save()
-    #         # messages.success(request, 'Profile had been updated successfully!')
-    # else:
-    form = ProfileForm(instance=user)
+            messages.success(request, 'Profile had been updated successfully!')
+        else:
+            form = ProfileForm(instance=user)
     return render(request, 'profiles/user_profile.html', {'form': form,
                   'user': user, })
