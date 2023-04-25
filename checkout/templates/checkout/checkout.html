@@ -14,6 +14,8 @@
 </div>
 {% endblock %}
 
+BA
+
 {% block content %}
 <div class="overlay"></div>
 <div class="container">
@@ -39,7 +41,7 @@
             {% for ware in cart_wares %}
             <div class="row">
                 <div class="col-2 mb-1">
-                    <a href="{% url 'ware_detail' ware.ware_id %}">
+                    <a href="{% url 'sts_store:ware_detail' ware.ware_id %}">
                         <div class="image-container">
 
                             {% for photo in ware.ware_image.all %}
@@ -77,7 +79,7 @@
         </div>
         <div class="col-12 col-lg-6">
             <p class="text-muted">Please fill out the form below to complete your order</p>
-            <form action="#" method="POST" id="payment-form">
+            <form action="{% url 'checkout:checkout' %}" method="POST" id="payment-form">
                 {% csrf_token %}
                 <fieldset class="rounded px-3 mb-5">
                     <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
@@ -144,7 +146,7 @@
 <div id="loading-overlay">
     <h1 class="text-light logo-font loading-spinner">
         <span class="icon">
-            <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+            <i class="fas fa-2x fa-sync-alt fa-spin"></i>
         </span>
     </h1>
 </div>
