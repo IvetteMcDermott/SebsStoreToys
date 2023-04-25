@@ -25,9 +25,10 @@
 
 
     <script src="https://kit.fontawesome.com/f84495756a.js" crossorigin="anonymous"></script>
+    <!-- STRIPE -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-    {% block extra_css %}
-    {% endblock %}
+    <script src="https://js.stripe.com/v3/"></script>
 
 
     <!-- FAVICON -->
@@ -36,6 +37,11 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
     <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+
+
+
+    {% block extra_css %}
+    {% endblock %}
 
     <title>SebsToyStore</title>
 </head>
@@ -68,6 +74,10 @@
 
     {% block content %}
     {% endblock %}
+
+    {% block postloadjs %}
+    {% endblock %}
+
 
     <footer class="mt-auto w-100" id="footer-css">
         {% include 'includes/footer.html' %}
