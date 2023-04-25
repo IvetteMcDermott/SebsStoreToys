@@ -1,16 +1,19 @@
-<form class="form" action="{% url 'shopping_cart:add_to_cart' ware.id %}" method="POST">
-    {% csrf_token %}
-    <div class="col-12">
-        <div class="form-group w-50">
-            <div class="input-group">
-                <div class="input-group-prepend">
-                <input class="form-control qty_input" type="number"
-                    name="quantity" value="1" 
-                    data-item_id="{{ ware.id }}"
-                    id="id_qty_{{ ware.id }}" style='visibility: hidden;'>
-
+<div>
+    <form class="form" action="{% url 'shopping_cart:add_to_cart' ware.id %}" method="POST">
+        {% csrf_token %}
+        <div class="col-12">
+            <div class="form-group w-50">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <input class="form-control qty_input" type="number" name="quantity" value="1"
+                            data-item_id="{{ ware.id }}" id="id_qty_{{ ware.id }}" style='visibility: hidden;'>
+    
+                    </div>
                 </div>
-
-</form>
-
-<input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Cart">
+            </div>
+        </div>
+        <div>
+        <input type="submit" class="btn btn-black rounded-0 input-field text-uppercase mt-5" value="Add to Cart">
+        </div> 
+    </form>
+    </div>

@@ -1,0 +1,17 @@
+<div class="mb-0">
+    <form class="form mb-0" action="{% url 'shopping_cart:add_to_cart' ware.id %}" method="POST">
+        {% csrf_token %}
+
+        <input class="form-control qty_input" type="number" name="quantity" value="1" data-item_id="{{ ware.id }}"
+            id="id_qty_{{ ware.id }}" style='visibility: hidden;'>
+
+        <div class="inline">
+            <div class="input-icons mb-0 w-50">
+                <i class="fas fa-shopping-cart icon" style="color: #33bacd;"></i>
+                <input type="Submit" class="btn btn-outline-primary rounded-0 input-field text-uppercase"
+                    value="QuickBuy">
+            </div>
+        </div>
+
+    </form>
+</div>

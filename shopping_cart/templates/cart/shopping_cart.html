@@ -9,24 +9,49 @@
 {% block content %}
 
 <p>shopping cart</p>
-{{ cart_wares }}
-
 
 <table>
     <tr>
-    <th>ware</th>
-    <th>quantity</th>
-    <th>price</th>
+        <th>photo</th>
+        <th>ware</th>
+        <th>price</th>
     </tr>
-    {% for ware in cart_wares %}
 
+    <!-- TEST OF ACCESS TO THE WARES IMAGES FOR CART -->
+    {% for ware in cart_wares %}
+    {{ ware.ware.id }}
+{% if ware.ware_image.image %}
+yes
+{% else %}
+no
+{% endif %}
+
+    {% for photo in ware.ware_image.all %}
+    <img src="{{ photo.image.url }}" alt="{{ photo.caption }}" style="width: 400px;">
+
+    {{ photo.ware_image.caption }}
+    {% endfor %}
     <tr>
+        <td>
+            {% for photo in ware.ware_image.all %}
+            <p>{{ photo.caption }}</p>
+            {% endfor %}
+
+            {% for photo in ware.ware_image.all %}
+            {% if forloop.counter == 1 %}
+            <img src="{{ photo.ware_image.url }}" class="card-img-top" style="object-fit: scale-down;" alt="image">
+            {% endif %}
+            {% endfor %}
+
+            <!-- END OF TESTING CODE-->
         <td>{{ ware.ware}}</td>
         <td>{{ ware.quantity}}</td>
         <td>{{ ware.ware.price }}</td>
         <td>{{ ware.id }}</td>
-    
-        <td><form ><a href="{% url 'shopping_cart:remove_from_cart' ware.ware_id %}">remove</a></form> </td>
+
+        <td>
+            <form><a href="{% url 'shopping_cart:remove_from_cart' ware.ware_id %}">remove</a></form>
+        </td>
         <td>{% include 'cart/modify_cart.html' %}</td>
     </tr>
     {% endfor %}
@@ -36,24 +61,23 @@
 
 <script type="text/javascript">
     // Update quantity on click
-    $('.update-link').click(function(e) {
+    $('.update-link').click(function (e) {
         let form = $(this).prev('.update-form');
         form.submit();
     })
 
 
     // Remove item and reload on click
-    $('.remove-item').click(function(e) {
+    $('.remove-item').click(function (e) {
         let csrfToken = "{{ csrf_token }}";
         let itemId = $(this).attr('id').split('remove_')[1];
-        let size = $(this).data('product_size');
         let url = `/shoppingcart/remove/${itemId}/`;
-        let data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
+        let data = { 'csrfmiddlewaretoken': csrfToken,};
 
         $.post(url, data)
-         .done(function() {
-             location.reload();
-         });
+            .done(function () {
+                location.reload();
+            });
     })
 </script>
 
