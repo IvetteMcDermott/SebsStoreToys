@@ -34,7 +34,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['sebs-toy-store.herokuapp.com', '8000-ivettemcdermott-sebsstor-soo8sumjem.us2.codeanyapp.com']
+ALLOWED_HOSTS = ['sebs-toy-store.herokuapp.com', '8000-ivettemcdermott-sebsstor-b7hf2ylbyf.us2.codeanyapp.com']
 
 
 # Application definition
