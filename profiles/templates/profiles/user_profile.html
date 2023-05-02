@@ -1,11 +1,17 @@
 {% extends "base.html" %}
+{% load static %}
 
-{% block head %}
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'profiles/css/profiles.css' %}">
+{% endblock %}
 
+
+{% block header %}
 
 {% endblock %}
 
 {% block content %}
+
 
 <h3>User Profile</h3>
 
@@ -14,7 +20,16 @@
 <p>email: {{ user.email }}</p>
 <p>phone: {{ user.phone_number }}</p>
 
-<p>{{ orders }}</p>
+<p>country: {{ user.country.name }}</p>
+
+<hr>
+{% for order in orders %}
+
+<span>Order Number:</span><a href="{% url 'profiles:order_details' order.order_number %}" class="post-link" style="z-index: 2;" target="_blank">
+
+ {{ order.order_number }}</a><span>Purchase date: {{ order.date }}</span> <span>Charged: {{ order.grand_total }}</span>
+
+{% endfor %}
 
 <hr>
 
@@ -22,9 +37,9 @@
 </p>
 </div>
 <form method="POST" id="form_section" enctype="multipart/form-data" style="margin-top: 1.3em;">
-    <div class="modal forms-format " id="Profile" >
-        <div class="modal-dialog " >
-            <div class="modal-content forms-format" style="background: rgba(0, 0, 0, 0.448);">
+    <div class="modal forms-format " id="Profile">
+        <div class="modal-dialog ">
+            <div class="modal-content forms-format" style="background: rgba(0, 0, 0);">
                 <div class="modal-header">
                     <h5 class="modal-title">Create your Profile</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -33,101 +48,17 @@
                 </div>
                 <div class="modal-body">
                     {% csrf_token %}
-                    <!-- {{ form|crispy}} -->
-                    <!-- <div class="inline">
-                        <div class="input-icons">
-                            <i class="fas fa-shopping-cart icon" style="color: #33bacd;"></i>
-                            <input type="text" name="full_name" value="Tester Testing" maxlength="50"
-                                class="textinput textInput input-field form-control" id="id_full_name">
-
-                        </div>
-                    </div> -->
 
 
-                    <!-- </div> -->
-                    <!-- ELEMENTS COPIED FROM INSPECT FOR FORM -->
-                    <!-- <div class="modal-body"> -->
-                    <input type="hidden" name="csrfmiddlewaretoken"
-                        value="CIlIsuTzkjpU6JmiVK4YU3akrxkyU8RkOjCcxn8PpLvCzF7EwXrblOCqU8l6tB6C">
+                    {{ form|crispy}}
 
-                    <fieldset class="rounded px-3 mb-5">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
-                        <div class="inline">
-                            <div class="input-icons">
-                                <i class="fas fa-shopping-cart icon" style="color: #33bacd;"></i>
-                                <input type="text" name="full_name" value="{{ user.full_name}}" maxlength="50"
-                                    class="textinput textInput input-field form-control" id="id_full_name" placeholder="Full Name">
-
-                            </div>
-
-                            <div class="input-icons">
-                                <i class="fas fa-shopping-cart icon" style="color: #33bacd;"></i>
-                                <input type="text" name="email" value="{{ user.email}}" maxlength="50"
-                                    class="textinput textInput input-field form-control" id="id_email" placeholder="Email">
-
-                            </div>
-
-                            <div class="inline">
-                                <div class="input-icons">
-                                    <i class="fas fa-shopping-cart icon" style="color: #33bacd;"></i>
-                                    <input type="text" name="phone_number" maxlength="50"
-                                        class="textinput textInput input-field form-control" id="id_phone_number" placeholder="Phone">
-
-                                </div>
-                            </div>
-
-
-                    </fieldset>
-
-                    <fieldset class="rounded px-3 mb-5">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Address</legend>
-                        {{ form.country|as_crispy_field }}
-                </div>
-   
-                    <div> <input type="text" name="postcode" maxlength="20" class="textinput textInput form-control"
-                            id="id_postcode" placeholder="Post Code"> </div>
-                </div>
-                <div id="div_id_town_or_city" class="form-group"> <label for="id_town_or_city" class="">
-                        Town or city
-                    </label>
-                    <div> <input type="text" name="town_or_city" maxlength="40" class="textinput textInput form-control"
-                            id="id_town_or_city"> </div>
-                </div>
-                <div id="div_id_street_address1" class="form-group"> <label for="id_street_address1" class="">
-                        Street address1
-                    </label>
-                    <div> <input type="text" name="street_address1" maxlength="80"
-                            class="textinput textInput form-control" id="id_street_address1"> </div>
-                </div>
-                <div id="div_id_street_address2" class="form-group"> <label for="id_street_address2" class="">
-                        Street address2
-                    </label>
-                    <div> <input type="text" name="street_address2" maxlength="80"
-                            class="textinput textInput form-control" id="id_street_address2"> </div>
-                </div>
-                <div id="div_id_county" class="form-group"> <label for="id_county" class="">
-                        County
-                    </label>
-                    <div> <input type="text" name="county" maxlength="80" class="textinput textInput form-control"
-                            id="id_county"> </div>
-                </div>
-                </fieldset>
-                <!-- END OF ELEMENTS -->
-                <!-- <div class="inline">
-                        <div class="input-icons">
-                            <i class="fas fa-shopping-cart icon" style="color: #33bacd;"></i>
-                            <input type="text" name="full_name" value="{{ user.full_name}}" maxlength="50"
-                                class="textinput textInput input-field form-control" id="id_full_name">
-
-                        </div>
-                    </div> -->
-                <button type="submit" class="btn-primary">Save</button>
+                    <button type="submit" class="btn-primary">Save</button>
 
             </div>
 
 
-
         </div>
+
     </div>
     </div>
 
