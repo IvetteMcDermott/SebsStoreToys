@@ -108,7 +108,7 @@ def checkout(request):
             try:
                 profile = UserProfile.objects.get(user=request.user)
                 order_form = OrderForm(initial={
-                    'full_name': profile.user.get_full_name(),
+                    'full_name': profile.full_name,
                     'email': profile.user.email,
                     'phone_number': profile.phone_number,
                     'country': profile.country,
@@ -150,21 +150,6 @@ def checkout_success(request, order_number):
         # Attach the user's profile to the order
         order.user_profile = profile
         order.save()
-
-        # Save the user's info
-        if save_info:
-            profile_data = {
-                'phone_number': order.phone_number,
-                'country': order.country,
-                'postcode': order.postcode,
-                'town_or_city': order.town_or_city,
-                'street_address1': order.street_address1,
-                'street_address2': order.street_address2,
-                'county': order.county,
-            }
-            user_profile_form = ProfileForm(profile_data, instance=profile)
-            if user_profile_form.is_valid():
-                user_profile_form.save()
 
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
