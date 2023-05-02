@@ -1,4 +1,6 @@
-<form class="form update-form" method="POST" action="{% url 'shopping_cart:modify_cart' ware.ware_id %}" >
+<div class="row ml-1">
+    <div class="col">
+    <form class="form update-form" method="POST" action="{% url 'shopping_cart:modify_cart' ware.ware_id %}" >
     {% csrf_token %}
     <div class="form-group">
         <div class="input-group">
@@ -12,4 +14,8 @@
         </div>
     </div>
 </form>
+
 <a class="update-link text-info"><small>Update</small></a>
+</div>
+</div>
+

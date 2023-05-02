@@ -1,6 +1,16 @@
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100%;
+    color: white !important;
+}
+
 /* BASE html */
 
 #footer-css {
+    margin-top: auto;
     background-color: black;
     font-size: small;
 }
@@ -233,11 +243,6 @@
 } 
 
 /* - end  */
-
-
-body {
-    color: white !important;
-}
 
 /* Region page */
 

@@ -7,57 +7,58 @@
 {% endblock %}
 
 {% block content %}
+<div class="row  w-100">
+    <h3 class="w-100 text-center m-5">shopping cart</h3>
+</div>
+<div class="container" style="width:95%; overflow-y: scroll;">
 
-<p>shopping cart</p>
 
-<table>
-    <tr>
-        <th>photo</th>
-        <th>ware</th>
-        <th>price</th>
-    </tr>
-
-    <!-- TEST OF ACCESS TO THE WARES IMAGES FOR CART -->
     {% for ware in cart_wares %}
-    {{ ware.ware.id }}
-{% if ware.ware_image.image %}
-yes
-{% else %}
-no
-{% endif %}
+    <div class="row">
+        <div class="col">
 
-    {% for photo in ware.ware_image.all %}
-    <img src="{{ photo.image.url }}" alt="{{ photo.caption }}" style="width: 400px;">
+            {% for photo in ware.ware.ware_image.all %}
 
-    {{ photo.ware_image.caption }}
-    {% endfor %}
-    <tr>
-        <td>
-            {% for photo in ware.ware_image.all %}
-            <p>{{ photo.caption }}</p>
-            {% endfor %}
-
-            {% for photo in ware.ware_image.all %}
             {% if forloop.counter == 1 %}
-            <img src="{{ photo.ware_image.url }}" class="card-img-top" style="object-fit: scale-down;" alt="image">
+            <img src="{{ photo.image.url }}" class="card-img-top" style="width: 4em; object-fit: scale-down;"
+                alt="image">
             {% endif %}
             {% endfor %}
+        </div>
+        <div class="col">
+            <div class="row">
+                <span>{{ ware.ware}} </span>
+            </div>
+            <div class="row">
+                <span>SKU: {{ ware.ware.sku }} </span>
+            </div>
+        </div>
 
-            <!-- END OF TESTING CODE-->
-        <td>{{ ware.ware}}</td>
-        <td>{{ ware.quantity}}</td>
-        <td>{{ ware.ware.price }}</td>
-        <td>{{ ware.id }}</td>
+        <div class="col">
+            <div class="row">
+                <span>Qty: {{ ware.quantity}} </span>
+            </div>
+            <div class="row">
+                <span>Price: {{ ware.ware.price }} </span>
+            </div>
+        </div>
+        <form><a href="{% url 'shopping_cart:remove_from_cart' ware.ware_id %}">remove</a></form>
 
-        <td>
-            <form><a href="{% url 'shopping_cart:remove_from_cart' ware.ware_id %}">remove</a></form>
-        </td>
-        <td>{% include 'cart/modify_cart.html' %}</td>
-    </tr>
+        {% include 'cart/modify_cart.html' %}
+
+        <div class="col text-right">
+            <p class="my-0 small text-muted">€{{ ware.ware.price | calc_subtotal:ware.quantity }}</p>
+        </div>
+    </div>
     {% endfor %}
-</table>
+</div>
+
 {% include 'cart/total_section_cart.html' %}
+
 {% include 'cart/checkout_section_cart.html' %}
+
+</div>
+
 
 <script type="text/javascript">
     // Update quantity on click
@@ -72,7 +73,7 @@ no
         let csrfToken = "{{ csrf_token }}";
         let itemId = $(this).attr('id').split('remove_')[1];
         let url = `/shoppingcart/remove/${itemId}/`;
-        let data = { 'csrfmiddlewaretoken': csrfToken,};
+        let data = { 'csrfmiddlewaretoken': csrfToken, };
 
         $.post(url, data)
             .done(function () {
