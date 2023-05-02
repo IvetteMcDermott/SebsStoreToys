@@ -3,6 +3,8 @@ from .models import UserProfile
 from .forms import ProfileForm
 from checkout.models import Order
 from django.views import generic, View
+from django.views.generic import CreateView
+
 from django.contrib.auth.decorators import login_required
 
 from django.contrib import messages
@@ -41,3 +43,22 @@ def my_profile(request):
 
     return render(request, template, context)
 
+
+class OrderDetail(CreateView):
+    """
+    RENDER THE DETAILS PAGE OF THE SELECTED WARE
+    """
+    model = Order
+
+    def get(self, request, order_number, *args, **kwargs):
+        model = Order
+        queryset = model.objects.all()
+        order = get_object_or_404(queryset, order_number=order_number)
+
+        return render(
+            request,
+            "profiles/order_details.html",
+            {
+               "order": order,
+            },
+        )
