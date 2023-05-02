@@ -1,24 +1,70 @@
-<div class="row w-100 d-flex justify-content-end align-items-center" style="background-color: black; padding:0px; margin:0px;">
-        <div class="col-2 d-flex justify-content-end">
-            <span><i class="fa-solid fa-user-large-slash" style="color: #33bacd;"></i></span>
-            {% if request.user.is_authenticated %}
-            <p style="margin-left: 5px;">{{ request.user }}</p>
-            {% else %}
-            <p style="margin-left: 5px;">Guest</p>
-            {% endif %}
-        </div>
-        <div class="col-2 d-flex justify-content-end">
-            <span>  <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'shopping_cart:view_cart' %}">
-                <div class="text-center">
+<div class="w-100 d-flex flex-row-reverse "
+    style="background-color: black; padding:0px; margin:0px;">
+    <div class="p-2 d-flex justify-content-end align-items-center" style="padding:0px; margin:0px;">
+        <span> <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
+                href="{% url 'shopping_cart:view_cart' %}" style="padding: 0px !important;">
+                <div class="text-center" >
                     <i class="fas fa-shopping-cart" style="color: #33bacd;"></i>
                     <p class="my-0">
                         {% if grand_total %}
-                            ${{ grand_total|floatformat:2 }}
+                        €{{ grand_total|floatformat:2 }}
                         {% else %}
-                            $0.00
+                        €0.00
                         {% endif %}
                     </p>
                 </div>
             </a></span>
+    </div>
+
+    <div class="p-2 d-flex justify-content-start p-0"> 
+            {% if request.user.is_authenticated %}
+                <span class="align-middle">{{ request.user }}</span>
+
+            {% else %}
+                <span class="align-middle">Guest</span>
+                {% endif %}
         </div>
+        <div class="p-2 d-flex justify-content-end p-0">
+
+            <nav class="navbar justify-content-end p-0 m-0">
+                <ul class="p-0">
+                    <li class="nav-item dropdown d-flex justify-content-end align-content-center">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                            aria-expanded="false" style="color: rgb(51 186 205) !important; padding: 0px !important;">
+
+                            {% if request.user.is_authenticated %}
+                            <span class="col " style="padding: 0px !important;"><i class="fa-solid fa-user" style="color: #33bacd;"></i></span>
+
+                            {% else %}
+                            <span class="col " style="padding: 0px !important;">
+                            <i class="fa-solid fa-user-large-slash" style="color: #33bacd;"></i>
+                            {% endif %}
+                            </span>
+                        </a>
+                        <div class="dropdown-menu"
+                            style="background-color: black !important; border-color: rgb(51 186 205);">
+
+
+                            {% if request.user.is_authenticated %}
+
+                        <a class="dropdown-item d-flex justify-content-end" href="{% url 'account_logout' %}"
+                            style="color: rgb(51 186 205) !important;">LOG OUT</a>
+                            <a class="dropdown-item d-flex justify-content-end" href="{% url 'profiles:my_profile' %}"
+                                style="color: rgb(51 186 205) !important;">MY PROFILE</a>
+                            {% else %}
+
+                            <a class="dropdown-item d-flex justify-content-end" href="{% url 'account_signup' %}"
+                                style="color: rgb(51 186 205) !important;">SIGN UP</a>
+                                <a class="dropdown-item d-flex justify-content-end" href="{% url 'account_login' %}"
+                                style="color: rgb(51 186 205) !important;">SIGN IN</a>
+
+                            {% endif %}
+                        </div>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+
+        
 </div>
