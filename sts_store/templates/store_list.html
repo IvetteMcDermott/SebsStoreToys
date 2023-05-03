@@ -10,8 +10,23 @@
 
 <h3>Store page</h3>
 
+{% if result %}
+<h1>Search Results</h1>
+
+<ul>
+  {% for ware in result %}
+    <li>
+        {{ ware.id }} <a href="{% url 'sts_store:ware_detail' ware.id %}" class="post-link" style="z-index: 2;">
+
+      {{ ware.name }}</a>, {{ ware.sku }}
+    </li>
+  {% endfor %}
+</ul>
+{% endif %}
+
 
 <section class="d-flex flex-col">
+   
 
     {% for ware in object_list %}
     <div class="card display-card ware-card ">

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block head %}
+
+
+{% endblock %}
+
+{% block content %}
+
+<span>store panel</span>
+
+<hr>
+
+<form action="{% url 'sts_store:search' %}" method="post">
+    {% csrf_token %}
+
+    <input name="q" type="text" placeholder="Search...">
+    <button type="submit">GO</button>
+</form>
+
+<hr>
+
+{% if request.user.is_staff %}
+<a href="{% url 'sts_store:ware_entry' %}" class="post-link" style="z-index: 2;" target="_blank">Ware</a>
+<a href="{% url 'sts_store:image_entry' %}" class="post-link" style="z-index: 2;" target="_blank">Image</a>
+
+{% endif %}
+
+{% endblock %}
