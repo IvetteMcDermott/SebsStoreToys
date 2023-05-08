@@ -22,8 +22,7 @@ def my_profile(request):
     """ THE PROFILE IS CREATED BY SIGNAL, SO DOESNT HAVE ANYOTHER """
     """ INFORMATION THAN THE USER """
     user = get_object_or_404(UserProfile, user=request.user)
-    orders = user.orders.all()
-    print(orders)
+    orders = user.orders.all().order_by('-date')
     template = 'profiles/user_profile.html'
 
     if request.method == 'POST':
