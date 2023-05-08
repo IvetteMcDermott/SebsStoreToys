@@ -1,9 +1,10 @@
 <nav class="navbar navbar-expand-lg w-100 justify-content-end" style="padding: 0px;">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span ><i class="fa-solid fa-bars fa-fade" style="color: #33bacd;"></i></span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fa-solid fa-bars fa-fade" style="color: #33bacd;"></i></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav w-100 justify-content-around" style="background-color: black !important; border-color: rgb(51 186 205);">
+  <div class="collapse navbar-collapse" id="navbarNavDropdown" style="z-index: 10000; ">
+    <ul class="navbar-nav w-100 justify-content-around">
       <li class="nav-item d-flex justify-content-end">
         <a class="nav-link" href="{% url 'sts_store:wares' %}" style="color: rgb(51 186 205) !important;">STORE</a>
       </li>
@@ -13,7 +14,12 @@
       <li class="nav-item d-flex justify-content-end">
         <a class="nav-link" href="#" style="color: rgb(51 186 205) !important;">NEWS</a>
       </li>
-     
+      <li class="nav-item d-flex justify-content-end">
+        {% if request.user.is_staff %}
+        <a href="{% url 'sts_store:store_panel' %}" class="nav-link" 
+          target="_blank" style="color: rgb(51 186 205) !important;">STORE PANEL</a>
+        {% endif %}
+      </li>
     </ul>
   </div>
 </nav>
