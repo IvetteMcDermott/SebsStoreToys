@@ -24,4 +24,5 @@ urlpatterns = [
     path('profiles/', include('profiles.urls'), name='profiles'),
     path('shoppingcart/', include('shopping_cart.urls'), name='shopping_cart'),
     path('checkout/', include('checkout.urls'), name='checkout'),
+    path('newsletter/', include('mailchimpNewsletter.urls'), name='subscribeToNewsLetter'),
 ]
