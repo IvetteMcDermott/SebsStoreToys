@@ -11,19 +11,29 @@
 
 <hr>
 
+<a href="{% url 'sts_store:ware_entry' %}" class="post-link" style="z-index: 2;" target="_blank">Add Ware</a>
+<a href="{% url 'sts_store:image_entry' %}" class="post-link" style="z-index: 2;" target="_blank">Add Image</a>
+<a href="{% url 'sts_store:orders' %}" class="post-link" style="z-index: 2;">Orders</a>
+
+<hr>
+
+<p>Find the ware to edit or delete</p>
 <form action="{% url 'sts_store:search' %}" method="post">
     {% csrf_token %}
 
     <input name="q" type="text" placeholder="Search...">
-    <button type="submit">GO</button>
+    <button type="submit">Go</button>
 </form>
 
 <hr>
 
-{% if request.user.is_staff %}
-<a href="{% url 'sts_store:ware_entry' %}" class="post-link" style="z-index: 2;" target="_blank">Ware</a>
-<a href="{% url 'sts_store:image_entry' %}" class="post-link" style="z-index: 2;" target="_blank">Image</a>
+<p>Find the wareImages delete</p>
+<form action="{% url 'sts_store:search_image' %}" method="post">
+    {% csrf_token %}
 
-{% endif %}
+    <input name="q" type="text" placeholder="Search...">
+    <button type="submit">Go</button>
+</form>
+
 
 {% endblock %}

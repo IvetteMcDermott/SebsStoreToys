@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block head %}
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="p-2 bd-highlight">
+    <a href="javascript:history.go(-1)">
+        <h4>
+            Back
+        </h4>
+    </a>
+</div>
+
+
+<span>orders</span>
+
+
+{% for order in orders %}
+
+<a href="{% url 'profiles:order_details' order.order_number %}" class="post-link" style="z-index: 2;" target="_blank">
+
+    {{ order.order_number }}</a><span>Purchase date: {{ order.date }}</span> <span>Charged: {{ order.grand_total }}</span>
+   
+{% endfor %}
+
+{% endblock %}
