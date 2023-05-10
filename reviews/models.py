@@ -5,14 +5,14 @@ from sts_store.models import Ware
 
 class Review(models.Model):
     rating = [
-              ('1', '1'),
-              ('2', '2'),
-              ('3', '3'),
-              ('4', '4'),
-              ('5', '5'),
+              (1, '1'),
+              (2, '2'),
+              (3, '3'),
+              (4, '4'),
+              (5, '5'),
     ]
 
-    ware = models.ForeignKey(Ware, related_name="review",
+    ware = models.ForeignKey(Ware, related_name="reviews",
                              on_delete=models.CASCADE)
     body = models.CharField(max_length=300, null=False, blank=False)
     author = models.ForeignKey(User, related_name="author",
