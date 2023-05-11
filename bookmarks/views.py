@@ -19,7 +19,7 @@ def bookmarks(request, *args, **kwargs):
     template = 'bookmarks/user_bookmarks.html'
     bookmarks = Bookmarks.objects.filter(user=user)
     context = {
-        'bookmarks': bookmarks,
+        'wares': bookmarks,
     }
     return render(request, template, context)
 
@@ -27,8 +27,6 @@ def bookmarks(request, *args, **kwargs):
 @login_required
 def toggle_bookmark(request, ware_id):
     """ BOOKMARK TOGGLE IF ADD OR REMOVE """
-
-    bookmarked = False
 
     if request.method == 'POST':
 
@@ -49,7 +47,6 @@ def toggle_bookmark(request, ware_id):
                 user=user,
                 ware=ware,
             )
-            bookmarked = True
             # messages.success
 
     return HttpResponseRedirect(request.META['HTTP_REFERER'])

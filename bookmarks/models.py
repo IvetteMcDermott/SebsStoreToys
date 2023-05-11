@@ -13,4 +13,4 @@ class Bookmarks(models.Model):
     tag = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__(self):
-        return self.ware.name
+        return self.user
