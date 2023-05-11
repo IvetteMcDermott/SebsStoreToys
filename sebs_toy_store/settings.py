@@ -58,6 +58,9 @@ INSTALLED_APPS = [
     'shopping_cart',
     'checkout',
     'mailchimpNewsletter',
+    'bookmarks',
+    'news_blog',
+    'reviews',
     'crispy_forms',
 ]
 
