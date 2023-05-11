@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'bookmarks',
     'news_blog',
     'reviews',
+    'contact_us',
     'crispy_forms',
 ]
 
