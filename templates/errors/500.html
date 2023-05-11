@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container" >
+    <div class="row">
+        <div class="col-md-6 my-auto form-container text-center rounded mx-auto my-2 py-2">
+            <h1 class="slogan mt-5">Error 500: Internal Server Error.</h1>
+            <img src="https://res.cloudinary.com/dwjq6izv5/image/upload/v1683811051/PP1/oops-swelter_fbjt35.gif"
+            alt="gif-oops" class="w-25">
+            <a href="{% url 'home' %}" >
+                Go back and keep exploring ...
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
