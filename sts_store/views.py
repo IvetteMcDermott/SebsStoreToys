@@ -4,14 +4,20 @@ from django.shortcuts import render, redirect, get_object_or_404
 
 from django.views import generic, View
 from django.views.generic import UpdateView, ListView, CreateView
+
 from .models import Ware, WareImage, Category, Subcategory
 from checkout.models import Order, OrderLineItem
+from reviews.models import Review
+
+from profiles.models import UserProfile
+from bookmarks.models import Bookmarks
 
 from django.contrib.messages.views import SuccessMessageMixin
 
 from django.contrib.admin.views.decorators import staff_member_required
 from django.utils.decorators import method_decorator
 from .forms import WareForm, ImageForm
+from reviews.forms import ReviewForm
 
 # Create your views here.
 
@@ -29,19 +35,62 @@ class WareDetail(CreateView):
     RENDER THE DETAILS PAGE OF THE SELECTED WARE
     """
     model = Ware
+    review_form = ReviewForm()
+    bookmarked = False
 
     def get(self, request, ware_id, *args, **kwargs):
         model = Ware
+        bookmarked = False
+
+        user = UserProfile.objects.get(user=request.user)
         queryset = model.objects.all()
         ware = get_object_or_404(queryset, pk=ware_id)
+        reviews = ware.reviews.all().order_by('-date_created')
+        review_form = ReviewForm()
+        bookmarke = Bookmarks.objects.filter(user=user, ware=ware).exists()
+
+        if bookmarke:
+            bookmarked = True
+        else:
+            bookmarked = False
 
         return render(
             request,
-            "ware_detail.html",
+            'ware_detail.html',
             {
-               "ware": ware,
+               'ware': ware,
+               'reviews': reviews,
+               'form': review_form,
+               'bookmarked': bookmarked,
             },
         )
+
+    def post(self, request, ware_id, *args, **kwargs):
+        user = get_object_or_404(UserProfile, user=request.user)
+        ware = get_object_or_404(Ware, id=ware_id)
+        reviews = ware.reviews.all().order_by('-date_created')
+        review_form = ReviewForm(data=request.POST)
+
+        template = 'ware_detail.html'
+
+        if review_form.is_valid():
+            review_form.instance.author = request.user
+            review = review_form.save(commit=False)
+            review.ware = ware
+            review.save()
+            review_form = ReviewForm()
+            # messages.success(request, 'Profile had been updated successfully!')
+        else:
+            form = ReviewForm()
+
+        context = {
+                    'form': review_form,
+                    'user': user,
+                    'ware': ware,
+                    'reviews': reviews,
+                    }
+
+        return render(request, template, context)
 
 
 def search(request):
@@ -86,10 +135,19 @@ class AddImageForm(SuccessMessageMixin, CreateView):
 
 
 @staff_member_required
-def image_delete(request, image_id):
+def open_image(request, image_id):
     """ VIEW FOR ADD A NEW WARE """
     if request.method == 'GET':
-        image = WareImage.objects.get(image_id=pk)
+        image = get_object_or_404(WareImage, pk=image_id)
+
+    return render(request, 'admin/ware_image.html', {'image': image})
+
+
+@staff_member_required
+def image_delete(request, id):
+    """ VIEW FOR ADD A NEW WARE """
+    if request.method == 'GET':
+        image = WareImage.objects.get(pk=id)
         image.delete()
 
     return render(request, 'admin/store_panel.html')
@@ -99,9 +157,11 @@ def image_delete(request, image_id):
 def WareEdit(request, ware_id):
     """ VIEW FOR ADD A NEW WARE """
     form = WareForm()
-    ware = Ware.objects.get(id=ware_id)
+    ware = get_object_or_404(Ware, id=ware_id)
+
     if request.method == 'POST':
         form = WareForm(request.POST, instance=ware)
+
         if form.is_valid():
             form.save(commit=False)
             form.save()

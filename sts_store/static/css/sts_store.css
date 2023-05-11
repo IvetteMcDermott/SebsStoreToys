@@ -1,3 +1,7 @@
 #add-ware > p > label {
     width: 5em;
 }
+
+.pin-css {
+    margin-bottom: 10px;
+}

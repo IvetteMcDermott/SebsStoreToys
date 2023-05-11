@@ -1,4 +1,6 @@
 from .models import Ware, WareImage
+from  reviews.models import Review
+
 from django import forms
 from django.forms import fields, ModelForm
 
@@ -21,3 +23,11 @@ class Search(forms.ModelForm):
     class Meta:
         model = Ware
         fields = ('name', 'description', )
+
+
+class ReviewForm(forms.ModelForm):
+
+    class Meta:
+        model = Review
+        fields = ('body', 'rating', )
+

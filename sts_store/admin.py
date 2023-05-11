@@ -26,7 +26,7 @@ class Subcategory(admin.ModelAdmin):
 class Ware(admin.ModelAdmin):
     list_filter = ('subcategory',)
     search_fields = ['subcategory', 'name']
-    list_display = ('name', 'sku', 'description', 'subcategory', 'price',
+    list_display = ('id', 'name', 'sku', 'description', 'subcategory', 'price',
                     'height', 'width', 'length', 'new', 'clearance', )
 
 
@@ -34,4 +34,4 @@ class Ware(admin.ModelAdmin):
 class WareImage(admin.ModelAdmin):
     list_filter = ('ware',)
     search_fields = ['ware']
-    list_display = ('ware', 'image', 'caption',)
+    list_display = ('id', 'ware', 'image', 'caption',)

@@ -25,7 +25,7 @@ class Subcategory(models.Model):
 
     def __str__(self):
         return self.name
-
+     
 
 class Ware(models.Model):
     name = models.CharField(max_length=60, unique=True, null=False,
@@ -44,6 +44,18 @@ class Ware(models.Model):
 
     def __str__(self):
         return self.name
+
+    # Function taken from https://www.youtube.com/watch?v=8iCqlFyFu2s
+    def get_rating_total(self):
+        reviews_total = 0
+
+        for review in self.reviews.all():
+            reviews_total += review.rating
+
+        if reviews_total > 0:
+            return reviews_total / self.reviews.count()
+
+        return 0
 
 
 class WareImage(models.Model):
