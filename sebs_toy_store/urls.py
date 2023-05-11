@@ -25,4 +25,8 @@ urlpatterns = [
     path('shoppingcart/', include('shopping_cart.urls'), name='shopping_cart'),
     path('checkout/', include('checkout.urls'), name='checkout'),
     path('newsletter/', include('mailchimpNewsletter.urls'), name='subscribeToNewsLetter'),
+    path('bookmarks/', include('bookmarks.urls'), name='bookmarks'),
+    path('news_blog/', include('news_blog.urls'), name='news_blog'),
+    path('reviews/', include('reviews.urls'), name='reviews'),
+    path('contact_us/', include('contact_us.urls'), name='contact_us'),
 ]
