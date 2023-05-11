@@ -24,10 +24,5 @@ def contact_us(request):
 
 
 def success(request):
-	# Message if subscription goes ahead
-	return render(request, 'newsletter/success.html')
-
-
-def error(request):
-	# Message if subscription fails
-	return render(request, 'newsletter/error.html')
+    # Message if subscription goes ahead
+    return render(request, 'newsletter/success.html')
