@@ -1,4 +1,5 @@
 from django.db.models import Q
+from django.contrib import messages
 
 from django.shortcuts import render, redirect, get_object_or_404
 
@@ -42,17 +43,19 @@ class WareDetail(CreateView):
         model = Ware
         bookmarked = False
 
-        user = UserProfile.objects.get(user=request.user)
         queryset = model.objects.all()
         ware = get_object_or_404(queryset, pk=ware_id)
         reviews = ware.reviews.all().order_by('-date_created')
         review_form = ReviewForm()
-        bookmarke = Bookmarks.objects.filter(user=user, ware=ware).exists()
 
-        if bookmarke:
-            bookmarked = True
-        else:
-            bookmarked = False
+        if request.user.is_authenticated:
+            user = UserProfile.objects.get(user=request.user)
+            bookmarke = Bookmarks.objects.filter(user=user, ware=ware).exists()
+
+            if bookmarke:
+                bookmarked = True
+            else:
+                bookmarked = False
 
         return render(
             request,
@@ -78,19 +81,21 @@ class WareDetail(CreateView):
             review = review_form.save(commit=False)
             review.ware = ware
             review.save()
-            review_form = ReviewForm()
-            # messages.success(request, 'Profile had been updated successfully!')
+            ReviewForm()
+            messages.success(request, 'Your review was posted successfully!')
         else:
-            form = ReviewForm()
+            review_form = ReviewForm()
+        
+        return redirect(request.META.get('HTTP_REFERER'))
 
-        context = {
-                    'form': review_form,
-                    'user': user,
-                    'ware': ware,
-                    'reviews': reviews,
-                    }
+        # context = {
+        #             'form': ReviewForm(),
+        #             'user': user,
+        #             'ware': ware,
+        #             'reviews': reviews,
+        #             }
 
-        return render(request, template, context)
+        # return render(request, template, context)
 
 
 def search(request):

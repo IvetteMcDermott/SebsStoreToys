@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from sts_store.models import Ware
 from profiles.models import UserProfile
 from .models import Bookmarks
-
+from django.contrib import messages
 
 
 # Create your views here.
@@ -40,13 +40,12 @@ def toggle_bookmark(request, ware_id):
                 ware=ware,
             )
             bookmark_ware.delete()
-
-            # messages.remove
+            messages.success(request, 'Bookmark had been removed successfully')
         else:
             bookmark_ware = Bookmarks.objects.create(
                 user=user,
                 ware=ware,
             )
-            # messages.success
+            messages.success(request, 'The ware had been bookmarked successfully')
 
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
