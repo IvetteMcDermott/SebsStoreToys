@@ -5,17 +5,20 @@
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
-{% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
+{% block head %}
+<title>SebsToyStore - {{ order.order_number|slice:'::-1'|truncatechars:9|slice:'::-1' }}</title>
+{% endblock %}
+
+
+{% block header %}
+<div class="row">
+    <h2 class="mb-0 text-orange text-uppercase p-5">Order detail</h2>
+</div>
 {% endblock %}
 
 
 {% block content %}
-    <div class="container" style="overflow-y: scroll;">
+    <div class="container" >
         <div class="row">
             <div class="col">
                 <hr>

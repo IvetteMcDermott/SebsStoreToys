@@ -15,11 +15,59 @@
   box-shadow: 0 1px 3px 0 rgb(51, 186, 205);
 }
 
-#form_section > input::placeholder {
-    color: #aab7c4;
+#form_section>input::placeholder {
+  color: #aab7c4;
 }
 
 #id_full_name {
-    color: #000;
-    border: 1px solid #0c0c0c;
+  color: #000;
+  border: 1px solid #0c0c0c;
+}
+
+.text-orange {
+  color: #FF7D00 !important;
+  text-decoration: none !important;
+}
+
+/* FROM TABLE GENERATOR, and adapted https://www.tablesgenerator.com/html_tables */
+.tg {
+  border-spacing: 0;
+}
+
+.tg td {
+  overflow: hidden;
+  word-break: normal;
+}
+
+.tg th {
+  font-weight: normal;
+  overflow: hidden;
+  word-break: normal;
+}
+
+.tg .tg-c3ow {
+  text-align: left;
+  vertical-align: top;
+  text-transform: capitalize;
+}
+
+.tg .tg-c3owemail {
+  text-align: left;
+  vertical-align: top;
+}
+
+.toggle-button {
+  background-color: rgb(54, 52, 52);
+  margin-bottom: 8px;
+  width: 90%;
+  margin-left: 0;
+  margin: auto;
+}
+
+@media (min-width: 700px) and (max-width: 900px) {
+
+  #bookmarks-div {
+    display: flex;
+    flex-direction: column;
+  }
 }
