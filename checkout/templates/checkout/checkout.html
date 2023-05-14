@@ -16,11 +16,11 @@
 
 
 {% block content %}
-    <div class="container"  style="overflow-y: scroll;">
+    <div class="container"  >
         <div class="row">
             <div class="col">
                 <hr>
-                <h2 class="logo-font mb-4">Checkout</h2>
+                <h2 class="logo-font mb-4 text-orange">Checkout</h2>
                 <hr>
             </div>
         </div>
@@ -39,7 +39,7 @@
                 {% for ware in cart_wares %}
                 <div class="row">
                     <div class="col-2 mb-1">
-                        <a href="{% url 'sts_store:ware_detail' ware.ware_id %}">
+                        <a href="{% url 'sts_store:ware_detail' ware.ware_id %}" >
                             <div class="image-container">
 
                                 {% for photo in ware.ware.ware_image.all %}
@@ -94,11 +94,10 @@
                         {{ order_form.postcode | as_crispy_field }}
                         {{ order_form.country | as_crispy_field }}
                         <div class="form-check form-check-inline float-right mr-0">
-                            <span>You are not logged in </span>
-                            <a class="text-info mr-1 ml-1" href="{% url 'account_signup' %}"> create an account </a>
+                            <span>If you want to keep your order history</span>
+                            <a class="text-info mr-1 ml-1 text-orange" href="{% url 'account_signup' %}" > Sign-Up </a>
                             <span> or </span>
-                            <a class="text-info mr-1 ml-1" href="{% url 'account_login' %}"> login </a> to save this
-                            order
+                            <a class="text-info mr-1 ml-1 text-orange" href="{% url 'account_login' %}" > Log-In </a>
 
                         </div>
                     </fieldset>
@@ -114,22 +113,22 @@
 
                     <div class="submit-button text-right mt-5 mb-2">
                         <a href="{% url 'shopping_cart:view_cart' %}" class="btn btn-outline-white rounded-0">
-                            <span class="icon">
-                                <i class="fas fa-chevron-left"></i>
+                            <span class="icon ">
+                                <i class="fas fa-chevron-left text-orange"></i>
                             </span>
-                            <span class="font-weight-bold">Adjust Cart</span>
+                            <span class="font-weight-bold text-orange">Adjust Cart</span>
                         </a>
                         <button id="submit-button" class="btn btn-outline-whitended-0">
-                            <span class="font-weight-bold">Complete Order</span>
+                            <span class="font-weight-bold text-orange">Complete Order</span>
                             <span class="icon">
-                                <i class="fas fa-lock"></i>
+                                <i class="fas fa-lock text-orange"></i>
                             </span>
                         </button>
-                        <p class="small text-danger my-0">
+                        <p class="small text-danger my-0" style="padding-right: 1.5em">
                             <span class="icon">
                                 <i class="fas fa-exclamation-circle"></i>
                             </span>
-                            <span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
+                            <span >Your card will be charged <strong>€{{ grand_total|floatformat:2 }}</strong></span>
                         </p>
                     </div>
                 </form>

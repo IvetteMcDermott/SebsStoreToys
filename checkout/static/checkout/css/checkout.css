@@ -35,22 +35,13 @@
     color: #000;
     border: 1px solid #0c0c0c;
 }
-
-#loading-overlay {
-	display: none;
-	position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(23, 162, 184, .85);
-    z-index: 9999;
+/* CSS FOR REMOVE PADDING FROM COUNTRY SELECT IN CHECKOUT FORM */
+#id_country {
+  padding: 0 !important;
+  padding-left: 0.5em;
 }
 
-.loading-spinner {
-	display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    height: 100%;
+.text-orange {
+  color:#FF7D00 !important;
+  text-decoration: none !important;
 }
