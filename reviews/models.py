@@ -14,11 +14,11 @@ class Review(models.Model):
 
     ware = models.ForeignKey(Ware, related_name="reviews",
                              on_delete=models.CASCADE)
-    body = models.CharField(max_length=300, null=False, blank=False)
+    body = models.TextField(max_length=300, null=False, blank=False)
     author = models.ForeignKey(User, related_name="author",
                                on_delete=models.CASCADE)
     date_created = models.DateField(auto_now_add=True)
-    rating = models.IntegerField(choices=rating,
+    rating = models.IntegerField(choices=rating, default='5',
                                  null=False, blank=False)
 
     def __str__(self):
