@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import UserProfile
+from bookmarks.models import Bookmarks
 from .forms import ProfileForm
 from checkout.models import Order
 from django.views import generic, View
@@ -22,8 +23,10 @@ def my_profile(request):
     """ THE PROFILE IS CREATED BY SIGNAL, SO DOESNT HAVE ANYOTHER """
     """ INFORMATION THAN THE USER """
     user = get_object_or_404(UserProfile, user=request.user)
-    orders = user.orders.all().order_by('-date')
+    orders = user.orders.all().order_by('-date')[:5]
     template = 'profiles/user_profile.html'
+    form = ProfileForm()
+    bookmarks = Bookmarks.objects.filter(user=user)
 
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES, instance=user)
@@ -31,13 +34,15 @@ def my_profile(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Profile had been updated successfully!')
-    else:
-        form = ProfileForm(instance=user)
+            form = ProfileForm()
+        else:
+            form = ProfileForm(instance=user)
 
     context = {
                 'form': form,
                 'user': user,
                 'orders': orders,
+                'bookmarks': bookmarks,
                 }
 
     return render(request, template, context)

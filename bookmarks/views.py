@@ -13,18 +13,6 @@ from django.contrib import messages
 
 
 @login_required
-def bookmarks(request, *args, **kwargs):
-    """ VIEW FOR USER INTERESTS """
-    user = UserProfile.objects.get(user=request.user)
-    template = 'bookmarks/user_bookmarks.html'
-    bookmarks = Bookmarks.objects.filter(user=user)
-    context = {
-        'wares': bookmarks,
-    }
-    return render(request, template, context)
-
-
-@login_required
 def toggle_bookmark(request, ware_id):
     """ BOOKMARK TOGGLE IF ADD OR REMOVE """
 
