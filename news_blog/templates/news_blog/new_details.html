@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'contact_us/css/contact_us.css' %}">
+{% endblock %}
+
+{% block head %}
+<title>SebsToyStore - {{ new.title }}</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="p-2 bd-highlight">
+    <span><i class="fa-regular fa-left" style="color: #33bacd;"></i></span>
+    <a href="javascript:history.go(-1)">
+        <h6><i class="fa-solid fa-circle-left" style="color: #33bacd;"></i>
+            Back
+        </h6>
+    </a>
+</div>
+
+<div class="row">
+    <div class="col">
+        <h2 class="mb-0 text-orange text-uppercase p-5">{{ new.title }}</h2>
+    </div>
+</div>
+
+<!---->
+
+<div class="container-fluid p-5">
+    <div class="row d-flex flex-column">
+        <div class="col">
+            <div class="d-flex justify-content-center">
+                <img src="{{ new.image.url }}" class="img-fluid rounded " style="max-width: 70%; height: auto"
+                    style="object-fit:scale-down" alt="new img">
+            </div>
+        </div>
+        <div class="col ">
+            <p class="text-right mb-3"> {{ new.date }}</p>
+
+            <p class="text-capitalize text-justify"> {{ new.description }}</p>
+            <a href="{{ new.source }}" target="_blank"> Source </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

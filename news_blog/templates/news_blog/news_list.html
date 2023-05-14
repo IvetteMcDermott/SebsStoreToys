@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+
+<title>SebsToyStore- News</title>
+
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'contact_us/css/contact_us.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<h3 >News List</h3>
+
+
+<section >
+
+<div class="container-fluid">
+    <div class="row d-flex">
+    {% for new in object_list %}
+    <div class="col">
+    <div class="card ware-card">
+
+        <a href="{% url 'news_blog:news_details' new.id %}" class="post-link" style="z-index: 2;">
+
+            <div class="image-container m-0 m-auto" style="min-width: 13em; max-width: 70%; max-height: 50%; z-index: 2;">
+
+                <img src="{{ new.image.url }}" class="card-img-top" style="object-fit: fit; min-width: 13em; max-width: 80%; max-height: 50%;" alt="image">
+               
+                <p class="text-orange"> {{ new.title|upper }}</p>
+                <p class="mb-1">{{ new.description|truncatewords:8 }}</p>
+                <p class="mb-0 text-right">{{ new.date }}</p>
+            </div>
+        </a>
+    </div>
+</div>
+    {% endfor %}
+</div></div>
+</section>
+
+
+{% endblock %}
