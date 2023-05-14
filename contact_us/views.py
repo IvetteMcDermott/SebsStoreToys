@@ -18,11 +18,11 @@ def contact_us(request):
             return HttpResponseRedirect('success')
         else:
             form = ContactUsForm()
-            return HttpResponseRedirect('success')
+            return HttpResponseRedirect('contact_us_form')
 
-    return render(request, 'contact_us/contact_us_form.html', {'form': form })
+    return render(request, 'contact_us/contact_us_form.html', {'form': form})
 
 
 def success(request):
     # Message if subscription goes ahead
-    return render(request, 'newsletter/success.html')
+    return render(request, 'contact_us/success.html')

@@ -8,7 +8,7 @@ class ContactUs(models.Model):
     subject = [
               ('product', 'About a product'),
               ('services', 'About our services'),
-              ('order', 'About an order, please include the number of this one in the mail'),
+              ('order', 'About an order'),
               ('delivery', 'About delivery'),
               ('enquiry', 'General enquiry'),
               ('Claim or Complain', 'Claim or Complain'),
