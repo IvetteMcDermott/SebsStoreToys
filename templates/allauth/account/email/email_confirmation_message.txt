@@ -3,6 +3,9 @@
 You're receiving this e-mail because user {{ user_display }} has given yours as an e-mail address to connect their account.
 
 To confirm this is correct, go to {{ activate_url }}
+
+Once you activate your account new options in the site will open for you, some of the benefits are being able to keep track of your interests in bookmarks section, your orders history, etc.
+
 {% endblocktrans %}
 {% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Thank you from {{ site_name }}!
 {{ site_domain }}{% endblocktrans %}
