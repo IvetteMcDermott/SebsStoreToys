@@ -1,20 +1,21 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block head %}
-
-<title>SebsToyStore- News</title>
-
-{% endblock %}
-
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'contact_us/css/contact_us.css' %}">
 {% endblock %}
 
+{% block head %}
+<title>SebsToyStore - News</title>
+{% endblock %}
+
+{% block header %}
+    <div class="row w-100 d-flex justify-content-center p-5">
+        <h2 class="text-orange text-uppercase pages-title" >News</h2>
+    </div>
+{% endblock %}
+
 {% block content %}
-
-<h3 >News List</h3>
-
 
 <section >
 
@@ -24,7 +25,7 @@
     <div class="col">
     <div class="card ware-card">
 
-        <a href="{% url 'news_blog:news_details' new.id %}" class="post-link" style="z-index: 2;">
+        <a href="{% url 'news_blog:news_details' new.id %}" class="post-link" style="z-index: 2; height:100%">
 
             <div class="image-container m-0 m-auto" style="min-width: 13em; max-width: 70%; max-height: 50%; z-index: 2;">
 
@@ -32,7 +33,7 @@
                
                 <p class="text-orange"> {{ new.title|upper }}</p>
                 <p class="mb-1">{{ new.description|truncatewords:8 }}</p>
-                <p class="mb-0 text-right">{{ new.date }}</p>
+                <p class="mb-0" style="bottom:0px; right:1em; position: absolute">{{ new.date }}</p>
             </div>
         </a>
     </div>
