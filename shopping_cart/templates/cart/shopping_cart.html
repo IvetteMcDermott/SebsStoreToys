@@ -1,64 +1,81 @@
 {% extends "base.html" %}
+{% load static %}
+
+
 {% load cart_tools %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'cart/css/cart.css' %}">
+{% endblock %}
+
 {% block head %}
+<title>SebsToyStore - Shopping Cart</title>
+{% endblock %}
 
-
+{% block header %}
+    <div class="row w-100 d-flex justify-content-center p-5">
+        <h2 class="text-orange text-uppercase pages-title" >shopping cart</h2>
+    </div>
 {% endblock %}
 
 {% block content %}
-<div class="row  w-100">
-    <h3 class="w-100 text-center m-5">shopping cart</h3>
+
+<div class="container p-5" style="min-height: 40vh;">
+
+
+        {% for ware in cart_wares %}
+        <div class="row">
+            <div class="col">
+
+                {% for photo in ware.ware.ware_image.all %}
+
+                {% if forloop.counter == 1 %}
+                <img src="{{ photo.image.url }}" class="card-img-top" style="width: 4em; object-fit: scale-down;"
+                    alt="image">
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class="col">
+                <div class="row">
+                    <span>{{ ware.ware}} </span>
+                </div>
+                <div class="row">
+                    <span>SKU: {{ ware.ware.sku }} </span>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="row">
+                    <span>Qty: {{ ware.quantity}} </span>
+                </div>
+                <div class="row">
+                    <span>Price: {{ ware.ware.price }} </span>
+                </div>
+            </div>
+            <form><a href="{% url 'shopping_cart:remove_from_cart' ware.ware_id %}">remove</a></form>
+
+            {% include 'cart/modify_cart.html' %}
+
+            <div class="col text-right">
+                <p class="my-0 small text-muted">€{{ ware.ware.price | calc_subtotal:ware.quantity }}</p>
+            </div>
+        </div>
+        {% empty %}
+        <div class="row">
+            <h3> Your shopping cart is empty </h3>
+        </div>
+        {% endfor %}
 </div>
-<div class="container" style="width:95%; overflow-y: scroll;">
-
-
-    {% for ware in cart_wares %}
+<div class="container p-5">
     <div class="row">
-        <div class="col">
 
-            {% for photo in ware.ware.ware_image.all %}
-
-            {% if forloop.counter == 1 %}
-            <img src="{{ photo.image.url }}" class="card-img-top" style="width: 4em; object-fit: scale-down;"
-                alt="image">
-            {% endif %}
-            {% endfor %}
-        </div>
-        <div class="col">
-            <div class="row">
-                <span>{{ ware.ware}} </span>
-            </div>
-            <div class="row">
-                <span>SKU: {{ ware.ware.sku }} </span>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="row">
-                <span>Qty: {{ ware.quantity}} </span>
-            </div>
-            <div class="row">
-                <span>Price: {{ ware.ware.price }} </span>
-            </div>
-        </div>
-        <form><a href="{% url 'shopping_cart:remove_from_cart' ware.ware_id %}">remove</a></form>
-
-        {% include 'cart/modify_cart.html' %}
-
-        <div class="col text-right">
-            <p class="my-0 small text-muted">€{{ ware.ware.price | calc_subtotal:ware.quantity }}</p>
-        </div>
+        {% include 'cart/total_section_cart.html' %}
     </div>
-    {% endfor %}
+    <div class="row">
+        {% include 'cart/checkout_section_cart.html' %}
+    </div>
 </div>
-
-{% include 'cart/total_section_cart.html' %}
-
-{% include 'cart/checkout_section_cart.html' %}
-
 </div>
-
 
 <script type="text/javascript">
     // Update quantity on click

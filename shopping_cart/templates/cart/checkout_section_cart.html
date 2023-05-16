@@ -1,18 +1,20 @@
 <div class="row w-100">
     <div class="col d-flex justify-content-end">
-        <a href="{% url 'sts_store:wares' %}" class="btn btn-outline-black rounded-0 btn-lg">
+        <a href="{% url 'sts_store:wares' %}" class="btn btn-outline-black rounded-1 btn-lg pages-title">
             <span class="icon">
                 <i class="fas fa-chevron-left"></i>
             </span>
-            <span class="text-uppercase">Keep Shopping</span>
+            <span class="text-uppercase text-orange pages-title ">Keep Shopping</span>
         </a>
     </div>
-    <div class="col">
-        <a href="{% url 'checkout:checkout' %}" class="btn btn-black rounded-0 btn-lg">
-            <span class="text-uppercase">Secure Checkout</span>
+    {% if cart_wares %}
+    <div class="col d-flex align-center">
+        <a href="{% url 'checkout:checkout' %}"  class="btn btn-black rounded-1 btn-lg pages-title"></a>
+            <span class="text-uppercase text-orange pages-title rounded-1" style="padding: 0.5rem 1rem;">Secure Checkout</span>
             <span class="icon">
                 <i class="fas fa-lock"></i>
             </span>
         </a>
     </div>
+    {% endif %}
 </div>

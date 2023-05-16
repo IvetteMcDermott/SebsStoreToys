@@ -1,8 +1,21 @@
-<h6>Cart Total: €{{ total|floatformat:2 }}</h6>
-<h6>Delivery: €{{ delivery|floatformat:2 }}</h6>
-<h4 class="mt-4"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></h4>
-{% if free_delivery_delta > 0 %}
-    <p class="mb-1 text-danger">
-        You could get free delivery by spending just <strong>€{{ free_delivery_delta }}</strong> more!
-    </p>
-{% endif %}
+<hr>
+<div class="col">
+    <div class="row w-100">
+        <div class="row w-100">
+            <h6>Cart Total: €{{ total|floatformat:2 }}</h6>
+        </div>
+        <div class="row">
+            <h6>Delivery: €{{ delivery|floatformat:2 }}</h6>
+        </div>
+    </div>
+    <div class="row w-100">
+        <h4 class="mt-4 w-100 text-right"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></h4>
+    </div>
+    <div class="row w-100">
+        {% if free_delivery_delta > 0 %}
+        <p class="mb-3 w-100 text-center text-danger">
+            You could get free delivery by spending just <strong> € {{ free_delivery_delta }}</strong> more!
+        </p>
+        {% endif %}
+    </div>
+</div>
