@@ -6,24 +6,18 @@
 <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
-{% block page_header %}
-<div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
-</div>
+{% block head %}
+<title>SebsToyStore - Checkout</title>
 {% endblock %}
 
+{% block header %}
+    <div class="row w-100 d-flex justify-content-center p-5">
+        <h2 class="text-orange text-uppercase pages-title" >checkout</h2>
+    </div>
+{% endblock %}
 
 {% block content %}
-    <div class="container"  >
-        <div class="row">
-            <div class="col">
-                <hr>
-                <h2 class="logo-font mb-4 text-orange">Checkout</h2>
-                <hr>
-            </div>
-        </div>
+<div class="container"  >
 
         <div class="row">
             <div class="col-12 col-lg-6 order-lg-last mb-5">
@@ -95,9 +89,9 @@
                         {{ order_form.country | as_crispy_field }}
                         <div class="form-check form-check-inline float-right mr-0">
                             <span>If you want to keep your order history</span>
-                            <a class="text-info mr-1 ml-1 text-orange" href="{% url 'account_signup' %}" > Sign-Up </a>
+                            <a class="mr-1 ml-1 text-orange" href="{% url 'account_signup' %}" > Sign-Up </a>
                             <span> or </span>
-                            <a class="text-info mr-1 ml-1 text-orange" href="{% url 'account_login' %}" > Log-In </a>
+                            <a class="mr-1 ml-1 text-orange" href="{% url 'account_login' %}" > Log-In </a>
 
                         </div>
                     </fieldset>
