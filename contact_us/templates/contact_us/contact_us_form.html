@@ -12,14 +12,16 @@
 
 {% endblock %}
 
+{% block header %}
+<div class="container"  >
+    <div class="row w-100 d-flex justify-content-center p-5">
+        <h2 class="text-orange text-uppercase pages-title" >Contact Us</h2>
+    </div>
+{% endblock %}
+
 {% block content %}
 <div class="w-monitors">
 <div class="container-fluid ">
-    <div class="row ">
-        <div class="col">
-            <h2 class="mb-4 text-orange">Checkout</h2>
-        </div>
-    </div>
 
     <form method="post" id="contact_form_section" style="margin-top: 1.3em;">
         {% csrf_token %}
