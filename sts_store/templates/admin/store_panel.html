@@ -1,39 +1,61 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
+
 {% block head %}
+<title>SebsToyStore - Staff Panel</title>
+{% endblock %}
 
-
+{% block header %}
+<div class="row w-100 d-flex justify-content-center p-5">
+    <h2 class="text-orange text-uppercase pages-title">Staff Panel</h2>
+</div>
 {% endblock %}
 
 {% block content %}
 
-<span>store panel</span>
-
-<hr>
-
-<a href="{% url 'sts_store:ware_entry' %}" class="post-link" style="z-index: 2;" target="_blank">Add Ware</a>
-<a href="{% url 'sts_store:image_entry' %}" class="post-link" style="z-index: 2;" target="_blank">Add Image</a>
-<a href="{% url 'sts_store:orders' %}" class="post-link" style="z-index: 2;">Orders</a>
-
-<hr>
-
-<p>Find the ware to edit or delete</p>
-<form action="{% url 'sts_store:search' %}" method="post">
-    {% csrf_token %}
-
-    <input name="q" type="text" placeholder="Search...">
-    <button type="submit">Go</button>
-</form>
-
-<hr>
-
-<p>Find the wareImages delete</p>
-<form action="{% url 'sts_store:search_image' %}" method="post">
-    {% csrf_token %}
-
-    <input name="q" type="text" placeholder="Search...">
-    <button type="submit">Go</button>
-</form>
-
+<div class="container-fluid p-5">
+    <div class="row w-100 d-flex justify-content-around">
+        <div class="col d-flex justify-content-center">
+            <a href="{% url 'sts_store:ware_entry' %}" style="z-index: 2;" ><button
+                    class="btn btn-outline-info pages-title btn-shadow btn-size mb-2">Add Ware</button></a>
+        </div>
+        <div class="col d-flex justify-content-center">
+            <a href="{% url 'sts_store:image_entry' %}" style="z-index: 2;" ><button
+                    class="btn btn-outline-info pages-title btn-shadow btn-size mb-2">Add Image</button></a>
+        </div>
+        <div class="col d-flex justify-content-center">
+            <a href="{% url 'sts_store:orders' %}" style="z-index: 2;" ><button
+                    class="btn btn-outline-info pages-title btn-shadow btn-size mb-2">Orders</button></a>
+        </div>
+        <div class="col d-flex justify-content-center">
+            <a href="{% url 'news_blog:news_entry' %}" style="z-index: 2;" ><button
+                    class="btn btn-outline-info pages-title btn-shadow btn-size mb-2">News Entry</button></a>
+        </div>
+    </div>
+    <hr>
+    <div class="row-flex mt-3" >
+        <p class="mb-1">Find the ware to edit or delete</p>
+        <form action="{% url 'sts_store:search' %}" method="post">
+            {% csrf_token %}
+            <input name="q" type="text" class="m-0 mr-1 mb-1" style="border-radius: 5px; height: 2em;" placeholder="Search...">
+            <button type="submit" class="btn btn-outline-info pages-title btn-shadow m-0 d-flex align-items-center"
+                style="height: 2em;">Go</button>
+        </form>
+    </div>
+    <div class="row p-3">
+        <h5>Instructions for edit or delete, a ware</h5>
+        <ol>
+            <li>Search for the ware you need</li>
+            <li>In it, staff will find the buttons for edit or delete the ware</li>
+            <li>Procced as needed</li>
+        </ol>
+        <h5>Instructions for delete a image</h5>
+        <ol>
+            <li>Search for the ware that has link the image you need</li>
+            <li>Click in the image you want to erase, it will open in a new page for the action</li>
+            <li>Procced as needed</li>
+        </ol>
+    </div>
+</div>
 
 {% endblock %}

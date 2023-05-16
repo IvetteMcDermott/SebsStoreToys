@@ -1,14 +1,27 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
+
 {% block head %}
+<title>SebsToyStore - Add a Image</title>
+{% endblock %}
 
-
+{% block header %}
+<!-- LINK BACK TO STAFF PANEL -->
+<div class="p-2 w-50">
+    <span><i class="fa-regular fa-left" style="color: #33bacd; "></i></span>
+    <a href="{% url 'sts_store:store_panel' %}">
+        <h6><i class="fa-solid fa-circle-left" style="color: #33bacd;"></i>
+            Staff Panel
+        </h6>
+    </a>
+</div>
+<!---->
+    <div class="row w-100 d-flex justify-content-center p-5">
+        <h2 class="text-orange text-uppercase pages-title" >Staff Panel - Add a Image</h2>
+    </div>
 {% endblock %}
 
 {% block content %}
-
-<span>admin</span>
-
 
 <div style="padding: 2em; width: 80%; margin: auto;">
     <form method="POST" id="add-ware" enctype="multipart/form-data" style="margin-top: 1.3em;">
@@ -17,7 +30,8 @@
         {{ form | crispy }}
         {{ form.media }}
 
-        <button type="submit" class="btn-primary">Save</button>
+        <button type="submit" class="btn btn-outline-info rounded-1 input-field text-center text-uppercase"
+        style="width: 8.5em; box-shadow: 3px 3px 5px rgb(41, 110, 180, 0.466);">Save</button>
 
     </form>
 </div>

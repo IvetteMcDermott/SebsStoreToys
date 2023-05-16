@@ -1,30 +1,88 @@
 {% extends "base.html" %}
+{% load static %}
+
 {% load crispy_forms_tags %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'sts_store/css/sts_store.css' %}">
+{% endblock %}
+
 {% block head %}
+<title>SebsToyStore - Orders Data</title>
+{% endblock %}
+
+{% block header %}
+<!-- LINK BACK TO STAFF PANEL -->
+<div class="p-2 w-50">
+    <span><i class="fa-regular fa-left" style="color: #33bacd; "></i></span>
+    <a href="{% url 'sts_store:store_panel' %}">
+        <h6><i class="fa-solid fa-circle-left" style="color: #33bacd;"></i>
+            Staff Panel
+        </h6>
+    </a>
+</div>
+<!---->
+<div class="row w-100 d-flex justify-content-center p-5">
+    <h2 class="text-orange text-uppercase pages-title">Staff Panel - Orders</h2>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid p-5">
+    <div class="row d-flex justify-content-center">
+        <table class="tg">
+            <tbody>
+                <tr>
+                    <th class="tg-c3ow text-center p-2">Order Number </th>
+                    <th class="tg-c3ow text-center p-2 ">Client </th>
+                    <th class="tg-c3ow text-center p-2">Date </th>
+                    <th class="tg-c3ow text-center p-2">Charged </th>
+                </tr>
+                {% for order in orders %}
+                <tr style="border-bottom: grey 1px solid;">
+                    <td class="tg-c3ow ">
+                        <a href="{% url 'profiles:order_details' order.order_number %}" class="post-link"
+                            style="z-index: 2;" target="_blank">
+                            {{ order.order_number|slice:'::-1'|truncatechars:9|slice:'::-1' }}</a>
+                    </td>
+                    <td class=""> {{ order.user_profile }}</td>
+                    <td class=""> {{ order.date.date }}</td>
+                    <td class="text-right ">{{ order.grand_total }}</td>
+                </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<button onclick="topFunction()" id="myBtn" class="btn btn-outline-info pages-title btn-shadow"
+    title="Go to top">Top</button>
 
 
 {% endblock %}
 
-{% block content %}
+{% block topbtnJs %}
+<script>
+    // Took from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_scroll_to_top
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
 
-<div class="p-2 bd-highlight">
-    <a href="javascript:history.go(-1)">
-        <h4>
-            Back
-        </h4>
-    </a>
-</div>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () { scrollFunction() };
 
+    function scrollFunction() {
+        if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
 
-<span>orders</span>
-
-
-{% for order in orders %}
-
-<a href="{% url 'profiles:order_details' order.order_number %}" class="post-link" style="z-index: 2;" target="_blank">
-
-    {{ order.order_number }}</a><span>Purchase date: {{ order.date }}</span> <span>Charged: {{ order.grand_total }}</span>
-   
-{% endfor %}
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
 
 {% endblock %}

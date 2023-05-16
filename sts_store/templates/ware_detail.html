@@ -2,128 +2,230 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'sts_store/css/sts_store.css' %}">
+{% endblock %}
+
 
 {% block head %}
 
+<title>SebsToyStore - {{ ware.name }}</title>
 
 {% endblock %}
 
 {% block content %}
 
-<h3>Ware detail</h3>
-
-<div class="p-2 bd-highlight">
-    <a href="javascript:history.go(-1)">
-        <h4>
-            Back
-        </h4>
+<div class="p-2 w-50">
+    <span><i class="fa-regular fa-left" style="color: #33bacd; "></i></span>
+    <a href="{% url 'sts_store:wares' %}">
+        <h6><i class="fa-solid fa-circle-left" style="color: #33bacd;"></i>
+            Back to Store
+        </h6>
     </a>
 </div>
-
-<!-- BOOKMARK -->
-<div class="row-flex d-flex justify-content-end w-100 align-top" style="top:0px;">
-    {% if user.is_authenticated %}
-    <form method="post" action="{% url 'bookmarks:toggle_bookmark' ware.id %}">
-        {% csrf_token %}
-        {% if bookmarked %}
-        <button type="submit" name="bookmark" value="{{ ware.id }}" class="btn btn-outline-danger">Unpin<i
-                class="bi bi-pin-angle-fill"></i></button>
-        {% else %}
-        <button type="submit" name="bookmark" value="{{ ware.id }}" class="btn btn-outline-info">
-            Pin<i class="bi bi-pin-angle"></i></button>
-
-        {% endif %}
-    </form>
-    {% endif %}
+<div class="row w-100  d-flex justify-content-center">
+    <h2 class="text-orange text-uppercase pages-title">{{ ware.name }}</h2>
 </div>
-<!-- -->
-<div>
+<!-- BUTTONS AREA -->
+<div class="container-fluid p-5">
+    <div class="row-flex d-flex w-100 align-top" style="top:0px;">
 
-    <a href="{% url 'sts_store:ware_edit' ware.id %}" class="btn btn-outline-warning" style="z-index: 2;">Edit</a>
+        <!-- EDIT WARE -->
+        <div class="col-4">
+            {% if user.is_staff %}
 
-    <!---->
+            <a href="{% url 'sts_store:ware_edit' ware.id %}" class="btn btn-outline-warning">Edit</a>
+            {% endif %}
 
-    <div class="col d-flex justify-content-center">
-        <form method="get" action="{% url 'sts_store:ware_delete' ware.id %}" style="margin-top: 1.3em;">
+        </div>
+        <!---->
+        <!-- DELETE WARE -->
+        <div class="col-4">
+            {% if user.is_staff %}
 
+            <form method="get" action="{% url 'sts_store:ware_delete' ware.id %}">
+                <button type="button" class="btn btn-outline-danger" data-toggle="modal"
+                    data-target="#exampleModal-{{ ware.id }}" data-backdrop="false">Delete</button>
 
-            <button type="button" class="btn btn-outline-danger" data-toggle="modal"
-                data-target="#exampleModal-{{ ware.id }}" data-backdrop="false">Delete</button>
-
-            <!-- MODAL FOR DELETE WARE -->
-            <div class="modal fade" id="exampleModal-{{ ware.id }}" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header" style="background-color: black;">
-                            <h5 class="modal-title" id="exampleModalLabel">Do you want to delete this ware?</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body" style="background-color: black;">
-                            {% csrf_token %}
-                            {{ ware.name }}
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                <!-- MODAL FOR DELETE WARE -->
+                <div class="modal fade" id="exampleModal-{{ ware.id }}" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true"
+                    style="background-color: rgba(24, 23, 23, 0.686);">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content" style="background-color: black; top:20vh;">
+                            <div class="modal-header">
+                                <h5 class="text-orange text-uppercase pages-title " id="exampleModalLabel">Do you want
+                                    to delete this ware?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body" style="background-color: black;">
+                                {% csrf_token %}
+                                {{ ware.name }}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal"
+                                    style="box-shadow: 3px 3px 5px rgb(41, 110, 180, 0.466);">Cancel</button>
+                                <button type="submit" class="btn btn-outline-danger"
+                                    style="box-shadow: 3px 3px 5px rgb(41, 110, 180, 0.466);">Delete</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-        </form>
+            </form>
+            {% endif %}
+        </div>
+        <!---->
+
+        <!-- BOOKMARK -->
+
+        <div class="col-4 d-flex justify-content-end">
+            {% if user.is_authenticated and not request.user.is_staff %}
+            <form method="post" action="{% url 'bookmarks:toggle_bookmark' ware.id %}">
+                {% csrf_token %}
+                {% if bookmarked %}
+                <button type="submit" name="bookmark" value="{{ ware.id }}" class="btn btn-outline-info"
+                    style="box-shadow: 3px 3px 5px rgb(41, 110, 180, 0.466);">
+                    <i class="fa-solid fa-floppy-disk" style="color: #33bacd;"></i><small>Bookmarked</small></button>
+                {% else %}
+                <button type="submit" name="bookmark" value="{{ ware.id }}" class="btn btn-outline-info"
+                    style="box-shadow: 3px 3px 5px rgb(41, 110, 180, 0.466);">
+                    <i class="fa-regular fa-floppy-disk" style="color: #33bacd;"></i><small>Bookmark it</small></button>
+                {% endif %}
+            </form>
+            {% endif %}
+        </div>
     </div>
-
-    <!---->
-
-</div>
-<div>
-    <p>name: {{ ware.name }}</p>
-    <p>{{ ware.get_rating_total }} </p>
-    <p>subcat: {{ ware.subcategory }}</p>
-    <p>cat: {{ ware.subcategory.category }}</p>
-    <p>subcat: {{ ware.price }}</p>
 </div>
 
+<!-- WARE INFO IMAGE -->
+<div class="container-fluid p-5">
+    <div class="row" style="overflow-x: hidden;">
+
+        <!-- IMAGE -->
+        <div class="col p-0">
+            <div class="ia-container" id="width-img">
+                {% for photo in ware.ware_image.all %}
+                {% if forloop.counter == 1 %}
+                <figure>
+                    <img src="https://res.cloudinary.com/dwjq6izv5/image/upload/v1681308756/PP5/SebsToyStore_eov1ih.gif"
+                        alt="Logo">
+                    <input type="radio" name="radio-set" checked="checked">
+                    {% endif %}
+                    {% endfor %}
+
+                    {% for photo in ware.ware_image.all %}
+                    <figure>
+                        <img src="{{ photo.image.url }}" alt="{{ photo.caption }}">
+                        <input type="radio" name="radio-set" checked="checked">
+                        {% endfor %}
+                        {% for photo in ware.ware_image.all %}
+                    </figure>
+                    {% endfor %}
+                </figure>
+            </div>
+        </div>
+        <div class="col" style="min-width: 200px; max-width: 800px;">
+            <p class="text-justify">{{ ware.description }}</p>
+            <p>{{ ware.subcategory.category }}, {{ ware.subcategory }}</p>
+            <p>Price: {{ ware.price }}</p>
+
+            <span>Rating: {{ ware.get_rating_total|floatformat }} <i class="fa-solid fa-star"></i></span>
+            {% include 'cart/quantity_form.html' %}
+        </div>
+
+    </div>
+</div>
+
+<!-- SECTION FOR STAFF TO ACCESS TO IMGS -->
 {% if request.user.is_staff %}
-
-
-{% for photo in ware.ware_image.all %}
-<a href="{% url 'sts_store:open_image' photo.id %}" target="_blank"> <img src="{{ photo.image.url }}"
-        alt="{{ photo.caption }}" style="width: 400px;"></a>
-<p>{{ photo.caption }}</p>
-{{ photo.id }}
-
-{% endfor %}
-
-
-{% else %}
+<div class="row p-2 m-5" style="border: 1px solid grey; border-radius: 5px;">
+    <h5>Section for staff access to images, click on the one you need to delete</h5>
 
 {% for photo in ware.ware_image.all %}
-<img src="{{ photo.image.url }}" alt="{{ photo.caption }}" style="width: 400px;">
-<p>{{ photo.caption }}</p>
-{{ photo.id }}
+<a href="{% url 'sts_store:open_image' photo.id %}"> <img src="{{ photo.image.url }}" alt="{{ photo.caption }}"
+        style="width: 400px;"></a>
+<p>{{ photo.caption }} - id {{ photo.id }}</p>
 {% endfor %}
+</div>
 {% endif %}
 
-<p>leave a review of the ware <a href="" data-toggle="modal" data-target="#ReviewForm" data-backdrop="false"> Here!</a>
-</p>
-
-<div>
-    <p>Reviews:</p>
+<div class="row d-flex justify-content-end" style="width: 90%; padding:0; padding: auto;">
+    {% if request.user.is_authenticated %}
+    {% if not request.user.is_staff %}
+    <p>Leave your review of this ware <a href="" data-toggle="modal" data-target="#ReviewForm" data-backdrop="false">
+            Here!</a>
+    </p>
+    {% endif %}
+    {% else %}
+    <p>To leave a review you need to
+        <a class=" mr-1 ml-1 text-orange" href="{% url 'account_signup' %}" > Sign-Up </a>
+        <span> or </span>
+        <a class="mr-1 ml-1 text-orange" href="{% url 'account_login' %}" > Log-In </a>
+    </p>
+    {% endif %}
+</div>
+<div class="container-fluid p-5">
+    <div class="row">
+        <p>Ware last reviews:</p>
+    </div>
     {% for review in reviews %}
-    <span>{{ review.rating }} <i class="fa-solid fa-star"></i></span>
-    <p>{{ review.body }}</p>
-    <p>{{ review.author }}</p>
-    <p>{{ review.date_created }}</p>
+    <div class="row pl-3">
+        <span style="color:#FF7D00 ;">{{ review.rating }} <i class="fa-solid fa-star"
+                style="color:#FF7D00 ;"></i></span>
+    </div>
+    <div class="row pl-5">
+        <p>"{{ review.body }}"</p>
+    </div>
+    <div class="row d-flex justify-content-between pl-5">
+        <div class="col">
+            <p>By: {{ review.author }}</p>
+        </div>
+        <div class="col"> <span>
+                <p><small>{{ review.date_created }}</small></p>
+            </span>
+        </div>
+    </div>
+    <hr>
 
-
+    {% empty %}
+    <p> No reviews yet </p>
     {% endfor %}
+
+    <button onclick="topFunction()" id="myBtn" class="btn btn-outline-info pages-title btn-shadow"
+        title="Go to top">Top</button>
+
 </div>
 
-{% include 'cart/quantity_form.html' %}
 {% include 'reviews/reviews_form.html' %}
+
+
+{% endblock %}
+
+{% block topbtnJs %}
+<script>
+    // Took from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_scroll_to_top
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
 
 {% endblock %}

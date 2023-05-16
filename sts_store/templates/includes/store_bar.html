@@ -1,0 +1,119 @@
+<div class="container-fluid w-100" style="background-color: black;  margin-top: 5px;">
+    <div class="row d-flex justify-content-around">
+        <div class="col d-flex justify-content-center text-uppercase"><button type="button" value="toggle"
+                onclick="toggleV()" class="toggle-button" style="all: unset; cursor: pointer;">Video Games</button>
+        </div>
+        <div class="col d-flex justify-content-center text-uppercase"><button type="button" value="toggle"
+                onclick="toggleE()" class="toggle-button" style="all: unset; cursor: pointer;">Educational</button>
+        </div>
+        <div class="col d-flex justify-content-center text-uppercase"><button type="button" value="toggle"
+                onclick="toggleB()" class="toggle-button" style="all: unset; cursor: pointer;">Board Games</button>
+        </div>
+        <div class="col d-flex justify-content-center text-uppercase"><button type="button" value="toggle"
+                onclick="toggleF()" class="toggle-button" style="all: unset; cursor: pointer;">Figures</button>
+        </div>
+
+    </div>
+</div>
+
+<div class="row d-flex justify-content-around" >
+    <div class="col">
+
+        <div id="videos-games" class="container-fluid pl-5 pr-5 pt-1 " style="display: none;">
+            <div class="row d-flex justify-items-end">
+                <form action="{% url 'sts_store:search_category' %}" method="POST" class="form-background p-3"
+                    style="border: rgb(51,186,205) solid 2px; border-radius: 5px;">
+                    {% csrf_token %}
+                    <ul class="list-group">
+                        <li class="list-no-style">
+                            <button class="form-button" type="submit" name="q" value="switch">Switch</button>
+                        </li>
+                        <li class="list-no-style">
+                            <button class="form-button" type="submit" name="q" value="xbox">Xbox</button>
+                        </li>
+                        <li class="list-no-style">
+                            <button class="form-button" type="submit" name="q" value="play">Play Station</button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div id="educational" class="container-fluid pl-5 pr-5 pt-1 " style="display: none;">
+            <div class="row d-flex justify-items-end">
+                <form action="{% url 'sts_store:search_category' %}" method="POST" class="form-background p-3"
+                    style="border: rgb(51,186,205) solid 2px; border-radius: 5px;">
+                    {% csrf_token %}
+                    <ul class="list-group">
+                        <li class="list-no-style">
+                            <button class="form-button" type="submit" name="q" value="toddler">Toddler Toys</button>
+                        </li>
+                        <li class="list-no-style">
+                            <button class="form-button" type="submit" name="q" value="blocks">Building Blocks</button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div id="board-games" class="container-fluid pl-5 pr-5 pt-1 " style="display: none;">
+            <div class="row d-flex justify-items-end">
+                <form action="{% url 'sts_store:search_category' %}" method="POST" class="form-background p-3"
+                    style="border: rgb(51,186,205) solid 2px; border-radius: 5px;">
+                    {% csrf_token %}
+                    <ul class="list-group">
+                        <li class="list-no-style">
+                            <button class="form-button" type="submit" name="q" value="adults">Adults</button>
+                        </li>
+                        <li class="list-no-style">
+                            <button class="form-button" type="submit" name="q" value="children">Children</button>
+                        </li>
+                        <li class="list-no-style">
+                            <button class="form-button" type="submit" name="q" value="family">Family</button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div id="figures" class="container-fluid pl-5 pr-5 pt-1 " style="display: none;">
+            <div class="row d-flex justify-items-end">
+                <form action="{% url 'sts_store:search_category' %}" method="POST" class="form-background p-3"
+                    style="border: rgb(51,186,205) solid 2px; border-radius: 5px;">
+                    {% csrf_token %}
+                    <ul class="list-group">
+                        <li class="list-no-style">
+                            <button class="form-button" type="submit" name="q" value="cartoons">Cartoons</button>
+                        </li>
+                        <li class="list-no-style">
+                            <button class="form-button" type="submit" name="q" value="anime">Anime</button>
+                        </li>
+                        <li class="list-no-style">
+                            <button class="form-button" type="submit" name="q" value="toys">Video Game Toys</button>
+                        </li>
+                        <li class="list-no-style">
+                            <button class="form-button" type="submit" name="q" value="heroes">Super Heroes</button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .form-button {
+        all: unset;
+        text-transform: uppercase;
+    }
+
+    .list-no-style {
+        list-style-type: none;
+    }
+
+    .form-background {
+        background-color: black;
+    }
+</style>
