@@ -3,21 +3,25 @@
     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span><i class="fa-solid fa-bars fa-fade" style="color: #33bacd;"></i></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown" style="z-index: 10000; ">
+  <div class="collapse navbar-collapse p-1" id="navbarNavDropdown" style="z-index: 10000; background-color: black; border: 2px rgb(51 186 205) solid; border-radius: 5px; ">
     <ul class="navbar-nav w-100 justify-content-around">
-      <li class="nav-item d-flex justify-content-end">
+      <li class="nav-item ">
         <a class="nav-link" href="{% url 'sts_store:wares' %}" style="color: rgb(51 186 205) !important;">STORE</a>
       </li>
-      <li class="nav-item d-flex justify-content-end">
-        <a class="nav-link" href="#" style="color: rgb(51 186 205) !important;">NEW ARRIVALS</a>
+      <li class="nav-item ">
+        <a class="nav-link" href="{% url 'news_blog:news_list' %}" style="color: rgb(51 186 205) !important;">NEWS</a>
       </li>
-      <li class="nav-item d-flex justify-content-end">
-        <a class="nav-link" href="#" style="color: rgb(51 186 205) !important;">NEWS</a>
+      <li class="nav-item  d-flex">
+        <form method="post" action="{% url 'sts_store:search' %}" class="form-inline my-2 my-lg-0">
+          {% csrf_token %}
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" name="q" style="height: 1.5em;" required>
+          <button class="btn btn-outline-info my-2 my-sm-0 d-flex align-items-center text-center" type="submit" style="height: 1.5em;">GO</button>
+        </form>
       </li>
       <li class="nav-item d-flex justify-content-end">
         {% if request.user.is_staff %}
         <a href="{% url 'sts_store:store_panel' %}" class="nav-link" 
-          target="_blank" style="color: rgb(51 186 205) !important;">STORE PANEL</a>
+          style="color: rgb(51 186 205) !important;">STORE PANEL</a>
         {% endif %}
       </li>
     </ul>

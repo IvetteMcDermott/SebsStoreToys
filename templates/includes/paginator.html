@@ -1,0 +1,27 @@
+<nav aria-label="Page navigation" style="margin: 10px;">
+  <ul class="pagination justify-content-center">
+    {% if page_obj.has_previous %}
+    <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+    {% endif %}
+
+    {% for p in page_obj.paginator.page_range %}
+    {% if page_obj.number == p %}
+    <li class="page-item"><a class="page-link" style="color: rgb(51, 186, 205);" href="#">{{ p }}</a></li>
+    {% else %}
+    <li class="page-item"><a class="page-link" href="?page={{ p }}">{{ p }}</a></li>
+    {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+    <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+
+    {% endif %}
+  </ul>
+
+<style>
+    .page-link {
+        color:rgb(51, 186, 205)!important;
+        background-color: transparent;
+        border-color: grey;
+    }
+</style>

@@ -1,45 +1,57 @@
+<div class="container-fluid w-100 p-2">
+    <div class="row w-100">
+       
 
-
-<div class="container-fluid d-flex w-100">
-    <div class="row w-100" >
-
-        <div class="col-4">
-
-        <!-- Begin Mailchimp Signup Form -->
-        <div>
-            <form method="post" action="{% url 'newsletter:subscribeToNewsLetter' %}" >
-                {% csrf_token %}
-                {{ SubscriberForm }}
-                <input type="email" name="email" placeholder="Your Email">
-                <input type="text" name="name" placeholder="Your Name">
-                <button class="btn btn-secondary" type="submit">Submit</button>
-            </form>
+        <form method="post" class="flex" action="{% url 'newsletter:subscribeToNewsLetter' %}">
+            {% csrf_token %}
+            {{ SubscriberForm }}
+            <div class="container-fluid">
+                <div class="col" style="border:2px solid grey; border-radius: 5px;">
+                    <div class="row">
+                        <!-- Begin Mailchimp Signup Form -->
+            
+                        <p class="w-100 pl-2">Subscribe to our newsletter</p>
+                    </div>
+                    <div class="row">
+                        <div class="col p-1">
+                            <input type="email" name="email" placeholder="Your Email">
+                        </div>
+                        <div class="col p-1">
+                            <input type="text" name="name" placeholder="Your Name" style="width: 6em;">
+                        </div>
+                        <div class="col p-1">
+                            <button class="btn btn-secondary" type="submit"><small>Subscribe</small></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="col d-flex align-items-center justify-content-center">
+            <i class="fa-brands fa-facebook fa-2xl" style="color: #4c4e52;"><small>acebook</small></i>
         </div>
-<div class="col-4">
-        <div class="row justify-content-center">
-            <p>Social Media</p>
-        </div>
-        <div class="row">
-            <div class="col d-flex justify-content-center">Instagram</div>
-            <div class="col d-flex justify-content-center">Twitter</div>
-            <div class="col d-flex justify-content-center">Facebook</div>
-        </div>
-    </div>
-    <div class="col-4 ">
-        <div class="row d-flex justify-content-center">
-            <p> @ Educational Purposes
-            </p>
-        </div>
-        <div class="row">
-            <div class="col d-flex justify-content-center align-items-center"><span>Ivette Mc Dermott <i
-                        class="fa-brands fa-github fa-fade" style="color: #4c4e52;"></i></span></div>
-        </div>
-    </div>
-    <div class="col-4">
-            <div class="row d-flex justify-content-center">Terms & Conditions</div>
-            <div class="row d-flex justify-content-center">Q&A</div>
-            <div class="row d-flex justify-content-center">Contact Us</div>
+        <div class="col d-flex flex-column align-items-center justify-content-center">
+            <div class="row">
+                <p>Terms & Conditions</p>
+            </div>
+            <div class="row">
+                <p>Q&A</p>
+            </div>
+            <div class="row">
+                <p><a href="{% url 'contact_us:contact_us_form' %}" style="color:rgb(51, 186, 205) !important;">Contact
+                        Us</a>
+                </p>
+            </div>
         </div>
     </div>
 </div>
+
+<div class="container-fluid " style="background-color: #0c0c0ca8;">
+    <div class="row">
+        <div class="col mt-3 d-flex justify-content-end">
+            <p> @ Educational Purposes</p>
+        </div>
+        <div class="col mt-3">
+            <p>Ivette Mc Dermott <i class="fa-brands fa-github fa-fade" style="color: #4c4e52;"></i></p>
+        </div>
+    </div>
 </div>
