@@ -45,12 +45,12 @@ def modify_cart(request, ware_id):
 
     if quantity > 0:
         cart[ware_id] = quantity
-        messages.info(request,
+        messages.success(request,
                       (f'Updated {ware.name} '
                        f'quantity to {cart[ware_id]}'))
     else:
         cart.pop(ware_id)
-        messages.info(request,
+        messages.success(request,
                       (f'Removed {ware.name} '
                        f'from your cart'))
 
@@ -66,7 +66,7 @@ def remove_from_cart(request, ware_id):
         cart = request.session.get('cart', {})
 
         cart.pop(ware_id)
-        messages.info(request, f'Removed {ware.name} from your cart')
+        messages.success(request, f'Removed {ware.name} from your cart')
 
         request.session['cart'] = cart
         return HttpResponseRedirect(request.META['HTTP_REFERER'])

@@ -1,0 +1,44 @@
+<div class="custom-toast rounded-0 border-top-0" id="message" data-autohide="false">
+    <div class="arrow-up arrow-success"></div>
+    <div class="w-100 toast-capper"></div>
+    <div class="toast-header text-dark">
+        <strong class="mr-auto">Your shopping cart 🛒</strong>
+      
+    </div>
+    <div class="toast-body">
+
+        {% if grand_total and not on_profile_page %}
+        <p class="logo-font py-1">Your Bag ({{ wares_count }})</p>
+        <div class="bag-notification-wrapper">
+            {% for ware in cart_wares %}
+            <div class="col-9">
+                <p class="my-0"><strong>{{ ware.ware.name }}</strong></p>
+                <p class="my-0 small ">Qty: {{ ware.quantity }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    <div class="row">
+        <div class="col">
+            <strong>
+                <p class="mt-3 mb-1 text-black">
+                    Total{% if free_delivery_delta > 0 %} (Exc. delivery){% endif %}:
+                    <span class="float-right">${{ total|floatformat:2 }}</span>
+                </p>
+            </strong>
+            {% if free_delivery_delta > 0 %}
+            <p class="mb-0 p-2 text-orange shadow-sm text-black text-center">
+                Spend <strong>${{ free_delivery_delta }}</strong> more to get free next day delivery!
+            </p>
+            {% endif %}
+            <a href="{% url 'shopping_cart:view_cart' %}" class="btn btn-black btn-block rounded-0"
+                style="border: black 1px solid;">
+                <span class="text-uppercase text-orange">Go To Secure Checkout</span>
+                <span class="icon">
+                    <i class="fas fa-lock"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+</div>
