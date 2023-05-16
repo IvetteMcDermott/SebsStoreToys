@@ -25,7 +25,7 @@ class Subcategory(models.Model):
 
     def __str__(self):
         return self.name
-     
+
 
 class Ware(models.Model):
     name = models.CharField(max_length=60, unique=True, null=False,

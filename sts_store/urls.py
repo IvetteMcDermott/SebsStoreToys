@@ -13,6 +13,7 @@ urlpatterns = [
     path('<int:id>/imagedelete/', views.image_delete, name='image_delete'),
     path('storepanel/', views.StorePanel, name='store_panel'),
     path('search/', views.search, name='search'),
+    path('search_category/', views.search_category, name='search_category'),
     path('wareentry/', views.WareEntry.as_view(), name='ware_entry'),
     path('imageentry/', views.AddImageForm.as_view(), name='image_entry'),
     path('orders/', views.orders_list, name='orders'),

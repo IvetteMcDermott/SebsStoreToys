@@ -6,12 +6,14 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic, View
 from django.views.generic import UpdateView, ListView, CreateView
 
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+
 from .models import Ware, WareImage, Category, Subcategory
 from checkout.models import Order, OrderLineItem
-from reviews.models import Review
 
 from profiles.models import UserProfile
 from bookmarks.models import Bookmarks
+from reviews.models import Review
 
 from django.contrib.messages.views import SuccessMessageMixin
 
@@ -27,8 +29,19 @@ class Store(ListView):
     """ VIEW FOR LIST OF PLACES FILTER: COAST """
     model = Ware
     queryset = Ware.objects.all()
-    # paginate_by = 4
+    queryset_count = queryset.count()
+    paginate_by = 4
     template_name = "store_list.html"
+
+    def get_bookmarks(request):
+        user = request.user
+        model = Bookmarks
+        bookmark = Bookmarks.objects.filter(user=user)
+
+        context = {
+            'bookmarks': bookmark,
+        }
+        return context
 
 
 class WareDetail(CreateView):
@@ -42,20 +55,19 @@ class WareDetail(CreateView):
     def get(self, request, ware_id, *args, **kwargs):
         model = Ware
         bookmarked = False
-
         queryset = model.objects.all()
         ware = get_object_or_404(queryset, pk=ware_id)
-        reviews = ware.reviews.all().order_by('-date_created')
+        reviews = ware.reviews.all().order_by('-date_created')[:5]
         review_form = ReviewForm()
-
         if request.user.is_authenticated:
-            user = UserProfile.objects.get(user=request.user)
-            bookmarke = Bookmarks.objects.filter(user=user, ware=ware).exists()
+            if not request.user.is_staff:
+                user = UserProfile.objects.get(user=request.user)
+                bookmarke = Bookmarks.objects.filter(user=user, ware=ware).exists()
 
-            if bookmarke:
-                bookmarked = True
-            else:
-                bookmarked = False
+                if bookmarke:
+                    bookmarked = True
+                else:
+                    bookmarked = False
 
         return render(
             request,
@@ -85,17 +97,8 @@ class WareDetail(CreateView):
             messages.success(request, 'Your review was posted successfully!')
         else:
             review_form = ReviewForm()
-        
+
         return redirect(request.META.get('HTTP_REFERER'))
-
-        # context = {
-        #             'form': ReviewForm(),
-        #             'user': user,
-        #             'ware': ware,
-        #             'reviews': reviews,
-        #             }
-
-        # return render(request, template, context)
 
 
 def search(request):
@@ -105,8 +108,24 @@ def search(request):
         print(search)
         query = Ware.objects.all().filter(Q(name__icontains=search) | Q(description__icontains=search))
         template = 'store_list.html'
+
         context = {
-            'result': query,
+            'object_list': query,
+            'search': search,
+        }
+
+        return render(request, template, context)
+
+
+def search_category(request):
+    model = Ware
+    if request.method == 'POST':
+        search = request.POST.get('q')
+        queryset = Ware.objects.all()
+        query = queryset.filter(subcategory__name__icontains=search)
+        template = 'store_list.html'
+        context = {
+            'object_list': query,
         }
         return render(request, template, context)
 
@@ -123,6 +142,7 @@ class WareEntry(SuccessMessageMixin, CreateView):
     template_name = 'admin/add_ware.html'
     model = Ware
     form_class = WareForm
+    success_message = 'The ware had been save successfully!'
 
     def get_success_url(self):
         return self.request.path
@@ -134,6 +154,7 @@ class AddImageForm(SuccessMessageMixin, CreateView):
     template_name = 'admin/add_image_form.html'
     model = WareImage()
     form_class = ImageForm
+    success_message = 'The image had been ADD successfully!'
 
     def get_success_url(self):
         return self.request.path
@@ -154,6 +175,7 @@ def image_delete(request, id):
     if request.method == 'GET':
         image = WareImage.objects.get(pk=id)
         image.delete()
+        messages.success(request, 'The image had been DELETE successfully!')
 
     return render(request, 'admin/store_panel.html')
 
@@ -170,6 +192,7 @@ def WareEdit(request, ware_id):
         if form.is_valid():
             form.save(commit=False)
             form.save()
+            messages.success(request, 'The ware had been EDIT successfully!')
             return render(request, 'admin/store_panel.html')
     else:
         form = WareForm(instance=ware)
@@ -183,6 +206,7 @@ def WareDelete(request, ware_id):
     if request.method == 'GET':
         ware = Ware.objects.get(id=ware_id)
         ware.delete()
+        messages.success(request, 'The ware had been DELETE successfully!')
 
     return render(request, 'admin/store_panel.html')
 
