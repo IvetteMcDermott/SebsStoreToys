@@ -13,7 +13,7 @@ from checkout.models import Order, OrderLineItem
 
 from profiles.models import UserProfile
 from bookmarks.models import Bookmarks
-from reviews.models import Review
+from reviews.models import Review, ReplyReview
 
 from django.contrib.messages.views import SuccessMessageMixin
 
@@ -99,6 +99,20 @@ class WareDetail(CreateView):
             review_form = ReviewForm()
 
         return redirect(request.META.get('HTTP_REFERER'))
+
+# Took from https://stackoverflow.com/questions/71396075/i-want-to-make-reply-to-comments-feature-in-django
+def reply_review(request, review_id):
+    reviews = Review.objects.get(id=review_id)
+
+    if request.method == 'POST':
+        replier_author = request.user
+        reply_content = request.POST.get('reply_content')
+
+        newReply = ReplyReview(replier_author=replier_author, reply_content=reply_content)
+        newReply.reply_review = reviews
+        newReply.save()
+        messages.success(request, 'Review replied!')
+        return redirect('sts_store:wares')
 
 
 def search(request):

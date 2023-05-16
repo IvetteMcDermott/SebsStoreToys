@@ -23,3 +23,13 @@ class Review(models.Model):
 
     def __str__(self):
         return f'Review {self.body} by {self.author}'
+
+
+class ReplyReview(models.Model):
+    reply_review = models.ForeignKey(Review(), on_delete=models.CASCADE, related_name='replies')  # noqa
+    replier_author = models.ForeignKey(User, on_delete=models.CASCADE)
+    reply_content = models.TextField()
+    replied_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return "'{}' replied with '{}' to '{}'".format(self.replier_author, self.reply_content, self.reply_review)  # noqa

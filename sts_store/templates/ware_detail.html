@@ -144,11 +144,11 @@
 <div class="row p-2 m-5" style="border: 1px solid grey; border-radius: 5px;">
     <h5>Section for staff access to images, click on the one you need to delete</h5>
 
-{% for photo in ware.ware_image.all %}
-<a href="{% url 'sts_store:open_image' photo.id %}"> <img src="{{ photo.image.url }}" alt="{{ photo.caption }}"
-        style="width: 400px;"></a>
-<p>{{ photo.caption }} - id {{ photo.id }}</p>
-{% endfor %}
+    {% for photo in ware.ware_image.all %}
+    <a href="{% url 'sts_store:open_image' photo.id %}"> <img src="{{ photo.image.url }}" alt="{{ photo.caption }}"
+            style="width: 400px;"></a>
+    <p>{{ photo.caption }} - id {{ photo.id }}</p>
+    {% endfor %}
 </div>
 {% endif %}
 
@@ -161,9 +161,9 @@
     {% endif %}
     {% else %}
     <p>To leave a review you need to
-        <a class=" mr-1 ml-1 text-orange" href="{% url 'account_signup' %}" > Sign-Up </a>
+        <a class=" mr-1 ml-1 text-orange" href="{% url 'account_signup' %}"> Sign-Up </a>
         <span> or </span>
-        <a class="mr-1 ml-1 text-orange" href="{% url 'account_login' %}" > Log-In </a>
+        <a class="mr-1 ml-1 text-orange" href="{% url 'account_login' %}"> Log-In </a>
     </p>
     {% endif %}
 </div>
@@ -188,14 +188,36 @@
             </span>
         </div>
     </div>
-    <hr>
-
-    {% empty %}
-    <p> No reviews yet </p>
+    {% for reply in review.replies.all %}
+    <div class="row d-flex justify-content-between">
+        <div class="col">By {{ reply.replier_author }}</div>
+        <div class="col" style="font-size: 0.8em;"> Reply: "{{ reply.reply_content }}" </div>
+        <div class="col">{{ reply.replied_date.date }}</div>
+    </div>
     {% endfor %}
 
-    <button onclick="topFunction()" id="myBtn" class="btn btn-outline-info pages-title btn-shadow"
-        title="Go to top">Top</button>
+
+    {% if request.user.is_staff %}
+    <a type="text" data-toggle="collapse" data-target="#reply{{review.id}}" style="float: right;" href="">Reply</a><br>
+
+    <div id="reply{{review.id}}" class="collapse in">
+        <form method="post" action="{% url 'sts_store:reply_review' review.id %}">
+            {% csrf_token %}
+            <input name="replier_author" class="form-control form-control-sm" type="hidden">
+            <input name="reply_content" class="form-control form-control-lg" type="text" placeholder="Reply comment">
+            <button type="submit" class="btn btn-primary" style="float: right; margin-top: 5px;">Reply</button>
+
+        </form>
+    </div>
+    {% endif %}
+
+
+{% empty %}
+<p> No reviews yet </p>
+{% endfor %}
+
+<button onclick="topFunction()" id="myBtn" class="btn btn-outline-info pages-title btn-shadow"
+    title="Go to top">Top</button>
 
 </div>
 
