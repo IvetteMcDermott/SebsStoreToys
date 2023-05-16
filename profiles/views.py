@@ -25,7 +25,6 @@ def my_profile(request):
     user = get_object_or_404(UserProfile, user=request.user)
     orders = user.orders.all().order_by('-date')[:5]
     template = 'profiles/user_profile.html'
-    form = ProfileForm()
     bookmarks = Bookmarks.objects.filter(user=user)
 
     if request.method == 'POST':
@@ -35,8 +34,8 @@ def my_profile(request):
             form.save()
             messages.success(request, 'Profile had been updated successfully!')
             form = ProfileForm()
-        else:
-            form = ProfileForm(instance=user)
+    else:
+        form = ProfileForm(instance=user)
 
     context = {
                 'form': form,
