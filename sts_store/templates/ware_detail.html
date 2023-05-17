@@ -23,7 +23,7 @@
         </h6>
     </a>
 </div>
-<div class="row w-100  d-flex justify-content-center">
+<div class="row w-100 ml-1 p-3 d-flex justify-content-center">
     <h2 class="text-orange text-uppercase pages-title">{{ ware.name }}</h2>
 </div>
 <!-- BUTTONS AREA -->
@@ -141,14 +141,17 @@
 
 <!-- SECTION FOR STAFF TO ACCESS TO IMGS -->
 {% if request.user.is_staff %}
-<div class="row p-2 m-5" style="border: 1px solid grey; border-radius: 5px;">
-    <h5>Section for staff access to images, click on the one you need to delete</h5>
-
+<div class="container-fluid p-5" style="border: 1px solid grey; border-radius: 5px;">
+    <h5 class="text-uppercase">Section for staff access to images </h5> <p class="mb-5"><small>Click on the one you need to delete</small></p>
+<div class="col d-flex justify-content-start">
     {% for photo in ware.ware_image.all %}
-    <a href="{% url 'sts_store:open_image' photo.id %}"> <img src="{{ photo.image.url }}" alt="{{ photo.caption }}"
-            style="width: 400px;"></a>
-    <p>{{ photo.caption }} - id {{ photo.id }}</p>
+    <div class="row d-flex justify-content-start align-items-center ">
+        <a href="{% url 'sts_store:open_image' photo.id %}"> <img src="{{ photo.image.url }}" alt="{{ photo.caption }}"
+                style="width: 400px;"></a>
+        <p class="ml-3">{{ photo.caption }} - id {{ photo.id }}</p>
+    </div>
     {% endfor %}
+</div>
 </div>
 {% endif %}
 
@@ -190,8 +193,8 @@
     </div>
     {% for reply in review.replies.all %}
     <div class="row d-flex justify-content-between">
-        <div class="col">By {{ reply.replier_author }}</div>
-        <div class="col" style="font-size: 0.8em;"> Reply: "{{ reply.reply_content }}" </div>
+        <div class="col d-flex justify-content-end">By {{ reply.replier_author }}</div>
+        <div class="col"> Reply: "{{ reply.reply_content }}" </div>
         <div class="col">{{ reply.replied_date.date }}</div>
     </div>
     {% endfor %}
@@ -212,12 +215,12 @@
     {% endif %}
 
 
-{% empty %}
-<p> No reviews yet </p>
-{% endfor %}
+    {% empty %}
+    <p> No reviews yet </p>
+    {% endfor %}
 
-<button onclick="topFunction()" id="myBtn" class="btn btn-outline-info pages-title btn-shadow"
-    title="Go to top">Top</button>
+    <button onclick="topFunction()" id="myBtn" class="btn btn-outline-info pages-title btn-shadow"
+        title="Go to top">Top</button>
 
 </div>
 
