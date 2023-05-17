@@ -20,8 +20,8 @@
       </li>
       <li class="nav-item d-flex justify-content-end">
         {% if request.user.is_staff %}
-        <a href="{% url 'sts_store:store_panel' %}" class="nav-link" 
-          style="color: rgb(51 186 205) !important;">STORE PANEL</a>
+        <a href="{% url 'sts_store:staff_panel' %}" class="nav-link" 
+          style="color: rgb(51 186 205) !important;">STAFF PANEL</a>
         {% endif %}
       </li>
     </ul>

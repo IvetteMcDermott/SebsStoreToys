@@ -9,7 +9,7 @@
 <!-- LINK BACK TO STAFF PANEL -->
 <div class="p-2 w-50">
     <span><i class="fa-regular fa-left" style="color: #33bacd; "></i></span>
-    <a href="{% url 'sts_store:store_panel' %}">
+    <a href="{% url 'sts_store:staff_panel' %}">
         <h6><i class="fa-solid fa-circle-left" style="color: #33bacd;"></i>
             Staff Panel
         </h6>
@@ -17,14 +17,14 @@
 </div>
 <!---->
     <div class="row w-100 d-flex justify-content-center p-5">
-        <h2 class="text-orange text-uppercase pages-title" >Staff Panel - Edit a Ware</h2>
+        <h2 class="text-orange text-uppercase pages-title" >Staff Panel - Edit </h2>
     </div>
 {% endblock %}
 
 {% block content %}
 
 <div style="padding: 2em; width: 80%; margin: auto;">
-    <form method="POST" id="add-ware" enctype="multipart/form-data" style="margin-top: 1.3em;">
+    <form method="POST" id="ware-edit" enctype="multipart/form-data" style="margin-top: 1.3em;">
         {% csrf_token %}
 
         {{ form | crispy }}
