@@ -28,7 +28,7 @@ from reviews.forms import ReviewForm
 class Store(ListView):
     """ VIEW FOR LIST OF PLACES FILTER: COAST """
     model = Ware
-    queryset = Ware.objects.all()
+    queryset = Ware.objects.all().order_by('description')
     queryset_count = queryset.count()
     paginate_by = 4
     template_name = "store_list.html"
@@ -62,7 +62,8 @@ class WareDetail(CreateView):
         if request.user.is_authenticated:
             if not request.user.is_staff:
                 user = UserProfile.objects.get(user=request.user)
-                bookmarke = Bookmarks.objects.filter(user=user, ware=ware).exists()
+                bookmarke = Bookmarks.objects.filter(
+                    user=user, ware=ware).exists()
 
                 if bookmarke:
                     bookmarked = True
@@ -73,10 +74,10 @@ class WareDetail(CreateView):
             request,
             'ware_detail.html',
             {
-               'ware': ware,
-               'reviews': reviews,
-               'form': review_form,
-               'bookmarked': bookmarked,
+                'ware': ware,
+                'reviews': reviews,
+                'form': review_form,
+                'bookmarked': bookmarked,
             },
         )
 
@@ -100,6 +101,7 @@ class WareDetail(CreateView):
 
         return redirect(request.META.get('HTTP_REFERER'))
 
+
 # Took from https://stackoverflow.com/questions/71396075/i-want-to-make-reply-to-comments-feature-in-django
 def reply_review(request, review_id):
     reviews = Review.objects.get(id=review_id)
@@ -108,11 +110,13 @@ def reply_review(request, review_id):
         replier_author = request.user
         reply_content = request.POST.get('reply_content')
 
-        newReply = ReplyReview(replier_author=replier_author, reply_content=reply_content)
+        newReply = ReplyReview(
+            replier_author=replier_author, reply_content=reply_content)
         newReply.reply_review = reviews
         newReply.save()
         messages.success(request, 'Review replied!')
-        return redirect('sts_store:wares')
+
+    return redirect(request.META.get('HTTP_REFERER'))
 
 
 def search(request):
@@ -120,7 +124,8 @@ def search(request):
     if request.method == 'POST':
         search = request.POST.get('q')
         print(search)
-        query = Ware.objects.all().filter(Q(name__icontains=search) | Q(description__icontains=search))
+        query = Ware.objects.all().filter(Q(name__icontains=search)
+                                          | Q(description__icontains=search))
         template = 'store_list.html'
 
         context = {
@@ -145,9 +150,9 @@ def search_category(request):
 
 
 @staff_member_required
-def StorePanel(request):
+def StaffPanel(request):
     """ VIEW FOR ADD A NEW WARE """
-    return render(request, 'admin/store_panel.html')
+    return render(request, 'admin/staff_panel.html')
 
 
 @method_decorator(staff_member_required, name='dispatch')
@@ -191,7 +196,7 @@ def image_delete(request, id):
         image.delete()
         messages.success(request, 'The image had been DELETE successfully!')
 
-    return render(request, 'admin/store_panel.html')
+    return render(request, 'admin/staff_panel.html')
 
 
 @staff_member_required
@@ -207,7 +212,7 @@ def WareEdit(request, ware_id):
             form.save(commit=False)
             form.save()
             messages.success(request, 'The ware had been EDIT successfully!')
-            return render(request, 'admin/store_panel.html')
+            return render(request, 'admin/staff_panel.html')
     else:
         form = WareForm(instance=ware)
 
@@ -222,7 +227,7 @@ def WareDelete(request, ware_id):
         ware.delete()
         messages.success(request, 'The ware had been DELETE successfully!')
 
-    return render(request, 'admin/store_panel.html')
+    return render(request, 'admin/staff_panel.html')
 
 
 @staff_member_required
@@ -233,9 +238,9 @@ def orders_list(request, *args, **kwargs):
     orders = model.objects.all().order_by('-date')
 
     return render(
-            request,
-            "admin/orders_list.html",
-            {
-               "orders": orders,
-            },
-        )
+        request,
+        "admin/orders_list.html",
+        {
+            "orders": orders,
+        },
+    )
