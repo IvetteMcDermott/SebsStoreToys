@@ -16,6 +16,11 @@
 {% endblock %}
 
 {% block content %}
+{% if paginator %}
+<div class="col d-flex justify-content-end" style="line-height: 1.5em;">
+    <span > {% include 'includes/paginator.html' %} </span>
+</div>
+{% endif %}
 
 <section >
 
