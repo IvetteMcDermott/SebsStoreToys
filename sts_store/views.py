@@ -196,7 +196,7 @@ def image_delete(request, id):
         image.delete()
         messages.success(request, 'The image had been DELETE successfully!')
 
-    return render(request, 'admin/staff_panel.html')
+    return redirect(request.META.get('HTTP_REFERER'))
 
 
 @staff_member_required

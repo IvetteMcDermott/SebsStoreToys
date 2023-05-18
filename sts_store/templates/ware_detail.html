@@ -23,7 +23,7 @@
         </h6>
     </a>
 </div>
-<div class="row w-100 ml-1 p-3 d-flex justify-content-center">
+<div class="row w-100 pl-5 pt-3 pb-2  d-flex justify-content-center">
     <h2 class="text-orange text-uppercase pages-title">{{ ware.name }}</h2>
 </div>
 <!-- BUTTONS AREA -->
@@ -34,7 +34,7 @@
         <div class="col-4">
             {% if user.is_staff %}
 
-            <a href="{% url 'sts_store:ware_edit' ware.id %}" class="btn btn-outline-warning">Edit</a>
+            <a href="{% url 'sts_store:ware_edit' ware.id %}" class="btn btn-outline-warning" style="width: 5em;">Edit</a>
             {% endif %}
 
         </div>
@@ -45,7 +45,7 @@
 
             <form method="get" action="{% url 'sts_store:ware_delete' ware.id %}">
                 <button type="button" class="btn btn-outline-danger" data-toggle="modal"
-                    data-target="#exampleModal-{{ ware.id }}" data-backdrop="false">Delete</button>
+                    data-target="#exampleModal-{{ ware.id }}" data-backdrop="false" style="width: 5em;">Delete</button>
 
                 <!-- MODAL FOR DELETE WARE -->
                 <div class="modal fade" id="exampleModal-{{ ware.id }}" tabindex="-1" role="dialog"
@@ -121,6 +121,7 @@
                         <img src="{{ photo.image.url }}" alt="{{ photo.caption }}">
                         <input type="radio" name="radio-set" checked="checked">
                         {% endfor %}
+                        <!--CLOSING FIGURE TAGS LOOP -->
                         {% for photo in ware.ware_image.all %}
                     </figure>
                     {% endfor %}
@@ -135,47 +136,33 @@
             <span>Rating: {{ ware.get_rating_total|floatformat }} <i class="fa-solid fa-star"></i></span>
             {% include 'cart/quantity_form.html' %}
         </div>
-
     </div>
 </div>
 
-<!-- SECTION FOR STAFF TO ACCESS TO IMGS -->
-{% if request.user.is_staff %}
-<div class="container-fluid p-5" style="border: 1px solid grey; border-radius: 5px;">
-    <h5 class="text-uppercase">Section for staff access to images </h5> <p class="mb-5"><small>Click on the one you need to delete</small></p>
-<div class="col d-flex justify-content-start">
-    {% for photo in ware.ware_image.all %}
-    <div class="row d-flex justify-content-start align-items-center ">
-        <a href="{% url 'sts_store:open_image' photo.id %}"> <img src="{{ photo.image.url }}" alt="{{ photo.caption }}"
-                style="width: 400px;"></a>
-        <p class="ml-3">{{ photo.caption }} - id {{ photo.id }}</p>
+<div class="container-fluid">
+    <div class="row d-flex justify-content-end p-5 m-3">
+        {% if request.user.is_authenticated %}
+        {% if not request.user.is_staff %}
+        <p>Leave your review of this ware <a href="" data-toggle="modal" data-target="#ReviewForm"
+                data-backdrop="false">
+                Here!</a>
+        </p>
+        {% endif %}
+        {% else %}
+        <p>To leave a review you need to
+            <a class=" mr-1 ml-1 text-orange" href="{% url 'account_signup' %}"> Sign-Up </a>
+            <span> or </span>
+            <a class="mr-1 ml-1 text-orange" href="{% url 'account_login' %}"> Log-In </a>
+        </p>
+        {% endif %}
     </div>
-    {% endfor %}
 </div>
-</div>
-{% endif %}
-
-<div class="row d-flex justify-content-end" style="width: 90%; padding:0; padding: auto;">
-    {% if request.user.is_authenticated %}
-    {% if not request.user.is_staff %}
-    <p>Leave your review of this ware <a href="" data-toggle="modal" data-target="#ReviewForm" data-backdrop="false">
-            Here!</a>
-    </p>
-    {% endif %}
-    {% else %}
-    <p>To leave a review you need to
-        <a class=" mr-1 ml-1 text-orange" href="{% url 'account_signup' %}"> Sign-Up </a>
-        <span> or </span>
-        <a class="mr-1 ml-1 text-orange" href="{% url 'account_login' %}"> Log-In </a>
-    </p>
-    {% endif %}
-</div>
-<div class="container-fluid p-5">
-    <div class="row">
+<div class="container-fluid w-100p-5">
+    <div class="row w-100 pl-3">
         <p>Ware last reviews:</p>
     </div>
     {% for review in reviews %}
-    <div class="row pl-3">
+    <div class="row w-100 pl-5">
         <span style="color:#FF7D00 ;">{{ review.rating }} <i class="fa-solid fa-star"
                 style="color:#FF7D00 ;"></i></span>
     </div>
@@ -216,11 +203,69 @@
 
 
     {% empty %}
-    <p> No reviews yet </p>
+    <p class="p-5"> No reviews yet </p>
     {% endfor %}
 
-    <button onclick="topFunction()" id="myBtn" class="btn btn-outline-info pages-title btn-shadow"
-        title="Go to top">Top</button>
+</div>
+<!-- SECTION FOR STAFF TO ACCESS TO IMGS -->
+<button type="button" value="toggle" onclick="toggleI()" class="toggle-button mb-1">For see the images individual
+    click
+    here</button>
+<div class="container-fluid p-5" id="images" style="display: none;">
+    <div class="col justify-content-start">
+        {% for photo in ware.ware_image.all %}
+        <div class="row  ">
+            <div class="image-container d-flex justify-content-center align-items-center"
+                style=" min-width: 14em; max-height: 100%;">
+
+                <img src="{{ photo.image.url }}" alt="{{ photo.caption }}" style="width: 100%;">
+            </div>
+            <p class="ml-3">{{ photo.caption }} {% if request.user.is_staff %} - id {{ photo.id }} {% endif %} </p>
+            {% if user.is_staff %}
+            <div class="col d-flex justify-content-start align-items-center">
+                <form method="get" action="{% url 'sts_store:image_delete' photo.id %}">
+                    <button type="button" class="btn btn-outline-danger" data-toggle="modal"
+                        data-target="#exampleModal-{{ photo.id }}" data-backdrop="false">Delete</button>
+
+                    <!-- MODAL FOR DELETE IMAGE -->
+                    <div class="modal fade" id="exampleModal-{{ photo.id }}" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true"
+                        style="background-color: rgba(24, 23, 23, 0.686);">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content" style="background-color: black; top:20vh;">
+                                <div class="modal-header">
+                                    <h5 class="text-orange text-uppercase pages-title " id="exampleModalLabel">Do
+                                        you
+                                        want
+                                        to delete this image?</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body" style="background-color: black;">
+                                    {% csrf_token %}
+                                    {{ photo.caption }} - id {{ photo.id }}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal"
+                                        style="box-shadow: 3px 3px 5px rgb(41, 110, 180, 0.466);">Cancel</button>
+                                    <button type="submit" class="btn btn-outline-danger"
+                                        style="box-shadow: 3px 3px 5px rgb(41, 110, 180, 0.466);">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</div>
+
+<button onclick="topFunction()" id="myBtn" class="btn btn-outline-info pages-title btn-shadow"
+    title="Go to top">Top</button>
 
 </div>
 
@@ -250,6 +295,15 @@
     function topFunction() {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
+    }
+
+    function toggleI() {
+        let div = document.getElementById('images')
+        if (div.style.display === 'none') {
+            div.style.display = 'block';
+        } else {
+            div.style.display = 'none';
+        }
     }
 </script>
 

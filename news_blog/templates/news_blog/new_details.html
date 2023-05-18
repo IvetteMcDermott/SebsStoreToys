@@ -11,7 +11,9 @@
 
 
 {% block content %}
+<!-- BUTTONS AREA -->
 
+<!-- BACK ONE PAGE  -->
 <div class="p-2 bd-highlight">
     <span><i class="fa-regular fa-left" style="color: #33bacd;"></i></span>
     <a href="javascript:history.go(-1)">
@@ -27,29 +29,27 @@
     </div>
 </div>
 
-<!-- -->
-
 <div class="container-fluid p-5">
     <div class="row-flex d-flex w-100 align-top" style="top:0px;">
 
-        <!-- EDIT WARE -->
+        <!-- EDIT NEW -->
         <div class="col-4">
             {% if user.is_staff %}
 
-            <a href="{% url 'news_blog:news_edit' new.id %}" class="btn btn-outline-warning">Edit</a>
+            <a href="{% url 'news_blog:news_edit' new.id %}" class="btn btn-outline-warning" style="width: 5em;">Edit</a>
             {% endif %}
 
         </div>
         <!---->
-        <!-- DELETE WARE -->
+        <!-- DELETE NEW -->
         <div class="col-4">
             {% if user.is_staff %}
 
             <form method="get" action="{% url 'news_blog:news_delete' new.id %}">
                 <button type="button" class="btn btn-outline-danger" data-toggle="modal"
-                    data-target="#exampleModal-{{ new.id }}" data-backdrop="false">Delete</button>
+                    data-target="#exampleModal-{{ new.id }}" data-backdrop="false" style="width: 5em;">Delete</button>
 
-                <!-- MODAL FOR DELETE WARE -->
+                <!-- MODAL FOR DELETE NEW -->
                 <div class="modal fade" id="exampleModal-{{ new.id }}" tabindex="-1" role="dialog"
                     aria-labelledby="exampleModalLabel" aria-hidden="true"
                     style="background-color: rgba(24, 23, 23, 0.686);">
@@ -84,7 +84,7 @@
 <!---->
 
 
-<!---->
+<!-- NEW DETAIL -->
 
 <div class="container-fluid p-5">
     <div class="row d-flex flex-column">
