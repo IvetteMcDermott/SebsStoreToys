@@ -1,7 +1,5 @@
 <div class="container-fluid w-100 p-2">
     <div class="row w-100">
-       
-
         <form method="post" class="flex" action="{% url 'newsletter:subscribeToNewsLetter' %}">
             {% csrf_token %}
             {{ SubscriberForm }}
@@ -31,13 +29,14 @@
         </div>
         <div class="col d-flex flex-column align-items-center justify-content-center">
             <div class="row">
-                <p>Terms & Conditions</p>
+                <p class="mb-1"><a href="{% url 'terms' %}" style="color:rgb(51, 186, 205) !important;">Terms & Conditions</a></p>
             </div>
             <div class="row">
-                <p>Q&A</p>
+                <p class="mb-1"><a href="{% url 'q_a' %}" style="color:rgb(51, 186, 205) !important;">Q&A</a></p>
+            </p>
             </div>
             <div class="row">
-                <p><a href="{% url 'contact_us:contact_us_form' %}" style="color:rgb(51, 186, 205) !important;">Contact
+                <p class="mb-1"><a href="{% url 'contact_us:contact_us_form' %}" style="color:rgb(51, 186, 205) !important;">Contact
                         Us</a>
                 </p>
             </div>
