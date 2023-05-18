@@ -15,6 +15,10 @@
 
 {% block content %}
 
+{% include 'includes/delivery_banner.html' %}
+
+{% include 'includes/store_bar.html' %}
+
 <div class="p-2 w-50">
     <span><i class="fa-regular fa-left" style="color: #33bacd; "></i></span>
     <a href="{% url 'sts_store:wares' %}">

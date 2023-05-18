@@ -54,9 +54,38 @@
 }
 
 .toggle-button {
-  background-color: rgb(54, 52, 52);
-  margin-bottom: 8px;
-  width: 90%;
-  margin-left: 0;
-  margin: auto;
+    background-color: rgb(54, 52, 52);
+    margin-bottom: 8px;
+    width: 90%;
+    margin-left: 0;
+    margin: auto;
+}
+
+/* delivery banner */
+.div-back {
+    padding-top: 8px;
+    height: 36px;
+    text-align: right;
+    background-color: black;
+    overflow: hidden;
+}
+
+.text-side-to-side {
+    white-space: nowrap;
+    position: relative;
+    animation: animate 22s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        margin-right: 0;
+    }
+
+    50% {
+        margin-right: 100%;
+    }
+
+    100% {
+        margin-right: 0;
+    }
 }

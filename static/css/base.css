@@ -94,7 +94,7 @@ body * > a, a:hover {
     left: 50px;
     width: 435px;
     margin: 0;
-    box-shadow: 0 0 0 3px rgba(47, 255, 234, 0.476);
+    box-shadow: 0 0 3px rgb(3, 3, 235);
     transition: all 0.3s ease-in-out; 
     z-index: 1000;
 }
@@ -150,7 +150,7 @@ body * > a, a:hover {
     right: 20px;
     left: 20px;
     text-align: center;
-    background: rgba(59, 196, 91, 0.474);
+    background: rgba(51, 186, 205, 0.7);
     font-size: 18px;
     opacity: 0.5;
     text-transform: uppercase;
@@ -163,7 +163,7 @@ body * > a, a:hover {
 .ia-container input:checked + figcaption span {
     transition: all 0.4s ease-in-out 0.5s;
     opacity: 1;
-    top: 6em;
+    top: 8em;
 } 
 
 @media (max-width: 700px) {
