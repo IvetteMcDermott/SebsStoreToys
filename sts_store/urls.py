@@ -18,4 +18,5 @@ urlpatterns = [
     path('wareentry/', views.WareEntry.as_view(), name='ware_entry'),
     path('imageentry/', views.AddImageForm.as_view(), name='image_entry'),
     path('orders/', views.orders_list, name='orders'),
+    path('contacted_us/', views.contacted_us_list, name='contacted_us'),
 ]

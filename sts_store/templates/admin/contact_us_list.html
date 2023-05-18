@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'sts_store/css/sts_store.css' %}">
+{% endblock %}
+
+{% block head %}
+<title>SebsToyStore - Orders Data</title>
+{% endblock %}
+
+{% block header %}
+<!-- LINK BACK TO STAFF PANEL -->
+<div class="p-2 w-50">
+    <span><i class="fa-regular fa-left" style="color: #33bacd; "></i></span>
+    <a href="{% url 'sts_store:staff_panel' %}">
+        <h6><i class="fa-solid fa-circle-left" style="color: #33bacd;"></i>
+            Staff Panel
+        </h6>
+    </a>
+</div>
+<!---->
+<div class="row w-100 d-flex justify-content-center p-5">
+    <h2 class="text-orange text-uppercase pages-title">Staff Panel - Orders</h2>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid p-5">
+    <div class="col">
+        {% for contact in contacts %}
+        <div class="row d-flex justify-content-start">
+            <div class="col"><span class="text-orange">Email:</span> {{ contact.email }}</div>
+            <div class="col"><span class="text-orange">Client:</span> {{ contact.name }}</div>
+        </div>
+        <div class="row d-flex">
+            <div class="col"><span class="text-orange">Subject:</span> {{ contact.subject }}</div>
+        </div>
+        <div class="row d-flex" style="border-bottom: grey 1px solid;">
+            <div class="col">
+                <div class="row"> <span class="text-orange">Message:</span>
+                </div>
+                <div class="row">
+                    <p class="text-justify"> {{ contact.description }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<button onclick="topFunction()" id="myBtn" class="btn btn-outline-info pages-title btn-shadow"
+    title="Go to top">Top</button>
+
+
+{% endblock %}
+
+{% block topbtnJs %}
+<script>
+    // Took from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_scroll_to_top
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+
+{% endblock %}

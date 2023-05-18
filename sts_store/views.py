@@ -14,6 +14,7 @@ from checkout.models import Order, OrderLineItem
 from profiles.models import UserProfile
 from bookmarks.models import Bookmarks
 from reviews.models import Review, ReplyReview
+from contact_us.models import ContactUs
 
 from django.contrib.messages.views import SuccessMessageMixin
 
@@ -242,5 +243,21 @@ def orders_list(request, *args, **kwargs):
         "admin/orders_list.html",
         {
             "orders": orders,
+        },
+    )
+
+
+@staff_member_required
+def contacted_us_list(request, *args, **kwargs):
+    """ TO SEARCH ORDERS BY DATE - ADMIN FEATURE """
+    """ TO SEARCH ORDERS BY USER - ADMIN FEATURE """
+    model = ContactUs
+    contacts = model.objects.all().order_by('-id')
+
+    return render(
+        request,
+        "admin/contact_us_list.html",
+        {
+            "contacts": contacts,
         },
     )
