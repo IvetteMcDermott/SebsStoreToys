@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /accounts/
+Disallow: /shopping_cart/
+Disallow: /checkout/
+Disallow: /profiles/
+Sitemap: https://sebs-toy-store.herokuapp.com/sitemap.xml
