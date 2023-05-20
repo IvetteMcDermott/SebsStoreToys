@@ -7,16 +7,17 @@
                     <div class="col m-1">
                         {% for photo in ware.ware.ware_image.all %}
                         {% if forloop.counter == 1 %}
+                        <a href="{% url 'sts_store:ware_detail' ware.ware_id %}"
+                                    class="post-link" style="z-index: 2;">
                         <img src="{{ photo.image.url }}"
-                            style="border-radius: 8px; width:40%; min-width: 10em; object-fit: scale-down;" alt="image">
+                            style="border-radius: 8px; width:40%; min-width: 10em; object-fit: scale-down;" alt="image"></a>
                         {% endif %}
                         {% endfor %}
                     </div>
                     <div class="col mt-2 ml-1">
                         <div class="card-body ">
-                            <h6 class="card-title  text-right"><a href="{% url 'sts_store:ware_detail' ware.ware_id %}"
-                                    class="post-link" style="z-index: 2;">
-                                    {{ ware.ware.name }}</a></h6>
+                            <h6 class="card-title text-right text-orange text-uppercase">
+                                    {{ ware.ware.name }}</h6>
                             <h6 class="text-right">€ {{ ware.ware.price }}</h6>
                         </div>
                     </div>
