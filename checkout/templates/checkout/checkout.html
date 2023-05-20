@@ -88,11 +88,12 @@
                         {{ order_form.postcode | as_crispy_field }}
                         {{ order_form.country | as_crispy_field }}
                         <div class="form-check form-check-inline float-right mr-0">
+                            {% if not request.user.is_authenticated %}
                             <span>If you want to keep your order history</span>
                             <a class="mr-1 ml-1 text-orange" href="{% url 'account_signup' %}" > Sign-Up </a>
                             <span> or </span>
                             <a class="mr-1 ml-1 text-orange" href="{% url 'account_login' %}" > Log-In </a>
-
+                            {% endif %}
                         </div>
                     </fieldset>
                     <fieldset class="px-3">
