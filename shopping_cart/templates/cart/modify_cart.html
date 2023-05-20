@@ -1,5 +1,5 @@
-<div class="row ml-1">
-    <div class="col">
+<div class="row ml-1 p-1">
+    <div class="col p-1" style="border: 1px grey solid; border-radius: 5px;">
     <form class="form update-form" method="POST" action="{% url 'shopping_cart:modify_cart' ware.ware_id %}" >
     {% csrf_token %}
     <div class="form-group">

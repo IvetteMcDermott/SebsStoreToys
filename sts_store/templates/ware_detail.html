@@ -218,13 +218,14 @@
 <div class="container-fluid p-5" id="images" style="display: none;">
     <div class="col justify-content-start">
         {% for photo in ware.ware_image.all %}
-        <div class="row  ">
-            <div class="image-container d-flex justify-content-center align-items-center"
+        <div class="row w-100 ">
+            <div class="image-container d-flex justify-content-center align-items-center p-1"
                 style=" min-width: 14em; max-height: 100%;">
 
                 <img src="{{ photo.image.url }}" alt="{{ photo.caption }}" style="width: 100%;">
             </div>
-            <p class="ml-3">{{ photo.caption }} {% if request.user.is_staff %} - id {{ photo.id }} {% endif %} </p>
+            
+            <p class="ml-3 mt-auto">{{ photo.caption }} {% if request.user.is_staff %} - id {{ photo.id }} {% endif %} </p>
             {% if user.is_staff %}
             <div class="col d-flex justify-content-start align-items-center">
                 <form method="get" action="{% url 'sts_store:image_delete' photo.id %}">
@@ -277,6 +278,48 @@
 
 
 {% endblock %}
+
+{% block togglejs %}
+
+<script>
+    function toggleV() {
+        let div = document.getElementById('videos-games')
+        if (div.style.display === 'none') {
+            div.style.display = 'block';
+        } else {
+            div.style.display = 'none';
+        }
+    }
+
+    function toggleE() {
+        let div = document.getElementById('educational')
+        if (div.style.display === 'none') {
+            div.style.display = 'block';
+        } else {
+            div.style.display = 'none';
+        }
+    }
+
+    function toggleB() {
+        let div = document.getElementById('board-games')
+        if (div.style.display === 'none') {
+            div.style.display = 'block';
+        } else {
+            div.style.display = 'none';
+        }
+    }
+
+    function toggleF() {
+        let div = document.getElementById('figures')
+        if (div.style.display === 'none') {
+            div.style.display = 'block';
+        } else {
+            div.style.display = 'none';
+        }
+    }
+</script>
+{% endblock %}
+
 
 {% block topbtnJs %}
 <script>
