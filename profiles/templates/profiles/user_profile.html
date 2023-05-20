@@ -11,15 +11,15 @@
 
 
 {% block header %}
-<div class="row">
-    <h2 class="mb-0 text-orange text-uppercase p-5">{{ user }}'s Profile</h2>
+<div class="row w-100 d-flex justify-content-center">
+    <h2 class="mb-0 text-orange text-center text-uppercase p-5">{{ user }}'s Profile</h2>
 </div>
 {% endblock %}
 
 {% block content %}
 
-<div class="row ">
-    <p class="text-right w-100 mr-5">Update your Profile <a href="" data-toggle="modal" data-target="#Profile"
+<div class="row w-100 d-flex justify-content-center">
+    <p >Update your Profile <a href="" data-toggle="modal" data-target="#Profile"
             data-backdrop="false"> Here!</a>
     </p>
 </div>
@@ -29,7 +29,6 @@
         <div class="col">
             <!-- FROM TABLE GENERATOR -->
             <p>Personal Details:</p>
-
             <table class="tg">
                 <tbody>
                     <tr>
@@ -49,7 +48,6 @@
         </div>
         <div class="col">
             <p>Address Details:</p>
-
             <table class="tg">
                 <tbody>
                     <tr>
@@ -116,7 +114,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 <button type="button" value="toggle" onclick="toggleB()" class="toggle-button">To see your bookmarks click here</button>
@@ -136,20 +133,12 @@
                 </div>
                 <div class="modal-body">
                     {% csrf_token %}
-
-
                     {{ form|crispy}}
-
                     <button type="submit" class="btn-primary">Save</button>
-
                 </div>
-
-
             </div>
-
         </div>
     </div>
-
 </form>
 
 {% endblock %}
