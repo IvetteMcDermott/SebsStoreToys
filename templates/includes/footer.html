@@ -7,7 +7,7 @@
                 <div class="col" style="border:2px solid grey; border-radius: 5px;">
                     <div class="row">
                         <!-- Begin Mailchimp Signup Form -->
-            
+
                         <p class="w-100 pl-2">Subscribe to our newsletter</p>
                     </div>
                     <div class="row">
@@ -24,20 +24,28 @@
                 </div>
             </div>
         </form>
-        <div class="col d-flex align-items-center justify-content-center">
-            <i class="fa-brands fa-facebook fa-2xl" style="color: #4c4e52;"><small>acebook</small></i>
+        <div class="col flex-column align-items-center justify-content-center">
+            <div class="row d-flex justify-content-center mt-2"><small>Visit us on our</small></div>
+            <div class="row d-flex justify-content-center">
+                <a href="https://www.facebook.com/profile.php?id=100092753469482" target="_blank"><i
+                            class="fa-brands fa-facebook fa-l" style="color: #4c4e52;"></i><small>acebook</small>
+                    </a>
+            </div>
         </div>
-        <div class="col d-flex flex-column align-items-center justify-content-center">
-            <div class="row">
-                <p class="mb-1"><a href="{% url 'terms' %}" style="color:rgb(51, 186, 205) !important;">Terms & Conditions</a></p>
+        <div class="col flex-column align-items-center justify-content-center">
+            <div class="row d-flex justify-content-center">
+                <p class="mb-1"><a href="{% url 'terms' %}" style="color:rgb(51, 186, 205) !important;"><small>Terms &
+                            Conditions</small></a></p>
             </div>
-            <div class="row">
-                <p class="mb-1"><a href="{% url 'q_a' %}" style="color:rgb(51, 186, 205) !important;">Q&A</a></p>
-            </p>
+            <div class="row d-flex justify-content-center">
+                <p class="mb-1"><a href="{% url 'q_a' %}"
+                        style="color:rgb(51, 186, 205) !important;"><small>Q&A</small></a></p>
+                </p>
             </div>
-            <div class="row">
-                <p class="mb-1"><a href="{% url 'contact_us:contact_us_form' %}" style="color:rgb(51, 186, 205) !important;">Contact
-                        Us</a>
+            <div class="row d-flex justify-content-center">
+                <p class="mb-1"><a href="{% url 'contact_us:contact_us_form' %}"
+                        style="color:rgb(51, 186, 205) !important;"><small>Contact
+                            Us</small></a>
                 </p>
             </div>
         </div>
@@ -47,10 +55,11 @@
 <div class="container-fluid " style="background-color: #0c0c0ca8;">
     <div class="row">
         <div class="col mt-3 d-flex justify-content-end">
-            <p> @ Educational Purposes</p>
+            <p><small>@ Educational Purposes</small></p>
         </div>
         <div class="col mt-3">
-            <p>Ivette Mc Dermott <i class="fa-brands fa-github fa-fade" style="color: #4c4e52;"></i></p>
+            <p><a href="https://github.com/IvetteMcDermott" target="_blank" rel="noopener"><small>Ivette Mc Dermott
+                    </small></a><i class="fa-brands fa-github fa-fade" style="color: #4c4e52;"></i></p>
         </div>
     </div>
 </div>

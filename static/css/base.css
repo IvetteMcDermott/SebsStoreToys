@@ -291,8 +291,8 @@ body * > a, a:hover {
 
 .message-container {
     position: fixed;
-    top: 10vh;
-    right: 15px;
+    top: 17vh;
+    right: 3em;
     z-index: 99999999999 !important;
 }
 
