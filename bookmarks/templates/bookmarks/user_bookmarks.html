@@ -1,28 +1,27 @@
 <div class="row pt-3" id="bookmarks-div" style="border: 2px solid grey; border-radius: 5px;">
-        {% for ware in bookmarks %}
-        <div class="col">
-            <div class="card mb-3"
-                style="max-width: 420px; background-color: rgba(41, 39, 39, 0.39); border-radius: 10px;">
-                <div class="row no-gutters p-0">
-                    <div class="col m-1">
-                        {% for photo in ware.ware.ware_image.all %}
-                        {% if forloop.counter == 1 %}
-                        <a href="{% url 'sts_store:ware_detail' ware.ware_id %}"
-                                    class="post-link" style="z-index: 2;">
+    {% for ware in bookmarks %}
+    <div class="col">
+        <div class="card mb-3" style="max-width: 420px; background-color: rgba(41, 39, 39, 0.39); border-radius: 10px;">
+            <div class="row no-gutters p-0">
+                <div class="col m-1">
+                    {% for photo in ware.ware.ware_image.all %}
+                    {% if forloop.counter == 1 %}
+                    <a href="{% url 'sts_store:ware_detail' ware.ware_id %}" class="post-link" style="z-index: 2;">
                         <img src="{{ photo.image.url }}"
-                            style="border-radius: 8px; width:40%; min-width: 10em; object-fit: scale-down;" alt="image"></a>
-                        {% endif %}
-                        {% endfor %}
-                    </div>
-                    <div class="col mt-2 ml-1">
-                        <div class="card-body ">
-                            <h6 class="card-title text-right text-orange text-uppercase">
-                                    {{ ware.ware.name }}</h6>
-                            <h6 class="text-right">€ {{ ware.ware.price }}</h6>
-                        </div>
+                            style="border-radius: 8px; width:40%; min-width: 10em; object-fit: scale-down;"
+                            alt="image"></a>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="col mt-2 ml-1">
+                    <div class="card-body ">
+                        <h6 class="card-title text-right text-orange text-uppercase">
+                            {{ ware.ware.name }}</h6>
+                        <h6 class="text-right">€ {{ ware.ware.price }}</h6>
                     </div>
                 </div>
             </div>
         </div>
-        {% endfor %}
+    </div>
+    {% endfor %}
 </div>

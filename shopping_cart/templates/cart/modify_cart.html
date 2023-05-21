@@ -1,20 +1,18 @@
 <div class="row ml-1 p-1">
     <div class="col p-1" style="border: 1px grey solid; border-radius: 5px;">
-    <form class="form update-form" method="POST" action="{% url 'shopping_cart:modify_cart' ware.ware_id %}" >
-    {% csrf_token %}
-    <div class="form-group">
-        <div class="input-group">
-         
-            <input class="form-control form-control-sm qty_input" type="number"
-                name="quantity" value="{{ ware.quantity }}" min="1" max="99"
-                data-item_id="{{ ware.ware_id }}"
-                id="id_qty_{{ ware.ware_id}}">           
-        
-        </div>
+        <form class="form update-form" method="POST" action="{% url 'shopping_cart:modify_cart' ware.ware_id %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <div class="input-group">
+
+                    <input class="form-control form-control-sm qty_input" type="number" name="quantity"
+                        value="{{ ware.quantity }}" min="1" max="99" data-item_id="{{ ware.ware_id }}"
+                        id="id_qty_{{ ware.ware_id}}">
+
+                </div>
+            </div>
+        </form>
+
+        <a class="update-link text-info" style="cursor: pointer;"><small>Update Qty</small></a>
     </div>
-</form>
-
-<a class="update-link text-info" style="cursor: pointer;"><small>Update Qty</small></a>
 </div>
-</div>
-
