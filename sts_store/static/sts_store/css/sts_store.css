@@ -1,3 +1,17 @@
+
+.form-button {
+    all: unset;
+    text-transform: uppercase;
+}
+
+.list-no-style {
+    list-style-type: none;
+}
+
+.form-background {
+    background-color: black;
+}
+
 #add-ware>p>label {
     width: 5em;
 }
@@ -60,6 +74,14 @@
     margin-left: 0;
     margin: auto;
 }
+
+
+.page-link {
+    color:rgb(51, 186, 205)!important;
+    background-color: transparent;
+    border-color: grey;
+}
+
 
 /* delivery banner */
 .div-back {

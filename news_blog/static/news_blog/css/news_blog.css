@@ -1,0 +1,10 @@
+.text-orange {
+    color:#FF7D00 !important;
+    text-decoration: none !important;
+  }
+  
+.page-link {
+  color:rgb(51, 186, 205)!important;
+  background-color: transparent;
+  border-color: grey;
+}

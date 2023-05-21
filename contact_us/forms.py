@@ -17,7 +17,6 @@ class ContactUsForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         placeholders = {
             'email': 'Email',
-            'subject': 'Subject',
             'name': 'Name',
             'subject': 'Subject',
             'description': 'If you have an order include it at the begin of the message with #',
@@ -25,10 +24,11 @@ class ContactUsForm(forms.ModelForm):
 
         self.fields['email'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            if self.fields[field].required:
-                placeholder = f'{placeholders[field]} *'
-            else:
-                placeholder = placeholders[field]
-            self.fields[field].widget.attrs['placeholder'] = placeholder
+            if field != 'subject':
+                if self.fields[field].required:
+                    placeholder = f'{placeholders[field]} *'
+                else:
+                    placeholder = placeholders[field]
+                self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False

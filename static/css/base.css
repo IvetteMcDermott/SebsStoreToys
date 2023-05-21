@@ -30,6 +30,7 @@ body * > a, a:hover {
     font-size: small;
 }
 
+
 /* INDEX html */
 
 /* ANIMATED slogan taken from tutorial in Youtube*/
@@ -347,7 +348,7 @@ form.flex {
     gap: 0.3rem;
   }
 
-/* MARGIN CLASSES */
+/* BTNS */
 
 .pages-title {
     text-shadow: 3px 3px 5px rgb(41, 110, 180, 0.466);
@@ -366,6 +367,10 @@ form.flex {
     text-decoration: none !important;
   }
 
-footer * {
+.btn-blue-text {
+    color: rgb(51, 186, 205) !important;
+}
+
+  footer * {
     font-size: large;
 }
