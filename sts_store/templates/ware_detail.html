@@ -38,7 +38,8 @@
         <div class="col-4">
             {% if user.is_staff %}
 
-            <a href="{% url 'sts_store:ware_edit' ware.id %}" class="btn btn-outline-warning" style="width: 5em;">Edit</a>
+            <a href="{% url 'sts_store:ware_edit' ware.id %}" class="btn btn-outline-warning"
+                style="width: 5em;">Edit</a>
             {% endif %}
 
         </div>
@@ -224,8 +225,9 @@
 
                 <img src="{{ photo.image.url }}" alt="{{ photo.caption }}" style="width: 100%;">
             </div>
-            
-            <p class="ml-3 mt-auto">{{ photo.caption }} {% if request.user.is_staff %} - id {{ photo.id }} {% endif %} </p>
+
+            <p class="ml-3 mt-auto">{{ photo.caption }} {% if request.user.is_staff %} - id {{ photo.id }} {% endif %}
+            </p>
             {% if user.is_staff %}
             <div class="col d-flex justify-content-start align-items-center">
                 <form method="get" action="{% url 'sts_store:image_delete' photo.id %}">
@@ -240,9 +242,7 @@
                             <div class="modal-content" style="background-color: black; top:20vh;">
                                 <div class="modal-header">
                                     <h5 class="text-orange text-uppercase pages-title " id="exampleModalLabel">Do
-                                        you
-                                        want
-                                        to delete this image?</h5>
+                                        you want to delete this image?</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -267,7 +267,7 @@
         </div>
     </div>
 </div>
-</div>
+
 
 <button onclick="topFunction()" id="myBtn" class="btn btn-outline-info pages-title btn-shadow"
     title="Go to top">Top</button>
@@ -276,82 +276,10 @@
 
 {% include 'reviews/reviews_form.html' %}
 
-
 {% endblock %}
 
 {% block togglejs %}
 
-<script>
-    function toggleV() {
-        let div = document.getElementById('videos-games')
-        if (div.style.display === 'none') {
-            div.style.display = 'block';
-        } else {
-            div.style.display = 'none';
-        }
-    }
-
-    function toggleE() {
-        let div = document.getElementById('educational')
-        if (div.style.display === 'none') {
-            div.style.display = 'block';
-        } else {
-            div.style.display = 'none';
-        }
-    }
-
-    function toggleB() {
-        let div = document.getElementById('board-games')
-        if (div.style.display === 'none') {
-            div.style.display = 'block';
-        } else {
-            div.style.display = 'none';
-        }
-    }
-
-    function toggleF() {
-        let div = document.getElementById('figures')
-        if (div.style.display === 'none') {
-            div.style.display = 'block';
-        } else {
-            div.style.display = 'none';
-        }
-    }
-</script>
-{% endblock %}
-
-
-{% block topbtnJs %}
-<script>
-    // Took from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_scroll_to_top
-    // Get the button
-    let mybutton = document.getElementById("myBtn");
-
-    // When the user scrolls down 20px from the top of the document, show the button
-    window.onscroll = function () { scrollFunction() };
-
-    function scrollFunction() {
-        if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
-            mybutton.style.display = "block";
-        } else {
-            mybutton.style.display = "none";
-        }
-    }
-
-    // When the user clicks on the button, scroll to the top of the document
-    function topFunction() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    }
-
-    function toggleI() {
-        let div = document.getElementById('images')
-        if (div.style.display === 'none') {
-            div.style.display = 'block';
-        } else {
-            div.style.display = 'none';
-        }
-    }
-</script>
+<script type="text/javascript" src="{% static 'sts_store/js/script.js' %}"></script>
 
 {% endblock %}

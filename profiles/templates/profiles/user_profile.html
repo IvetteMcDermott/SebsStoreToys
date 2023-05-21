@@ -145,22 +145,6 @@
 
 {% block togglejs %}
 
-<script>
-    function toggleO(){
-       let div = document.getElementById('full-orders')
-       if (div.style.display === 'none') {
-        div.style.display = 'block';
-       }else {
-        div.style.display = 'none';
-       }
-    }
-    function toggleB(){
-       let div = document.getElementById('bookmarks')
-       if (div.style.display === 'none') {
-        div.style.display = 'block';
-       }else {
-        div.style.display = 'none';
-       }
-    }
-</script>
+<script type="text/javascript" src="{% static 'profiles/js/script.js' %}"></script>
+
 {% endblock %}
