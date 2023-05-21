@@ -179,7 +179,7 @@
             <p>By: {{ review.author }}</p>
         </div>
         <div class="col"> <span>
-                <p><small>{{ review.date_created }}</small></p>
+                <small>{{ review.date_created }}</small>
             </span>
         </div>
     </div>
@@ -274,14 +274,12 @@
 <button onclick="topFunction()" id="myBtn" class="btn btn-outline-info pages-title btn-shadow"
     title="Go to top">Top</button>
 
-</div>
-
 {% include 'reviews/reviews_form.html' %}
 
 {% endblock %}
 
 {% block togglejs %}
 
-<script type="text/javascript" src="{% static 'sts_store/js/script.js' %}"></script>
+<script src="{% static 'sts_store/js/script.js' %}"></script>
 
 {% endblock %}

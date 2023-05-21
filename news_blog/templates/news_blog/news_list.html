@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'contact_us/css/contact_us.css' %}">
+<link rel="stylesheet" href="{% static 'news_blog/css/news_blog.css' %}">
 {% endblock %}
 
 {% block head %}
@@ -10,42 +10,41 @@
 {% endblock %}
 
 {% block header %}
-    <div class="row w-100 d-flex justify-content-center p-5">
-        <h2 class="text-orange text-uppercase pages-title" >News</h2>
-    </div>
+<div class="row w-100 d-flex justify-content-center p-5">
+    <h2 class="text-orange text-uppercase pages-title">News</h2>
+</div>
 {% endblock %}
 
 {% block content %}
 {% if paginator %}
 <div class="col d-flex justify-content-end" style="line-height: 1.5em;">
-    <span > {% include 'includes/paginator.html' %} </span>
+    {% include 'includes/paginator.html' %}
 </div>
 {% endif %}
 
-<section >
-
 <div class="container-fluid">
     <div class="row d-flex">
-    {% for new in object_list %}
-    <div class="col">
-    <div class="card ware-card">
+        {% for new in object_list %}
+        <div class="col">
+            <div class="card ware-card">
 
-        <a href="{% url 'news_blog:news_details' new.id %}" class="post-link" style="z-index: 2; height:100%">
+                <a href="{% url 'news_blog:news_details' new.id %}" class="post-link" style="z-index: 2; height:100%">
 
-            <div class="image-container m-0 m-auto" style="min-width: 13em; max-width: 70%; max-height: 50%; z-index: 2;">
+                    <div class="image-container m-0 m-auto"
+                        style="min-width: 13em; max-width: 70%; max-height: 50%; z-index: 2;">
 
-                <img src="{{ new.image.url }}" class="card-img-top" style="object-fit: fit; min-width: 13em; max-width: 80%; max-height: 50%;" alt="image">
-               
-                <p class="text-orange"> {{ new.title|upper }}</p>
-                <p class="mb-1">{{ new.description|truncatewords:8 }}</p>
-                <p class="mb-0" style="bottom:0px; right:1em; position: absolute">{{ new.date }}</p>
+                        <img src="{{ new.image.url }}" class="card-img-top"
+                            style=" min-width: 13em; max-width: 80%; max-height: 50%;" alt="image">
+
+                        <p class="text-orange"> {{ new.title|upper }}</p>
+                        <p class="mb-1">{{ new.description|truncatewords:8 }}</p>
+                        <p class="mb-0" style="bottom:0px; right:1em; position: absolute">{{ new.date }}</p>
+                    </div>
+                </a>
             </div>
-        </a>
+        </div>
+        {% endfor %}
     </div>
 </div>
-    {% endfor %}
-</div></div>
-</section>
-
 
 {% endblock %}

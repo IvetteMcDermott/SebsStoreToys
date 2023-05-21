@@ -1,18 +1,18 @@
 <div class="w-100 d-flex flex-row-reverse " style="background-color: black; padding:0px; margin:0px;">
     <div class="p-2 d-flex justify-content-end align-items-center" style="padding:0px; margin:0px;">
-        <span> <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
+        <div class="d-flex justify-content-center">
+            <a class="{% if grand_total %}text-info text-center font-weight-bold{% else %}text-black{% endif %} nav-link"
                 href="{% url 'shopping_cart:view_cart' %}" style="padding: 0px !important;">
-                <div class="text-center">
-                    <i class="fas fa-shopping-cart" style="color: #33bacd;"></i>
-                    <p class="my-0">
-                        {% if grand_total %}
-                        €{{ grand_total|floatformat:2 }}
-                        {% else %}
-                        €0.00
-                        {% endif %}
-                    </p>
-                </div>
-            </a></span>
+                <i class="fas fa-shopping-cart" style="color: #33bacd;"></i>
+                <p class="my-0">
+                    {% if grand_total %}
+                    €{{ grand_total|floatformat:2 }}
+                    {% else %}
+                    €0.00
+                    {% endif %}
+                </p>
+            </a>
+        </div>
     </div>
 
     <div class="p-2 d-flex justify-content-start p-0">
@@ -37,9 +37,9 @@
 
                         {% else %}
                         <span class="col " style="padding: 0px !important;">
-                            <i class="fa-solid fa-user-large-slash" style="color: #33bacd;"></i>
+                            <i class="fa-solid fa-user-large-slash" style="color: #33bacd;"></i>                        </span>
+
                             {% endif %}
-                        </span>
                     </a>
                     <div class="dropdown-menu"
                         style="background-color: black !important; border-color: rgb(51 186 205); z-index: 100001;">
@@ -55,9 +55,11 @@
 
                         {% else %}
 
-                        <a class="dropdown-item d-flex justify-content-end" href="{% url 'account_signup' %}?next={{request.path}}"
+                        <a class="dropdown-item d-flex justify-content-end"
+                            href="{% url 'account_signup' %}?next={{request.path}}"
                             style="color: rgb(51 186 205) !important;">SIGN UP</a>
-                        <a class="dropdown-item d-flex justify-content-end" href="{% url 'account_login' %}?next={{request.path}}"
+                        <a class="dropdown-item d-flex justify-content-end"
+                            href="{% url 'account_login' %}?next={{request.path}}"
                             style="color: rgb(51 186 205) !important;">SIGN IN</a>
 
                         {% endif %}

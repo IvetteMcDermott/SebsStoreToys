@@ -29,7 +29,7 @@
         {% endif %}
         {% if paginator %}
         <div class="col d-flex justify-content-end" style="line-height: 1.5em;">
-            <span > {% include 'includes/paginator.html' %} </span>
+            {% include 'includes/paginator.html' %}
         </div>
         {% endif %}
     </div>
@@ -46,8 +46,7 @@
                         <a href="{% url 'sts_store:ware_detail' ware.id %}" class="post-link"
                         style="z-index: 2; height: 60%;">
 
-                        <div class="image-container d-flex " style=" min-width: 12em; max-height: 100%;"
-                            style="z-index: 2;">
+                        <div class="image-container d-flex " style=" min-width: 12em; max-height: 100%; z-index: 2;">
                             {% for photo in ware.ware_image.all %}
                             {% if forloop.counter == 1 %}
                             <img src="{{ photo.image.url }}" class="justify-items-center"
@@ -85,67 +84,7 @@
   
 {% block togglejs %}
 
-<script>
-    function toggleV() {
-        let div = document.getElementById('videos-games')
-        if (div.style.display === 'none') {
-            div.style.display = 'block';
-        } else {
-            div.style.display = 'none';
-        }
-    }
+<script src="{% static 'sts_store/js/script.js' %}"></script>
 
-    function toggleE() {
-        let div = document.getElementById('educational')
-        if (div.style.display === 'none') {
-            div.style.display = 'block';
-        } else {
-            div.style.display = 'none';
-        }
-    }
-
-    function toggleB() {
-        let div = document.getElementById('board-games')
-        if (div.style.display === 'none') {
-            div.style.display = 'block';
-        } else {
-            div.style.display = 'none';
-        }
-    }
-
-    function toggleF() {
-        let div = document.getElementById('figures')
-        if (div.style.display === 'none') {
-            div.style.display = 'block';
-        } else {
-            div.style.display = 'none';
-        }
-    }
-</script>
 {% endblock %}
 
-{% block topbtnJs %}
-<script>
-    // Took from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_scroll_to_top
-    // Get the button
-    let mybutton = document.getElementById("myBtn");
-    
-    // When the user scrolls down 20px from the top of the document, show the button
-    window.onscroll = function() {scrollFunction()};
-    
-    function scrollFunction() {
-      if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
-        mybutton.style.display = "block";
-      } else {
-        mybutton.style.display = "none";
-      }
-    }
-    
-    // When the user clicks on the button, scroll to the top of the document
-    function topFunction() {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-    }
-    </script>
-  
-{% endblock %}
