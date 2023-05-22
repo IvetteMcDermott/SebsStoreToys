@@ -55,10 +55,10 @@ It had been based on a template, it contains animation. The logo had been desing
 <br>
 The forms had been differenced for users/clients they have placeholders and for staff with labels. <br>
 
-User/Clients
+User/Staff
 <br>
 ![](../readme_imgs/staff-form.png)
 
-User/Staff
+User/Clients
 <br>
 ![](../readme_imgs/review-form.png)

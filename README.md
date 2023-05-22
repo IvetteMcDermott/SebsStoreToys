@@ -1,5 +1,7 @@
 ![](/readme_docs/readme_imgs/am-i-responsive.png)
+
 <br>
+
 Live Site: [💻](!https://sebs-toy-store.herokuapp.com/)
 
 
@@ -22,15 +24,11 @@ The project had been based in Business to Consumer (B2C) style. Being an e-comme
 <br>
 
 ### **SEO**
-Several SEO techniques were undertaken in order to ensure the site ranks highly in search engine results. Also the files robots.txt and sitemap.xml had been included. The sitemap.xml file had been created using: 
-
-[xml-sitemap](https://www.xml-sitemaps.com/)
+Several SEO techniques were undertaken in order to ensure the site ranks highly in search engine results. Also the files robots.txt and sitemap.xml had been included. The sitemap.xml file had been created using [xml-sitemap](https://www.xml-sitemaps.com/)
 
 **Keywords:**
 <br>
-Starting with a brain storms of keywords that are relevant to the e-commerce itself. And reduced by making use of a word search so target the more relevant, the site I had used is:
-
-[wordtracker](https://www.wordtracker.com/)
+Starting with a brain storms of keywords that are relevant to the e-commerce itself. And reduced by making use of a word search so target the more relevant, the site I had used is [wordtracker](https://www.wordtracker.com/)
 
 
 **External Links:**
@@ -52,109 +50,104 @@ The e-commerce has its own facebook, the one that will keep posting a minimun of
 This will be based in our newsletter service and also to the users that had purchased with us previously. The starting strategy is to produce a monthly mail with news arrivals and some news about the gaming world, etc.  Planning monthly so the user dont feel overwhelmed with.
 
 
-UX
+# **UX**
 Target User
 
 
-User Stories
+# **User Stories**
+<br>
 
-Unregistered user
+## **Users**
 
+<br>
+As User I want to be able to visualize and navigate through the sections of the app
+   - Navbar 
+   - Footer
 
-Registered user
+As User I want to browse through the wares
+   - Wares list view/Store
 
+As User I want to been able to add and remove products from my cart
+   - From list view/Store: QBuy button
+   - From ware's details: Add to Cart button
+   - Remove: From shopping cart remove link  
 
-Admin user
+As User I want to see the news section
+   - Link in Navbar
 
+As User I want to subscribe to the store newletters
+   - Form in Footer
 
-User Stories
+As User I want to contact the staff if I require help or clarification of a process
+   - Contact Form link in Footer
 
-
-User Stories - User Related
-
-User Story: Registration, Log In and Log Out
-As a User I can register so that can log in, in a next time in my account and with this I can have access to all the site features.
-
-SignIn Form: User name, password
-LogIn Form: User name, password
-SignOut: Redirect to main page
-User Story: View Comments
-As a registered User, I want to see all the comments in the posts when I log in.
-
-Render the comments in the HTML for logged users.
-User Story: Create a comment
-As a registered User, I want to be able to comment on the places/posts.
-
-Form that allows the user to add a comment.
-User Story: Formatting text
-#1 As User I want to be able to format the text in my comments. - Add RichTextField to the field for it.
-
-#2 As Administrator I want to be able to format the text in the post that I created. - Add RichTextField to the field for it.
-
-User Story: Edit Comments
-As a register User, I want to be able to edit my comment on the posts.
-
-Form that allows the user to edit their comment.
-User Story: Delete comments
-As a register User, I want to be able to delete my comments on the posts.
-
-Form that allows the user to delete their comment.
-User Story: Admin funtionality in html
-As Admin User, I want to be able to create entries about places without having to access to the admin site.
-
-Form: Create a post/place
-Form: Edit Post
-Form: Delete Post
-User Story: Admin delete comments
-As Admin, I want to be able to erase any comment in the blog without having to go in the admin site.
-
-Button visible just to the admin for this action
-User Story: Filters by type of location
-As a registered User, I want to been able to see the places in the region by type of location
-
-Display of filters by type of location in Coast
-Display of filters by type of location in Andes
-Display of filters by type of location in Jungle
-This User Story had changed in the process to the actual search by name with icontains.
-
-User Story: Interests list
-As a registered User, I want to be able to save a place/posts that are of my interest.
-
-Button that allows to save and remove the post from my interests list.
-User Story: User Profile
-As a registered User, I want to be able to see my profile where I can see, edit, delete my interests list
-
-This User Story had changed in the process, there is a profile page for the user to enter their details so that they can join the members community if desired.
-
-The Interests list is being rendered in an independent page.
-
-User Story: Fill a Profile
-As a registered User, I want to be able to enter my information so that I can share and interact with the community
-
-Form that allows the user to enter the data
-A Profile page
-A Community page
-User Story: Like/Unlike
-As a registered User, I want to be able to like the post and/or content.
-
-Will not have. Since the begining have doubts about and in the process I found that it would not add value to the blog as I wanted to approach it. And could affect the reference to the place instead to the post itself.
-
-User Story: Contact Form
-As a User, I want to be able to contact the blog author
-
-Won't have. Found that there would not be a need for it. Since in the future with the development of the interaction between profiles and community, there will be direct access to the admin.
-
-Flowcharts
-Unregistered User
-
-unregistered
+As User I want to see the reviews of the wares
+   - Ware's details: Rendered in
 
 
-Registered User
-register
+## **Unregistered User**
+<br>
 
-Admin User
-admin
+As a Unregister User I want to get a benefit if I register
+   - Information recieved in the registration mail
+
+As Unregister User I want to see the purpose of the site when landing in it
+   - Landing page with clear reference to objective of the app
+
+As Unregister User, I want to be able to register so that I can create my account and access to the registered user features
+   - Link for Sign Up in Navbar
+
+As a Unregister User I want to see the detail information of the wares
+   - Ware's details page
+<br>
+
+## **Registered User**
+<br>
+
+As a Register User I want to keep my information saved so that in a next purchase I don't have to fill the form again
+   - Profile page
+
+As a Register User I want to be able to update my information if need
+   - Update Profile Form
+
+As a Register User I want to keep and access to my bookmarked wares
+   - Bookmark functionality with button in ware details page
+   - Display of bookmarks in My Profile page
+
+As a Register User I want to be able to leave a ware review if desire
+   - Review Form
+
+As a Register User I want to keep a history of my orders
+   - Orders Section that display last 5 of them in My Profile
+
+
+## **Staff User**
+<br>
+As a Staff/Admin User I want to access to an admin panel
+   - Staff Panel page
+
+As a Staff/Admin User I want to be able to reply the reviews if necessary
+   - Reply to review form's link
+
+As a Staff/Admin User I want to be able to manage the DB from the front-end
+   - Staff Panel page:
+      - Add a Ware Form
+      - Add an Image Form
+      - News Entry / Add a new
+      - Orders (render them)
+      - Contacted Us (render the inquiries)
+   
+   - Ware detail page:
+      - Edit a ware
+      - Delete a ware
+      - Delete an image
+
+As a Staff/Admin User I want to be able to manage the news section from the fron-end
+   - News details page:
+      - Edit a new
+      - Delete a new
+
+<br>
 
 # **Features**
 <br>
@@ -168,8 +161,7 @@ As  the time frame was affected by external factors out of my control, some of t
 Howsoever fields and some of the need elements for them had been set in place since begin, and are there for when can be done.
 Some of them are:
 
-- New arrivals: There is a field in wares model to mark them and with a filter displaying, it is planned to use a blue ribbon in the front end
-                as distintive feature.
+- New arrivals: There is a field in wares model to mark them and with a filter displaying, it is planned to use a blue ribbon in the front end as distintive feature.
 
 - Clearance: As previous one, there is a field in wares model to mark them and with a filter displaying, it is planned to use a ribbon in
              the front end as distintive feature with a different colour than the New Arrivals, at the moment the idea is yellow.
@@ -188,9 +180,9 @@ For the data base had been used ElephantSQL, and the diagram is as below.
 
 # **Agile Methodology**
 <br>
-For keep track of the Agile method I had used Project Board on GitHub, the one can be found 
+For keep track of the Agile method I had used Project Board on GitHub.
 
-[here](https://github.com/users/IvetteMcDermott/projects/15/views/1?layout=board).
+[Sebs Toy Store Project Board](https://github.com/users/IvetteMcDermott/projects/15/views/1?layout=board).
 
 # **Bugs**
 <br>
@@ -200,59 +192,74 @@ The details to the bugs can be found here
 <br>
 The wireframes can be found here
 
-The details to the design can be found 
-
-[here](/readme_docs/md_files/design.md)
+The details to the design can be found [here](/readme_docs/md_files/design.md)
 
 
 # **Technologies Used**
 <br>
-Languages
-HTML
-CSS
-Python
-JavaScript
 
-Frameworks and Libraries
-Django Documentation for here
+## Languages
 
-Jquery
+- [HTML](https://html.com/)
 
-Boostrap
+- [CSS](https://www.w3.org/Style/CSS/)
 
-Gunicorn
+- [Python](https://www.python.org/)
 
-Database Host
-ElephantSQL
-Documentation for set a database here.
-Deployment Host
-Heroku
-Other Resources
-GitHub
+- [JavaScript](https://www.javascript.com/)
 
-GitPod
 
-Allauth
+## Frameworks and Libraries
 
-DjangoCrispyForms
+- [Django](https://www.djangoproject.com/)
+Documentation for [here](https://docs.djangoproject.com/en/4.1/intro/)
 
-Cloudinary Media
+- [Jquery](https://jquery.com/) 
 
-iColorpalette
+- [Boostrap](https://getbootstrap.com/)
 
-GoogleFonts
+- [Gunicorn](https://gunicorn.org/)
 
-FontAwesome
+
+## Database Host
+
+- [ElephantSQL](https://www.elephantsql.com/)  
+   Documentation for set a database [here](https://www.elephantsql.com/docs/).
+
+
+## Deployment Host
+
+- [Heroku](https://id.heroku.com/login)
+
+## Payment Platfomr
+
+- [Stripe](https://stripe.com/ie)
+
+## Other Resources
+
+- [GitHub](https://github.com/)
+
+- [GitPod](https://www.gitpod.io/)
+
+- [Allauth](https://django-allauth.readthedocs.io/)
+
+- [DjangoCrispyForms](https://django-cryptography.readthedocs.io/)
+
+- [Cloudinary Media](https://cloudinary.com/)
+
+- [Coolors](https://coolors.co/)
+
+- [GoogleFonts](https://fonts.google.com/knowledge)
+
+- [FontAwesome](https://fontawesome.com/)
 
 # **Validation**
-The validation reports can be found here
+The validation reports can be found [here](./readme_docs/md_files/validation.md)
 
 # **Testing**
-The testing results can be found here
+The testing results can be found [here](./readme_docs/md_files/testing.md)
 
 # **Deployment**
-The site had been deployed through Heroku. The site had been developed on GitPod, committed and pushed to GitHub. And Heroku once the site is deployed would update automatically. The step for this can be found 
-
-[here](/readme_docs/md_files/deployment.md)
+The site had been deployed through Heroku. The site had been developed on GitPod, committed and pushed to GitHub. And Heroku once the site is deployed would update automatically. The step for this can be found [here](/readme_docs/md_files/deployment.md)
 
 # **Credits**
