@@ -1,12 +1,62 @@
-This is my first line in CA
+![](/readme_docs/readme_imgs/am-i-responsive.png)
+<br>
+Live Site: [💻](!https://sebs-toy-store.herokuapp.com/)
 
-About
-Live Site: 💻
+
+# **About**
+<br>
+This project had been design to be a B2C e-commerce store. The products offered are video games and toys related to mostly. It also has a section for news about video games, and events and movies related to, in general useful information for who enjoy of the video games. This had been included thinking of expand the experience of the user in the app, seeing us not just as an e-commerce but a place to visit to find extras about their interests and so we can engage loyalty in the clients. This news should be keep constantly updating and so inform of new things up through the marketing strategy.<br>
+<br>
+
+# **Content**
+
+- 
+
+
+# **Bussines Model**
+<br>
+The project had been based in Business to Consumer (B2C) style. Being an e-commerce where wares for all the ages and interests. The slogan is a word game, since the "toys/wares" would come from the store. <br>
+<br>
+
+## **Marketing Strategy**
+<br>
+
+### **SEO**
+Several SEO techniques were undertaken in order to ensure the site ranks highly in search engine results. Also the files robots.txt and sitemap.xml had been included. The sitemap.xml file had been created using: 
+
+[xml-sitemap](https://www.xml-sitemaps.com/)
+
+**Keywords:**
+<br>
+Starting with a brain storms of keywords that are relevant to the e-commerce itself. And reduced by making use of a word search so target the more relevant, the site I had used is:
+
+[wordtracker](https://www.wordtracker.com/)
+
+
+**External Links:**
+<br>
+In the news section, each card/new contains a source link that would direct the user/client to source from where was taken the information so that they can find more about.
+
+
+**Content marketing:**
+<br>
+For the wares offered will contain relevant information about the product and in the news section will be posted any new as new release, movie or event related to.
+
+
+**Social Media Marketing: Facebook**
+<br>
+The e-commerce has its own facebook, the one that will keep posting a minimun of three times a week, and releasing alerts of month offers and benefits, which are send by e-mail to the subscribers. This is for motivate the subscription to our newsletter and increase the clients database.
+
+
+**Email Marketing**
+This will be based in our newsletter service and also to the users that had purchased with us previously. The starting strategy is to produce a monthly mail with news arrivals and some news about the gaming world, etc.  Planning monthly so the user dont feel overwhelmed with.
 
 
 UX
 Target User
 
+
+User Stories
 
 Unregistered user
 
@@ -106,29 +156,61 @@ register
 Admin User
 admin
 
-Features
+# **Features**
+<br>
 The list and screenshot about them can be found here.
 
-Features to Implement in Future
+<br>
+
+## **Features to Implement in Future**
+<br>
+As  the time frame was affected by external factors out of my control, some of the 'could have' features had been left for future implementation.
+Howsoever fields and some of the need elements for them had been set in place since begin, and are there for when can be done.
+Some of them are:
+
+- New arrivals: There is a field in wares model to mark them and with a filter displaying, it is planned to use a blue ribbon in the front end
+                as distintive feature.
+
+- Clearance: As previous one, there is a field in wares model to mark them and with a filter displaying, it is planned to use a ribbon in
+             the front end as distintive feature with a different colour than the New Arrivals, at the moment the idea is yellow.
+
+- Bookmarks: There is a char field left in place, this is to implement a 'note' for the bookmark. As use find that bookmarks are very 
+             valuables but sometimes you just cant remember what or why you did keep it, so if user/client can from their profile/bookmarks write a note so can remember if was for some ocassion or person, I think that will add value to they user experience.
+- Pages: Q&A, and Terms and Conditions had been provide for the moment with a under construction message.
+<br>
+
+# **Database Squema - Elephant SQL**
+<br>
+For the data base had been used ElephantSQL, and the diagram is as below.
+
+![](/readme_docs/readme_imgs/db-squema.png)
 
 
+# **Agile Methodology**
+<br>
+For keep track of the Agile method I had used Project Board on GitHub, the one can be found 
 
-Bugs
+[here](https://github.com/users/IvetteMcDermott/projects/15/views/1?layout=board).
+
+# **Bugs**
+<br>
 The details to the bugs can be found here
 
-Design
+# **Design**
+<br>
 The wireframes can be found here
 
-The details to the design can be found here
+The details to the design can be found 
 
-Technologies Used
+[here](/readme_docs/md_files/design.md)
+
+
+# **Technologies Used**
+<br>
 Languages
 HTML
-
 CSS
-
 Python
-
 JavaScript
 
 Frameworks and Libraries
@@ -139,8 +221,6 @@ Jquery
 Boostrap
 
 Gunicorn
-
-CkEditor
 
 Database Host
 ElephantSQL
@@ -164,13 +244,15 @@ GoogleFonts
 
 FontAwesome
 
-Validation
+# **Validation**
 The validation reports can be found here
 
-Testing
+# **Testing**
 The testing results can be found here
 
-Deployment
-The site had been deployed through Heroku. The site had been developed on GitPod, committed and pushed to GitHub. And Heroku once the site is deployed would update automatically. The step for this can be found here
+# **Deployment**
+The site had been deployed through Heroku. The site had been developed on GitPod, committed and pushed to GitHub. And Heroku once the site is deployed would update automatically. The step for this can be found 
 
-Credits
+[here](/readme_docs/md_files/deployment.md)
+
+# **Credits**
