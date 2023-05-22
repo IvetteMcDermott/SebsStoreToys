@@ -34,6 +34,7 @@ def toggle_bookmark(request, ware_id):
                 user=user,
                 ware=ware,
             )
-            messages.success(request, 'The ware had been bookmarked successfully')
+            messages.success(request,
+                             'The ware had been bookmarked successfully')
 
     return HttpResponseRedirect(request.META['HTTP_REFERER'])

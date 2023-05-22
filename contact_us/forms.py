@@ -19,7 +19,7 @@ class ContactUsForm(forms.ModelForm):
             'email': 'Email',
             'name': 'Name',
             'subject': 'Subject',
-            'description': 'If you have an order include it at the begin of the message with #',
+            'description': 'If you have an order include it at the top with #',
         }
 
         self.fields['email'].widget.attrs['autofocus'] = True

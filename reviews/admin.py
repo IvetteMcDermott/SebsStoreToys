@@ -15,7 +15,8 @@ class Review(admin.ModelAdmin):
 
 @admin.register(ReplyReview)
 class ReplyReview(admin.ModelAdmin):
-    list_display = ['reply_review', 'reply_content', 'replier_author', 'replied_date', ]
+    list_display = ['reply_review', 'reply_content', 'replier_author',
+                    'replied_date', ]
     search_fields = ['reply_review', ]
 
     class Meta:

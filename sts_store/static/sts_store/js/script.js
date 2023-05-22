@@ -1,5 +1,5 @@
 function toggleV() {
-    let div = document.getElementById('videos-games')
+    let div = document.getElementById('videos-games');
     if (div.style.display === 'none') {
         div.style.display = 'block';
     } else {
@@ -8,7 +8,7 @@ function toggleV() {
 }
 
 function toggleE() {
-    let div = document.getElementById('educational')
+    let div = document.getElementById('educational');
     if (div.style.display === 'none') {
         div.style.display = 'block';
     } else {
@@ -17,7 +17,7 @@ function toggleE() {
 }
 
 function toggleB() {
-    let div = document.getElementById('board-games')
+    let div = document.getElementById('board-games');
     if (div.style.display === 'none') {
         div.style.display = 'block';
     } else {
@@ -26,7 +26,7 @@ function toggleB() {
 }
 
 function toggleF() {
-    let div = document.getElementById('figures')
+    let div = document.getElementById('figures');
     if (div.style.display === 'none') {
         div.style.display = 'block';
     } else {
@@ -40,7 +40,7 @@ function toggleF() {
     let mybutton = document.getElementById("myBtn");
 
     // When the user scrolls down 20px from the top of the document, show the button
-    window.onscroll = function () { scrollFunction() };
+    window.onscroll = function () { scrollFunction(); };
 
     function scrollFunction() {
         if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
@@ -57,7 +57,7 @@ function toggleF() {
     }
 
     function toggleI() {
-        let div = document.getElementById('images')
+        let div = document.getElementById('images');
         if (div.style.display === 'none') {
             div.style.display = 'block';
         } else {

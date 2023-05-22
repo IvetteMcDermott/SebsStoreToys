@@ -103,7 +103,8 @@ class WareDetail(CreateView):
         return redirect(request.META.get('HTTP_REFERER'))
 
 
-# Took from https://stackoverflow.com/questions/71396075/i-want-to-make-reply-to-comments-feature-in-django
+# Took from https://stackoverflow.com/questions/71396075/i-want-to-make-reply-
+# to-comments-feature-in-django
 def reply_review(request, review_id):
     reviews = Review.objects.get(id=review_id)
 

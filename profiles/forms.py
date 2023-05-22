@@ -7,7 +7,9 @@ class ProfileForm(forms.ModelForm):
 
     class Meta:
         model = UserProfile
-        fields = ('full_name', 'email', 'phone_number', 'country', 'postcode', 'town_or_city', 'street_address1', 'street_address2', 'county', )
+        fields = ('full_name', 'email', 'phone_number', 'country',
+                  'postcode', 'town_or_city', 'street_address1',
+                  'street_address2', 'county', )
 
     def __init__(self, *args, **kwargs):
         """
@@ -34,5 +36,5 @@ class ProfileForm(forms.ModelForm):
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'border-black rounded-0 profile-form-input'
+            self.fields[field].widget.attrs['class'] = 'border-black rounded-0 profile-form-input'  # noqa
             self.fields[field].label = False

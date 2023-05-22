@@ -6,7 +6,8 @@ app_name = 'sts_store'
 
 urlpatterns = [
     path('store/', views.Store.as_view(), name='wares'),
-    path('ware/<int:ware_id>/', views.WareDetail.as_view(), name='ware_detail'),
+    path('ware/<int:ware_id>/', views.WareDetail.as_view(),
+         name='ware_detail'),
     path('reply/<int:review_id>/', views.reply_review, name='reply_review'),
     path('<int:ware_id>/wareedit/', views.WareEdit, name='ware_edit'),
     path('<int:ware_id>/waredelete/', views.WareDelete, name='ware_delete'),

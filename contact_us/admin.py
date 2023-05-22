@@ -6,4 +6,5 @@ from .models import ContactUs
 
 @admin.register(ContactUs)
 class Subscriber(admin.ModelAdmin):
-    list_display = ['email', 'subject', 'name', 'subject', 'description', 'date', ]
+    list_display = ['email', 'subject', 'name', 'subject', 'description',
+                    'date', ]

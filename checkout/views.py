@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse  # noqa
 
 from django.views.decorators.http import require_POST
 from django.contrib import messages
@@ -151,9 +151,7 @@ def checkout_success(request, order_number):
         order.user_profile = profile
         order.save()
 
-    messages.success(request, f'Order successfully processed! \
-        Your order number is {order_number}. A confirmation \
-        email will be sent to {order.email}.')
+    messages.success(request, 'Order successfully processed! ')
 
     if 'cart' in request.session:
         del request.session['cart']
