@@ -2,7 +2,7 @@
 
 <br>
 
-Live Site: [💻](!https://sebs-toy-store.herokuapp.com/)
+Live Site: [💻here](!https://sebs-toy-store.herokuapp.com/)
 
 
 # **About**
@@ -10,9 +10,42 @@ Live Site: [💻](!https://sebs-toy-store.herokuapp.com/)
 This project had been design to be a B2C e-commerce store. The products offered are video games and toys related to mostly. It also has a section for news about video games, and events and movies related to, in general useful information for who enjoy of the video games. This had been included thinking of expand the experience of the user in the app, seeing us not just as an e-commerce but a place to visit to find extras about their interests and so we can engage loyalty in the clients. This news should be keep constantly updating and so inform of new things up through the marketing strategy.<br>
 <br>
 
-# **Content**
+# **Index**
 
-- 
+- [Bussines Model](#bussines-model)
+   - [Marketing Strategy](#marketing-strategy)
+      - [SEO](#seo)
+
+- [UX](#ux)
+
+- [User Stories](#user-stories)
+   - [User](#users)
+   - [User Unregister](#unregistered-user)
+   - [User Register](#registered-user)
+   - [User Staff](#staff-user)
+
+- [Features](#features)
+   - [Features for Future Implementation](#features-to-implement-in-future)
+
+- [DataBase Squema](#database-squema---elephant-sql)
+- [Agile Methodology - Board](#agile-methodology)
+- [Bugs](#bugs)
+- [Design](#design)
+- [Technologies Used](#technologies-used)
+   - [Languages](#languages)
+   - [Frameworks](#frameworks-and-libraries)
+   - [Database Host](#database-host)
+   - [Deployment Host](#deployment-host)
+   - [Payment Platform](#payment-platform)
+   - [Other Resources](#other-resources)
+
+- [Validation](#validation)
+- [Testing](#testing)
+- [Deployment](#deployment)
+- [Credits](#credits)
+
+
+- [Credtis](#credits)
 
 
 # **Bussines Model**
@@ -38,7 +71,8 @@ In the news section, each card/new contains a source link that would direct the 
 
 **Content marketing:**
 <br>
-For the wares offered will contain relevant information about the product and in the news section will be posted any new as new release, movie or event related to.
+The information and description of the wares in the site and other sections had been keep the more relevant to the site purpose. Also the keywords had been take in count when creating things like categories and such, so insure they are present without get to be spam. 
+Each page has its own title, and finally meta tag description had been include in the base so that every page contains them.
 
 
 **Social Media Marketing: Facebook**
@@ -51,7 +85,7 @@ This will be based in our newsletter service and also to the users that had purc
 
 
 # **UX**
-Target User
+As target user, we are aiming for individuals that likes the video games and things related to, and on people that looks for a gift. We have a section with the news that are relevant to the wares offered. 
 
 
 # **User Stories**
