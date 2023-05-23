@@ -2,7 +2,7 @@
 
 <br>
 
-Live Site: [💻here](!https://sebs-toy-store.herokuapp.com/)
+Live Site:  [💻here](https://sebs-toy-store.herokuapp.com/)
 
 
 # **About**
@@ -27,6 +27,11 @@ This project had been design to be a B2C e-commerce store. The products offered 
 - [Features](#features)
    - [Features for Future Implementation](#features-to-implement-in-future)
 
+- [Flowcharts](#flowcharts)
+   - [Flowchart Unregister User](#user-unregister-👇)
+   - [Flowchart Registered User](#user-registered-👇)
+   - [Flowchart Staff User](#user-staff-👇)
+   - [Flowchart Others](#other-👇)
 - [DataBase Squema](#database-squema---elephant-sql)
 - [Agile Methodology - Board](#agile-methodology)
 - [Bugs](#bugs)
@@ -43,9 +48,6 @@ This project had been design to be a B2C e-commerce store. The products offered 
 - [Testing](#testing)
 - [Deployment](#deployment)
 - [Credits](#credits)
-
-
-- [Credtis](#credits)
 
 
 # **Bussines Model**
@@ -203,11 +205,40 @@ Some of them are:
 - Bookmarks: There is a char field left in place, this is to implement a 'note' for the bookmark. As use find that bookmarks are very 
              valuables but sometimes you just cant remember what or why you did keep it, so if user/client can from their profile/bookmarks write a note so can remember if was for some ocassion or person, I think that will add value to they user experience.
 - Pages: Q&A, and Terms and Conditions had been provide for the moment with a under construction message.
+
+- Profiles: The idea of increase the fields, with a profile section where the user can choose some of their prefer video games so   that store can include these wares in the stock.
 <br>
+
+# **Flowcharts**
+<br>
+
+## **User Unregister 👇**
+<br>
+
+![](./readme_docs/readme_imgs/1.png)
+
+## **User Registered 👇**
+<br>
+
+![](./readme_docs/readme_imgs/2.png)
+
+## **User Staff 👇**
+<br>
+
+![](./readme_docs/readme_imgs/3.png)
+
+## **Other  👇**
+<br>
+
+![](./readme_docs/readme_imgs/4.png)
+
+
 
 # **Database Squema - Elephant SQL**
 <br>
 For the data base had been used ElephantSQL, and the diagram is as below.
+
+<br>
 
 ![](/readme_docs/readme_imgs/db-squema.png)
 
@@ -220,11 +251,13 @@ For keep track of the Agile method I had used Project Board on GitHub.
 
 # **Bugs**
 <br>
-The details to the bugs can be found here
+
+The details to the bugs can be found [here](/readme_docs/md_files/bugs.md)
 
 # **Design**
 <br>
-The wireframes can be found here
+
+The wireframes can be found [here](/readme_docs/md_files/wireframes.md)
 
 The details to the design can be found [here](/readme_docs/md_files/design.md)
 
