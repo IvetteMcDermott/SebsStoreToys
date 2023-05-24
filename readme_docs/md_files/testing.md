@@ -3,11 +3,11 @@
 
 The site had been test for the following devices:
 
-Mobile: 
+Mobile: 360 * 640 / 390 * 844 / 414 * 896
 
-Tablet: 
+Tablet: 768 * 1024 / 820 * 1180 / 1366 * 768
 
-Monitor: 
+Monitor: 1280 * 1024 / 1600 * 900 / 1950 & UP
 
 The site had been test in Chrome seeming all according to the design. In Firefox, the animation for the regions in the index come out a bit out of shape but still fully functional. In Internet Explorer all seems to work as the design.
 <br>
@@ -30,8 +30,9 @@ The features will be displayed according to the logged user, as marked in featur
 | Logo     | Directs to the landing/index page | Click |✅|
 | User Menu Icon     | Dropdown allauth options menu | Click |✅|
 | Sign Up     | Directs to Sign Up Form | Click |✅|
+| Sign In     | Directs to Sign In Form | Click |✅|
 | Sign Out     | Directs to Sign Out Form | Click |✅|
-| User name beside User Icon | Display 'guest' for unregister users and the user name for rest | Click |✅|
+| User name beside User Icon | Display 'guest' for unregister users  | Click |✅|
 | Shopping Cart Icon | Directs to the shopping cart page | Click |✅|
 | Shopping Cart Amount | Display the total of the shopping cart | Click |✅|
 | Toggle Menu Icon - Small devices     | Dropdown menu options | Click |✅|
@@ -45,8 +46,9 @@ The features will be displayed according to the logged user, as marked in featur
 
 | Feature       | Expected           | Action| Result|
 | ------------- |:-------------:| :-----|-----:|	 	
-| Sign In     | Directs to Sign In Form | Click |✅|
+| User name beside User Icon | Display user's name when logged in | Click |✅|
 | My Profile     | Directs to the request user profile page | Click |✅|
+| Sign Out     | Directs to Sign Out Form | Click |✅|
 <br>
 
 **Staff User**
@@ -54,8 +56,9 @@ The features will be displayed according to the logged user, as marked in featur
 
 | Feature       | Expected           | Action| Result|
 | ------------- |:-------------:| :-----|-----:|	 	
-| Sign In     | Directs to Sign In Form | Click |✅|
+| User name beside User Icon | Display user's name when logged in | Click |✅|
 | Staff Panel     | Directs to the Staff Panel page | Click |✅|
+| Sign Out     | Directs to Sign Out Form | Click |✅|
 <br>
 
 
@@ -75,7 +78,6 @@ The features will be displayed for all the users, as marked in features page
 ## **Top Button**
 <br>
 The features will be displayed for all the users, as marked in features page
-
 <br>
 
 **Users**

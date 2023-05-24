@@ -51,25 +51,25 @@
     Webhooks Dashboard 👇
     <br>
 
-    ![](/readme_docs/readme_imgs/webhooks-dashboard.png)
+    ![](../readme_imgs/webhooks-dashboard.png)
     
     <br>
 
     New Webhook Up 👇
     <br>
 
-    ![](/readme_docs/readme_imgs/new-webhook.png)
+    ![](../readme_imgs/new-webhook.png)
     
     <br>
 
     Store Email - Sent 👇
     <br>
 
-    ![](/readme_docs/readme_imgs/storemail-sent.png)
+    ![](../readme_imgs/storemail-sent.png)
     
     <br>
 
     Temp Email - Inbox 👇
     <br>
 
-    ![](/readme_docs/readme_imgs/temp-inbox-subscription-verifysignup-order.png)
+    ![](../readme_imgs/temp-inbox-subscription-verifysignup-order.png)
