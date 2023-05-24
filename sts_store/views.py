@@ -34,16 +34,6 @@ class Store(ListView):
     paginate_by = 4
     template_name = "store_list.html"
 
-    def get_bookmarks(request):
-        user = request.user
-        model = Bookmarks
-        bookmark = Bookmarks.objects.filter(user=user)
-
-        context = {
-            'bookmarks': bookmark,
-        }
-        return context
-
 
 class WareDetail(CreateView):
     """
@@ -106,15 +96,18 @@ class WareDetail(CreateView):
 # Took from https://stackoverflow.com/questions/71396075/i-want-to-make-reply-
 # to-comments-feature-in-django
 def reply_review(request, review_id):
-    reviews = Review.objects.get(id=review_id)
+    review = Review.objects.get(id=review_id)
 
-    if request.method == 'POST':
+    if (review is not None and
+        request.method == 'POST' and
+            request.user.is_authenticated):
+
         replier_author = request.user
         reply_content = request.POST.get('reply_content')
 
         newReply = ReplyReview(
             replier_author=replier_author, reply_content=reply_content)
-        newReply.reply_review = reviews
+        newReply.reply_review = review
         newReply.save()
         messages.success(request, 'Review replied!')
 
