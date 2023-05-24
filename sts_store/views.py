@@ -27,7 +27,9 @@ from reviews.forms import ReviewForm
 
 
 class Store(ListView):
-    """ VIEW FOR LIST OF PLACES FILTER: COAST """
+    """
+    VIEW FOR LIST OF WARES
+    """
     model = Ware
     queryset = Ware.objects.all().order_by('description')
     queryset_count = queryset.count()
@@ -96,6 +98,9 @@ class WareDetail(CreateView):
 # Took from https://stackoverflow.com/questions/71396075/i-want-to-make-reply-
 # to-comments-feature-in-django
 def reply_review(request, review_id):
+    """
+    ALLOWS THE STAFF TO REPLY A REVIEW
+    """
     review = Review.objects.get(id=review_id)
 
     if (review is not None and
@@ -115,7 +120,9 @@ def reply_review(request, review_id):
 
 
 def search(request):
-    """ VIEW FOR SEARCH A PLACE POST """
+    """
+    VIEW FOR SEARCH FOR A WARE DETAIL
+    """
     if request.method == 'POST':
         search = request.POST.get('q')
         print(search)
@@ -132,6 +139,9 @@ def search(request):
 
 
 def search_category(request):
+    """
+    SEARCH BY CATEGORY - FILTER
+    """
     model = Ware
     if request.method == 'POST':
         search = request.POST.get('q')
@@ -146,13 +156,17 @@ def search_category(request):
 
 @staff_member_required
 def StaffPanel(request):
-    """ VIEW FOR ADD A NEW WARE """
+    """
+    VIEW FOR ACCESS TO THE STAFF PANEL
+    """
     return render(request, 'admin/staff_panel.html')
 
 
 @method_decorator(staff_member_required, name='dispatch')
 class WareEntry(SuccessMessageMixin, CreateView):
-    """ VIEW FOR ADD A NEW WARE """
+    """
+    VIEW FOR ADD A NEW WARE
+    """
     template_name = 'admin/add_ware.html'
     model = Ware
     form_class = WareForm
@@ -164,7 +178,9 @@ class WareEntry(SuccessMessageMixin, CreateView):
 
 @method_decorator(staff_member_required, name='dispatch')
 class AddImageForm(SuccessMessageMixin, CreateView):
-    """ VIEW FOR ADD A NEW WARE """
+    """
+    VIEW FOR ADD A NEW IMAGE
+    """
     template_name = 'admin/add_image_form.html'
     model = WareImage()
     form_class = ImageForm
@@ -175,17 +191,8 @@ class AddImageForm(SuccessMessageMixin, CreateView):
 
 
 @staff_member_required
-def open_image(request, image_id):
-    """ VIEW FOR ADD A NEW WARE """
-    if request.method == 'GET':
-        image = get_object_or_404(WareImage, pk=image_id)
-
-    return render(request, 'admin/ware_image.html', {'image': image})
-
-
-@staff_member_required
 def image_delete(request, id):
-    """ VIEW FOR ADD A NEW WARE """
+    """ VIEW FOR DELETE AN IMAGE """
     if request.method == 'GET':
         image = WareImage.objects.get(pk=id)
         image.delete()
@@ -196,7 +203,9 @@ def image_delete(request, id):
 
 @staff_member_required
 def WareEdit(request, ware_id):
-    """ VIEW FOR ADD A NEW WARE """
+    """
+    VIEW FOR EDIT A WARE
+    """
     form = WareForm()
     ware = get_object_or_404(Ware, id=ware_id)
 
@@ -216,7 +225,9 @@ def WareEdit(request, ware_id):
 
 @staff_member_required
 def WareDelete(request, ware_id):
-    """ VIEW FOR ADD A NEW WARE """
+    """
+    VIEW FOR DELETE A WARE
+    """
     if request.method == 'GET':
         ware = Ware.objects.get(id=ware_id)
         ware.delete()
@@ -227,8 +238,9 @@ def WareDelete(request, ware_id):
 
 @staff_member_required
 def orders_list(request, *args, **kwargs):
-    """ TO SEARCH ORDERS BY DATE - ADMIN FEATURE """
-    """ TO SEARCH ORDERS BY USER - ADMIN FEATURE """
+    """
+    TO SEARCH ORDERS LAST ONES FIRST - ADMIN FEATURE
+    """
     model = Order
     orders = model.objects.all().order_by('-date')
 
@@ -243,8 +255,9 @@ def orders_list(request, *args, **kwargs):
 
 @staff_member_required
 def contacted_us_list(request, *args, **kwargs):
-    """ TO SEARCH ORDERS BY DATE - ADMIN FEATURE """
-    """ TO SEARCH ORDERS BY USER - ADMIN FEATURE """
+    """
+    TO SEARCH INQUIRIES - CONTACT US - LAST ONES FIRST - ADMIN FEATURE
+    """
     model = ContactUs
     contacts = model.objects.all().order_by('-id')
 

@@ -11,7 +11,6 @@ urlpatterns = [
     path('reply/<int:review_id>/', views.reply_review, name='reply_review'),
     path('<int:ware_id>/wareedit/', views.WareEdit, name='ware_edit'),
     path('<int:ware_id>/waredelete/', views.WareDelete, name='ware_delete'),
-    path('image/<int:image_id>/', views.open_image, name='open_image'),
     path('<int:id>/imagedelete/', views.image_delete, name='image_delete'),
     path('staffpanel/', views.StaffPanel, name='staff_panel'),
     path('search/', views.search, name='search'),

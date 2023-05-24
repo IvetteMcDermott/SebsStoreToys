@@ -18,7 +18,6 @@ def add_to_cart(request, ware_id):
 
     ware = get_object_or_404(Ware, pk=ware_id)
     quantity = int(request.POST.get('quantity'))
-    # redirect_url = request.POST.get('redirect_url')
 
     cart = request.session.get('cart', {})
 
