@@ -364,10 +364,51 @@ The site had been deployed through Heroku. The site had been developed on GitPod
 
 # **Credits**
 
-For this proyect I had take all the wares from Amazon App. The news has been take from t
+## **Content**
+<br>
+
+For this proyect I had take all the wares from Amazon App.
+The news has been take from the following blogs:
 
 [GamesHub](https://www.gameshub.com/news/features/all-the-big-video-game-events-in-2023-37270/)
 
 [GameSpot](https://www.gamespot.com/articles/overwatch-2s-pve-mode-is-being-scrapped-blizzard-explains-what-happened-and-why/1100-6514242/)
 
 [NintendoLife](https://www.nintendolife.com/news/2023/05/the-mario-movie-might-be-appearing-on-streaming-services-very-soon)
+<br>
+
+## **Code**
+<br>
+
+For this project, as for previous ones, I have seen and read many tutorials from where I had tried to get some understading of the logic more than copy the code it self, but still could not avoid in certain cases take code and adapt it to the project and its necessities.
+
+The shopping cart and checkout apps had been taken from Boutique Ado with some twists to fit better the project.
+
+Stack Overflow is one of the mains for finding answers to specific questions 
+https://stackoverflow.com
+
+The newsletter functionality had been set with mailchimp, and had made use of the following blog for set it. 
+https://www.geeksforgeeks.org/create-newsletter-app-using-mailchimp-and-django/
+
+The functionality for reply the reviews had been taken from, being the simplest one found 
+https://stackoverflow.com/questions/71396075/i-want-to-make-reply-to-comments-feature-in-django
+
+On CSS, there had been couple of animations used in the project, with minor changes, as follow
+
+ANIMATED slogan taken from tutorial in Youtube
+smashtheshell: https://www.youtube.com/watch?v=2NxUssDAxoY
+
+ACCORDION taken from tutorial in Youtube
+wpshopmart: https://www.youtube.com/watch?v=9tPFFZ9D4MY
+
+Some other places I had refered through the development of this project are:
+
+https://docs.djangoproject.com/en/4.2/ref/templates/builtins/
+
+https://ordinarycoders.com/
+
+https://www.pythontutorial.net/django-tutorial/
+
+
+
+
