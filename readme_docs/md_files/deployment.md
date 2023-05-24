@@ -34,7 +34,7 @@ Steps to use this repository:
 
 ![first](../readme_imgs/ss-rocket-heroku-first-time.png)
 
-![deploy-after-validation](readme_imgs/heroku-vars.jpg)
+![deploy-after-validation](../readme_imgs/heroku-vars.jpg)
 
 
 ## **Getting the variables for Heroku config vars.**
@@ -54,6 +54,17 @@ Steps to use this repository:
    In total with the previous three, our project will have 3 related to Stripe. These will go to Heroku config vars.
 
 ![stripe](../readme_imgs/stripe-dashboard.png)
+
+
+**Log in GMail (the one used for this project).**
+
+1. In Config Vars set the EMAIL_HOST_USER variable with the email used for the project.
+1. Go to settings of Google Account for the mail from step 1.
+2. Search for App Password, and click in the one in Security.
+3. Follow the instructions to select the device and generate the password.
+4. Copy the App Password generated, add it to config vars as EMAIL_HOST_PASS.
+
+![](/readme_docs/readme_imgs/app-password.png)
 
 
 **Log in MailChimp.**

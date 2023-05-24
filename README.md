@@ -2,7 +2,7 @@
 
 <br>
 
-Live Site:  [💻here](https://sebs-toy-store.herokuapp.com/)
+[💻Live Site](https://sebs-toy-store.herokuapp.com/)
 
 
 # **About**
@@ -63,7 +63,9 @@ Several SEO techniques were undertaken in order to ensure the site ranks highly 
 
 **Keywords:**
 <br>
-Starting with a brain storms of keywords that are relevant to the e-commerce itself. And reduced by making use of a word search so target the more relevant, the site I had used is [wordtracker](https://www.wordtracker.com/)
+Starting with a brain storms of keywords that are relevant to the e-commerce itself. And reduced by making use of a word search so target the more relevant, the site I had used is 
+
+[wordtracker](https://www.wordtracker.com/)
 
 
 **External Links:**
@@ -81,10 +83,35 @@ Each page has its own title, and finally meta tag description had been include i
 <br>
 The e-commerce has its own facebook, the one that will keep posting a minimun of three times a week, and releasing alerts of month offers and benefits, which are send by e-mail to the subscribers. This is for motivate the subscription to our newsletter and increase the clients database.
 
+![](/readme_docs/readme_imgs/facebook-1.png)
+
+<br>
+
+![](/readme_docs/readme_imgs/facebook-3.png)
+
+<br>
+
+![](/readme_docs/readme_imgs/facebook-2.png)
+
+<br>
 
 **Email Marketing**
-This will be based in our newsletter service and also to the users that had purchased with us previously. The starting strategy is to produce a monthly mail with news arrivals and some news about the gaming world, etc.  Planning monthly so the user dont feel overwhelmed with.
+This will be based in our newsletter service and also to the users that had purchased with us previously. The starting strategy is to produce a monthly mail with news arrivals and deals, also will contain some news about the gaming world, etc.
+The user will recieve a welcome mail informing benefits will be coming in next mails. This refering to the monthly mail with deals, so the user dont feel overwhelmed with. 
+For now there is a basic mail, but in future a better design will be implemented. Also had been set to recieve a report daily from mailchimp so that can be keep track of the traffic on it.
+<br>
 
+![](/readme_docs/readme_imgs/temp-inbox-subscription.png)
+
+<br>
+
+![](/readme_docs/readme_imgs/welcome-mailchimp.png)
+
+<br>
+
+![](/readme_docs/readme_imgs/mailchimp-report.png)
+
+<br>
 
 # **UX**
 As target user, we are aiming for individuals that likes the video games and things related to, and on people that looks for a gift. We have a section with the news that are relevant to the wares offered. 
@@ -97,6 +124,7 @@ As target user, we are aiming for individuals that likes the video games and thi
 
 <br>
 As User I want to be able to visualize and navigate through the sections of the app
+   
    - Navbar 
    - Footer
 
@@ -187,7 +215,9 @@ As a Staff/Admin User I want to be able to manage the news section from the fron
 
 # **Features**
 <br>
-The list and screenshot about them can be found here.
+The list and screenshot about them can be found   
+
+[here](readme_docs/md_files/features.md)
 
 <br>
 
@@ -204,9 +234,12 @@ Some of them are:
 
 - Bookmarks: There is a char field left in place, this is to implement a 'note' for the bookmark. As use find that bookmarks are very 
              valuables but sometimes you just cant remember what or why you did keep it, so if user/client can from their profile/bookmarks write a note so can remember if was for some ocassion or person, I think that will add value to they user experience.
+
+- Bookmarks to Store List: Bring the bookmark feature to the list view, to show to the user if the ware is already bookmarked by them or not.
+
 - Pages: Q&A, and Terms and Conditions had been provide for the moment with a under construction message.
 
-- Profiles: The idea of increase the fields, with a profile section where the user can choose some of their prefer video games so   that store can include these wares in the stock.
+- Profiles: The idea of increase the fields, with a profile section where the user can choose some of their prefer video games so   that store can include these wares in the stock. And also create a promotion section where can be display user's interests related items using the preference inputs.
 <br>
 
 # **Flowcharts**
@@ -278,8 +311,8 @@ The details to the design can be found [here](/readme_docs/md_files/design.md)
 
 ## Frameworks and Libraries
 
-- [Django](https://www.djangoproject.com/)
-Documentation for [here](https://docs.djangoproject.com/en/4.1/intro/)
+- [Django](https://www.djangoproject.com/)<br>
+   Documentation for [here](https://docs.djangoproject.com/en/4.1/intro/)
 
 - [Jquery](https://jquery.com/) 
 
@@ -330,3 +363,11 @@ The testing results can be found [here](./readme_docs/md_files/testing.md)
 The site had been deployed through Heroku. The site had been developed on GitPod, committed and pushed to GitHub. And Heroku once the site is deployed would update automatically. The step for this can be found [here](/readme_docs/md_files/deployment.md)
 
 # **Credits**
+
+For this proyect I had take all the wares from Amazon App. The news has been take from t
+
+[GamesHub](https://www.gameshub.com/news/features/all-the-big-video-game-events-in-2023-37270/)
+
+[GameSpot](https://www.gamespot.com/articles/overwatch-2s-pve-mode-is-being-scrapped-blizzard-explains-what-happened-and-why/1100-6514242/)
+
+[NintendoLife](https://www.nintendolife.com/news/2023/05/the-mario-movie-might-be-appearing-on-streaming-services-very-soon)
