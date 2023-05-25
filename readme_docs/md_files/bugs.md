@@ -48,22 +48,20 @@
              not affecting the local one, and confirmed all was 100% up after testing.
 <br>
     Webhooks Dashboard 👇
-    <br>
 
-    ![](../readme_imgs/webhooks-dashboard.png)
-<br>
+![](../readme_imgs/webhooks-dashboard.png)
+
 
     New Webhook Up 👇
-<br>
-    ![](../readme_imgs/new-webhook.png)
-    <br>
+
+![](../readme_imgs/new-webhook.png)
+
 
     Store Email - Sent 👇
-<br>
 
-    ![](../readme_imgs/storemail-sent.png)    
-<br>
+![](../readme_imgs/storemail-sent.png)    
+
 
     Temp Email - Inbox 👇
-<br>
-    ![](../readme_imgs/temp-inbox-subscription-verifysignup-order.png)
+
+![](../readme_imgs/temp-inbox-subscription-verifysignup-order.png)
