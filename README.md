@@ -7,7 +7,7 @@
 
 # **About**
 <br>
-This project had been design to be a B2C e-commerce store. The products offered are video games and toys related to mostly. It also has a section for news about video games, and events and movies related to, in general useful information for who enjoy of the video games. This had been included thinking of expand the experience of the user in the app, seeing us not just as an e-commerce but a place to visit to find extras about their interests and so we can engage loyalty in the clients. This news should be keep constantly updating and so inform of new things up through the marketing strategy.<br>
+This project had been designed to be a B2C e-commerce store. The products offered are video games and toys related to them mostly. It also has a section for news about video games, events and movies related to them, in general useful information for those who enjoy video games. This had been included in thinking of expanding the experience of the user in the app, seeing us not just as an e-commerce but also a site to visit to find extras about their interests and so we can engage loyalty in the clients. These news should be constantly updating and so inform our clients of new things up through the marketing strategy.<br>
 <br>
 
 # **Index**
@@ -52,36 +52,39 @@ This project had been design to be a B2C e-commerce store. The products offered 
 
 # **Bussines Model**
 <br>
-The project had been based in Business to Consumer (B2C) style. Being an e-commerce where wares for all the ages and interests. The slogan is a word game, since the "toys/wares" would come from the store. <br>
+The project had been based in Business to Consumer (B2C) style. Being an e-commerce where wares can be found for all the ages and interests. The slogan is not a typo but a word play, since the "toys/wares" would come from the store. <br>
 <br>
 
 ## **Marketing Strategy**
 <br>
 
 ### **SEO**
-Several SEO techniques were undertaken in order to ensure the site ranks highly in search engine results. Also the files robots.txt and sitemap.xml had been included. The sitemap.xml file had been created using [xml-sitemap](https://www.xml-sitemaps.com/)
+Several SEO techniques were undertaken in order to ensure the site ranks highly in search engine results. Also the files robots.txt and sitemap.xml had been included. The sitemap.xml file had been created using 
+
+[xml-sitemap](https://www.xml-sitemaps.com/)
 
 **Keywords:**
 <br>
-Starting with a brain storms of keywords that are relevant to the e-commerce itself. And reduced by making use of a word search so target the more relevant, the site I had used is 
+Starting with a brain storm of keywords that are relevant to the e-commerce itself. And reduced by making use of a word search so as to target the more relevant, the site I had used is 
 
 [wordtracker](https://www.wordtracker.com/)
 
 
 **External Links:**
 <br>
-In the news section, each card/new contains a source link that would direct the user/client to source from where was taken the information so that they can find more about.
+In the news section, each card/new contains a source link that would direct the user/client to the source from where was taken the information so that they can find more about it.
 
 
 **Content marketing:**
 <br>
-The information and description of the wares in the site and other sections had been keep the more relevant to the site purpose. Also the keywords had been take in count when creating things like categories and such, so insure they are present without get to be spam. 
-Each page has its own title, and finally meta tag description had been include in the base so that every page contains them.
+The information and description of the wares in the site and other sections had been kept the more relevant to the site purpose. Also the keywords had been taken into account when creating things like categories and such, so insure they are present without getting to be considere as spam. 
+Each page has its own title, and finally meta tag description had been included in the base so that every page contains them.
 
 
 **Social Media Marketing: Facebook**
 <br>
-The e-commerce has its own facebook, the one that will keep posting a minimun of three times a week, and releasing alerts of month offers and benefits, which are send by e-mail to the subscribers. This is for motivate the subscription to our newsletter and increase the clients database.
+The e-commerce has its own facebook, the one that will keep posting a minimun of three times a week, and releasing alerts of monthly offers and benefits, which are sent by e-mail to the subscribers. This is for to motivate the subscription to our newsletter and increase the clients database.
+<br>
 
 ![](/readme_docs/readme_imgs/facebook-1.png)
 
@@ -96,25 +99,35 @@ The e-commerce has its own facebook, the one that will keep posting a minimun of
 <br>
 
 **Email Marketing**
-This will be based in our newsletter service and also to the users that had purchased with us previously. The starting strategy is to produce a monthly mail with news arrivals and deals, also will contain some news about the gaming world, etc.
-The user will recieve a welcome mail informing benefits will be coming in next mails. This refering to the monthly mail with deals, so the user dont feel overwhelmed with. 
-For now there is a basic mail, but in future a better design will be implemented. Also had been set to recieve a report daily from mailchimp so that can be keep track of the traffic on it.
+This will be based in our newsletter service and also to the users that had purchased with us previously. The starting strategy is to produce a monthly mail with new arrivals and deals, also will contain some news about the gaming world, etc.
+Subscribed users will recieve a welcome mail informing benefits will that be coming in future mails. This refering to the monthly mail with deals, so the user does not feel overwhelmed or spammed. 
+For now there is a basic mail, but in future a better design will be implemented. Also had been set for the staff to recieve a daily report from mailchimp so to keep track of the traffic on it.
+
+Also when the user registers for an account in the app will recieve a welcome email with some information about benefits and promoting our newsletter on it.
+<br>
+
+Screenshot of subscribed temp mail inbox
 <br>
 
 ![](/readme_docs/readme_imgs/temp-inbox-subscription.png)
 
 <br>
+Mail to the subscribers
+<br>
 
 ![](/readme_docs/readme_imgs/welcome-mailchimp.png)
 
 <br>
+Mailchimp daily report
 
-![](/readme_docs/readme_imgs/mailchimp-report.png)
+<br>
+
+![](/readme_docs/readme_imgs/mailchimp-mail.png)
 
 <br>
 
 # **UX**
-As target user, we are aiming for individuals that likes the video games and things related to, and on people that looks for a gift. We have a section with the news that are relevant to the wares offered. 
+As target users, we are aiming for individuals that like video games and the world related to them, and also on people that are looking for a gift. We have a section with the news that is relevant to the wares offered. 
 
 
 # **User Stories**
@@ -135,6 +148,14 @@ As User I want to been able to add and remove products from my cart
    - From list view/Store: QBuy button
    - From ware's details: Add to Cart button
    - Remove: From shopping cart remove link  
+
+As User I want to been able to put my order through the site.
+   - Checkout App
+
+As User I want to recieve feedback that my order was proccessed succesfully.
+   - Checkout App: Success message
+   - Checkout App: Order detail page
+   - Mail Order Confirmation 
 
 As User I want to see the news section
    - Link in Navbar
@@ -409,6 +430,4 @@ https://ordinarycoders.com/
 
 https://www.pythontutorial.net/django-tutorial/
 
-
-
-
+And finally to my mentor Brian Macharia, thanks so much for all your guidance and support through no just this project but all the curse.

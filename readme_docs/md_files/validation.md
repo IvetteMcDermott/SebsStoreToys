@@ -1,5 +1,29 @@
-HTML
-PAGES
+## **HTML**
+
+### **PAGES**
+<br>
+
+**Validation for Landing Page**
+<br>
+The validation for this page had flag an error referent to the figure element, which is nesting inside other figure, this is part of the accordion animation, so down to the value of the animation to the site, it would be keep and register in the documentation.
+<br>
+
+![](/readme_docs/readme_imgs/landing-accordion-error.png)
+
+**Validation for Store, Ware Details, News, New Detail, Contact us, Staff Panel and forms from Staff Panel**
+<br>
+The validation for these pages had come clean withouot error or warnings.
+<br>
+
+![](/readme_docs/readme_imgs/html-validation-clean.png)
+
+**Validation for Allauth Pages**
+<br>
+The validation for these pages had give a message info about a trailing slash. As its part of the Allauth I had not modified it.
+<br>
+
+![](/readme_docs/readme_imgs/sign-up-validation.png)
+
 
 PYTHON 
 FILES
