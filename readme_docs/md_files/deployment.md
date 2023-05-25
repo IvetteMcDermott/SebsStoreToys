@@ -34,8 +34,6 @@ Steps to use this repository:
 
 ![first](../readme_imgs/ss-rocket-heroku-first-time.png)
 
-![deploy-after-validation](../readme_imgs/heroku-vars.jpg)
-
 
 ## **Getting the variables for Heroku config vars.**
 
@@ -104,6 +102,6 @@ Steps to use this repository:
 
 **Django Key.**
 
-You can find this one in your settings file in the project, remember to protected it and set it as the previous ones in env.py and variable in settings before commit or you would need generate a new one and do the mentioned steps.<br>
+You can find this one in your settings file in the project, remember to protected it and set it as the previous ones in env.py and variable in settings before commiting or you would need to generate a new one and do the mentioned steps.<br>
 
 The Django Key generator can be found [here](https://djecrety.ir/).

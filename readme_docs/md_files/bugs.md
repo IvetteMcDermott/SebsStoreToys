@@ -3,14 +3,14 @@
 
 
 - **Shopping Cart:** <br>
-    It was displaying and empty cart and still allowing to go to checkout page. 
+    It was displaying an empty cart and still allowing to go to checkout page. 
     <br>
 
-    **Fix:** If empty now it gives a message on that, and checout link is hidden.
+    **Fix:** If empty now it gives a message on that, and checkout link is hidden.
 
-- **The subcategories menu dropdown in store are toggle:** <br>
-    They drop but wont close until the category that was click for open gets click again. <br>
-    In small screens it could accumulate and turn annoying.
+- **The subcategories menu dropdown in store are toggled:** <br>
+    They drop but won't close until the category that was clicked for open gets clicked again. <br>
+    In small screens it could accumulate and become annoying.
     <br>
     
     **Fix:** None. As it is expected toggle behaviour.
@@ -38,38 +38,31 @@
     They stopped working everywhile. This was down to gitpod changing the port 8000 url.
     <br>
 
-    **Fix:** Update the endpoint when its need.
+    **Fix:** Update the endpoint when it's needed.
 
 - **Webhook Production Site:** <br>
-    I would not know explain why but it stopped working. I went to TA, and first thing we found its for some reason I had removed the / at the end of the endpoint url, which was put back in place but after tests, still did not solve it. As running tests together, found that there was not apparently reason for it still down, so I was suggest to 'rotate' the local that was working with the one for production, as we had confirmation of the local endpoint working.
+    I would not know how to explain why but it stopped working. I went to TA, and first thing we found it's for some reason I had removed the / at the end of the endpoint url, which was put back in place but after tests, still did not solve it. As running tests together, found that there was not apparent reason for it still down, so I was suggested to 'rotate' the local that was working with the one for production, as we had confirmation of the local endpoint working.
     <br>
 
-    **Fix:** After review all the settings, I went for a new endpoint and disable the old one for production, and that worked  
-             no affecting the local one, and confirmed all was 100% up after testing.
+    **Fix:** After reviewing all the settings, I went for a new endpoint and disabled the old one for production, and that worked  
+             not affecting the local one, and confirmed all was 100% up after testing.
 <br>
-    
     Webhooks Dashboard 👇
     <br>
-
     ![](../readme_imgs/webhooks-dashboard.png)
-    
     <br>
 
     New Webhook Up 👇
-    <br>
-
+<br>
     ![](../readme_imgs/new-webhook.png)
-    
     <br>
 
     Store Email - Sent 👇
-    <br>
+<br>
 
-    ![](../readme_imgs/storemail-sent.png)
-    
-    <br>
+    ![](../readme_imgs/storemail-sent.png)    
+<br>
 
     Temp Email - Inbox 👇
-    <br>
-
+<br>
     ![](../readme_imgs/temp-inbox-subscription-verifysignup-order.png)

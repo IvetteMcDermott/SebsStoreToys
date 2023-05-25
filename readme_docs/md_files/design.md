@@ -1,10 +1,10 @@
 ## **Design** <br>
 
-For this project had been work a dark mode and bit of a 'gaming style', cards with effects on hover, accordions, colours that look near to neon, with shadows for a resemblance to 3D visual.
+For this project had been worked a dark mode and bit of a 'gaming style', cards with effects on hover, image accordions, colours that look near to neon, with shadows for a resemblance to 3D visual.
 
 ### **Color Scheme** 
 <br>
-The colours that had been pick as follow, generated in :
+The colours that had been picked as follow, generated in :
 
 [Coolors](https://coolors.co/00c2d1-296eb4-ff7d00-2f2f2f-000000).
 
@@ -20,7 +20,7 @@ It had been taken from:
 
 ### **Logo**
 <br>
-It had been based on a template, it contains animation. The logo had been desing in:
+It had been based on a template, it contains animation. The logo had been designed in:
 
 [Canva](https://www.canva.com/en_gb/)
 

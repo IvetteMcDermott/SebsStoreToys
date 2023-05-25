@@ -9,7 +9,7 @@ Tablet: 768 * 1024 / 820 * 1180 / 1366 * 768
 
 Monitor: 1280 * 1024 / 1600 * 900 / 1950 & UP
 
-The site had been test in Chrome seeming all according to the design. In Firefox, the animation for the regions in the index come out a bit out of shape but still fully functional. In Internet Explorer all seems to work as the design.
+The site had been test in Chrome seeming all according to the design. In Firefox. In Internet Explorer all seems to work as the design.
 <br>
 
 # **Manual Testing**
@@ -45,7 +45,7 @@ The features will be displayed according to the logged user, as marked in featur
 <br>
 
 | Feature       | Expected           | Action| Result|
-| ------------- |:-------------:| :-----|-----:|	 	
+| ------------- |:------------- | :-----|-----:|	 	
 | User name beside User Icon | Display user's name when logged in | Click |✅|
 | My Profile     | Directs to the request user profile page | Click |✅|
 | Sign Out     | Directs to Sign Out Form | Click |✅|
@@ -55,7 +55,7 @@ The features will be displayed according to the logged user, as marked in featur
 <br>
 
 | Feature       | Expected           | Action| Result|
-| ------------- |:-------------:| :-----|-----:|	 	
+| ------------- |:------------- | :-----|-----:|	 	
 | User name beside User Icon | Display user's name when logged in | Click |✅|
 | Staff Panel     | Directs to the Staff Panel page | Click |✅|
 | Sign Out     | Directs to Sign Out Form | Click |✅|
@@ -71,8 +71,8 @@ The features will be displayed for all the users, as marked in features page
 **Users**
 <br>
 | Feature       | Expected           | Action| Result|
-| ------------- |:-------------| :-----|-----:|
-| Message in top rigth of screen     | Floating message according to the user action | Triggered by user action |✅|
+| ------------- |:------------- | :-----|-----:|
+| Message in top right of screen     | Floating message according to the user action | Triggered by user action |✅|
 <br>
 
 ## **Top Button**

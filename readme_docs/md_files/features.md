@@ -33,14 +33,14 @@ The features will be displayed according to the logged user, as marked in featur
 
 ## **Messages**
 <br>
-This feature will be displayed for all the users, trigger by user's actions. It provides feedback to the users on result of them.
+This feature will be displayed for all the users, triggered by user's actions. It provides feedback to the users on the result of them.
 <br>
 ![](../readme_imgs/messages.png)
 <br>
 
 ## **Footer**
 <br>
-The features will be displayed according to the user actions, as marked in features page
+The features will be displayed for all the users as follow.
 
 <br>
 
@@ -55,7 +55,7 @@ Distinctive feature for this page: Page contains an image accordion.
 
 ## **Wares Page**
 <br>
-Distinctive feature for this page: Animated banner with free delivery message, and filters by subcategories. These run to details as well.
+Distinctive feature for this page: Animated banner with free delivery message, and filters by subcategories. Also contains a pagination display bar. These run to details page as well.
 <br>
 
 ![](../readme_imgs/wares-list.png)
@@ -66,12 +66,14 @@ Distinctive feature for this page: Animated banner with free delivery message, a
 **User/Clients**
 <br>
 
-Distinctive feature for this page: The images are present in an accordion, and also the page has a toggle button that allows the user to open a div and visualize the images individually. Also contains a return to store button.
+Distinctive feature for this page: The images are presented in an accordion, and also the page has a toggle button that allows the user to open a div and visualize the images individually. Contains a return to store button as well.
 <br>
 
 ![](../readme_imgs/ware-detail.png)
 
 **Staff User**
+<br>
+For the staff the buttons for edit and delete the ware are being displayed. There is option to reply to the reviews just for staff users, and finally there is a button by image that allows to delete them individually.
 <br>
 
 ![](../readme_imgs/ware-detail-staff.png)
@@ -79,17 +81,21 @@ Distinctive feature for this page: The images are present in an accordion, and a
 
 ## **Staff Page**
 <br>
+This page contains the buttons that link to the forms and pages to be able to performe the necessary action.
+<br>
 
 ![](../readme_imgs/staff-panel.png)
 
 ## **Contact Us**
+<br>
+This oage render a form for the user to submit their inquiry.
 <br>
 
 ![](../readme_imgs/contact-us.png)
 
 ## **Forms**
 <br>
-The forms had been differenced for users/clients they have placeholders and for staff have labels. <br>
+The forms had been customized for users/clients they have placeholders and for staff have labels. <br>
 <br>
 
 **User/Clients**

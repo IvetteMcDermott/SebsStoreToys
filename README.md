@@ -173,48 +173,48 @@ As User I want to see the reviews of the wares
 ## **Unregistered User**
 <br>
 
-As a Unregister User I want to get a benefit if I register
-   - Information recieved in the registration mail
-
-As Unregister User I want to see the purpose of the site when landing in it
+As Unregistered User I want to see the purpose of the site when landing in it
    - Landing page with clear reference to objective of the app
 
-As Unregister User, I want to be able to register so that I can create my account and access to the registered user features
+As Unregistered User I want to get a benefit if I register
+   - Information recieved in the registration mail
+
+As Unregistered User, I want to be able to register so that I can create my account and access to the registered user features
    - Link for Sign Up in Navbar
 
-As a Unregister User I want to see the detail information of the wares
+As a Unregistered User I want to see the detail information of the wares
    - Ware's details page
 <br>
 
 ## **Registered User**
 <br>
 
-As a Register User I want to keep my information saved so that in a next purchase I don't have to fill the form again
+As Registered User I want to keep my information saved so that in a next purchase I don't have to fill the form again
    - Profile page
 
-As a Register User I want to be able to update my information if need
+As Registered User I want to be able to update my information if needed
    - Update Profile Form
 
-As a Register User I want to keep and access to my bookmarked wares
+As Registered User I want to keep and access to my bookmarked wares
    - Bookmark functionality with button in ware details page
    - Display of bookmarks in My Profile page
 
-As a Register User I want to be able to leave a ware review if desire
+As Registered User I want to be able to leave a ware review if desire
    - Review Form
 
-As a Register User I want to keep a history of my orders
+As Registered User I want to keep a history of my orders
    - Orders Section that display last 5 of them in My Profile
 
 
 ## **Staff User**
 <br>
-As a Staff/Admin User I want to access to an admin panel
+As Staff/Admin User I want to access to a staff panel where I can manage the store's database from
    - Staff Panel page
 
-As a Staff/Admin User I want to be able to reply the reviews if necessary
+As Staff/Admin User I want to be able to reply the reviews if necessary
    - Reply to review form's link
 
-As a Staff/Admin User I want to be able to manage the DB from the front-end
+As Staff/Admin User I want to be able to manage the DB from the front-end
    - Staff Panel page:
       - Add a Ware Form
       - Add an Image Form
@@ -227,10 +227,10 @@ As a Staff/Admin User I want to be able to manage the DB from the front-end
       - Delete a ware
       - Delete an image
 
-As a Staff/Admin User I want to be able to manage the news section from the fron-end
+As Staff/Admin User I want to be able to manage the news section from the front-end
    - News details page:
-      - Edit a new
-      - Delete a new
+      - Edit news
+      - Delete news
 
 <br>
 
@@ -245,7 +245,7 @@ The list and screenshot about them can be found
 ## **Features to Implement in Future**
 <br>
 As  the time frame was affected by external factors out of my control, some of the 'could have' features had been left for future implementation.
-Howsoever fields and some of the need elements for them had been set in place since begin, and are there for when can be done.
+Howsoever fields and some of the need elements for them had been set in place since the beginning, and are there for when can be done.
 Some of them are:
 
 - New arrivals: There is a field in wares model to mark them and with a filter displaying, it is planned to use a blue ribbon in the front end as distintive feature.
@@ -253,14 +253,14 @@ Some of them are:
 - Clearance: As previous one, there is a field in wares model to mark them and with a filter displaying, it is planned to use a ribbon in
              the front end as distintive feature with a different colour than the New Arrivals, at the moment the idea is yellow.
 
-- Bookmarks: There is a char field left in place, this is to implement a 'note' for the bookmark. As use find that bookmarks are very 
-             valuables but sometimes you just cant remember what or why you did keep it, so if user/client can from their profile/bookmarks write a note so can remember if was for some ocassion or person, I think that will add value to they user experience.
+- Bookmarks: There is a charfield left in place, this is to implement a 'note' for the bookmark. As user find that bookmarks are very 
+             valuable but sometimes you just cant remember what or why did you keep it, so if user/client can from their profile/bookmarks write a note so can remember if was for some ocassion or person, I think that will add value to their user experience.
 
 - Bookmarks to Store List: Bring the bookmark feature to the list view, to show to the user if the ware is already bookmarked by them or not.
 
 - Pages: Q&A, and Terms and Conditions had been provide for the moment with a under construction message.
 
-- Profiles: The idea of increase the fields, with a profile section where the user can choose some of their prefer video games so   that store can include these wares in the stock. And also create a promotion section where can be display user's interests related items using the preference inputs.
+- Profiles: The idea of increasing the fields, with a profile section where the user can choose some of their prefered video games so that store can include these wares in the stock. And also create a promotion section where can be displayed user's interest related items using the preference inputs.
 <br>
 
 # **Flowcharts**
@@ -388,8 +388,8 @@ The site had been deployed through Heroku. The site had been developed on GitPod
 ## **Content**
 <br>
 
-For this proyect I had take all the wares from Amazon App.
-The news has been take from the following blogs:
+For this project I had take all the wares from Amazon App.<br>
+The news has been taken from the following blogs:
 
 [GamesHub](https://www.gameshub.com/news/features/all-the-big-video-game-events-in-2023-37270/)
 
@@ -401,7 +401,7 @@ The news has been take from the following blogs:
 ## **Code**
 <br>
 
-For this project, as for previous ones, I have seen and read many tutorials from where I had tried to get some understading of the logic more than copy the code it self, but still could not avoid in certain cases take code and adapt it to the project and its necessities.
+For this project, as for previous ones, I have seen and read many tutorials from where I had tried to get some understading of the logic more than copy the code itself, but still could not avoid in certain cases taken code and adapt it to the project and its necessities.
 
 The shopping cart and checkout apps had been taken from Boutique Ado with some twists to fit better the project.
 
@@ -414,7 +414,7 @@ https://www.geeksforgeeks.org/create-newsletter-app-using-mailchimp-and-django/
 The functionality for reply the reviews had been taken from, being the simplest one found 
 https://stackoverflow.com/questions/71396075/i-want-to-make-reply-to-comments-feature-in-django
 
-On CSS, there had been couple of animations used in the project, with minor changes, as follow
+On CSS, there had been couple of animations used in the project, with minor changes, as follows
 
 ANIMATED slogan taken from tutorial in Youtube
 smashtheshell: https://www.youtube.com/watch?v=2NxUssDAxoY
@@ -430,4 +430,4 @@ https://ordinarycoders.com/
 
 https://www.pythontutorial.net/django-tutorial/
 
-And finally to my mentor Brian Macharia, thanks so much for all your guidance and support through no just this project but all the curse.
+And finally to my mentor Brian Macharia, thanks so much for all your guidance and support through not just this project but all the course.
