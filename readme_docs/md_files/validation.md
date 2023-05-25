@@ -25,14 +25,25 @@ The validation for these pages had give a message info about a trailing slash. A
 ![](/readme_docs/readme_imgs/sign-up-validation.png)
 
 
-PYTHON 
-FILES
+## **Python**
 
-JS
-FILES
+All the files with .py extension had been validate with CI pep8 replacement, each admin, forms, models, urls and views for each app had pass by the validation in a first instance, mostly came out clean but some trail lines and minor issues that were solved, the second one after pushing all the changes had come clear for all the files. Below an example of the results.
+<br>
 
-CSS
-FILES
+![](../readme_imgs/python-pep8.png)
+
+## **Js**
+
+All the files with .js extension had been validate with JsHint, the files for each app had pass by the validation in a first instance. There were couple of ; to be put in place and then it will light the variables/functions not being use or such, but they are being use in the html so they had been leave as it is. Below an example of the results.
+<br>
+
+![](../readme_imgs/Js-validation.png)
+
+
+## **CSS**
+
+All the files with .css extension had been validate with W3C Validator, the files for each app had pass by the validation and come clean.
+<br>
 
 <p>
 <a href="http://jigsaw.w3.org/css-validator/check/referer">
