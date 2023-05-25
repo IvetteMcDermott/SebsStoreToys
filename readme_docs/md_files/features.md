@@ -35,6 +35,7 @@ The features will be displayed according to the logged user, as marked in featur
 <br>
 This feature will be displayed for all the users, triggered by user's actions. It provides feedback to the users on the result of them.
 <br>
+
 ![](../readme_imgs/messages.png)
 <br>
 

@@ -352,7 +352,7 @@ The details to the design can be found [here](/readme_docs/md_files/design.md)
 
 - [Heroku](https://id.heroku.com/login)
 
-## Payment Platfomr
+## Payment Platform
 
 - [Stripe](https://stripe.com/ie)
 
